@@ -1,0 +1,24 @@
+#Deployment data.
+#Sat Jul 04 22:07:28 BRT 2015
+app.android.shareduserid=
+app.authenticity.obscuredata=18.542-8.464-12.591-28.283-32.916-38.088-18.498-33.868-5.72-40.204-5.185-26.933
+app.description=Cognitive
+app.checksum.default=688036503
+app.unpacked.size.default=1324509
+app.user.identity.realms=
+platform.version=7.0.0.00.20150610-1353
+app.build.time=1436058448585
+app.token.expiration=3600
+app.displayname=Cognitive
+app.login.displaytype=EMBEDDED
+app.version=1.0
+app.id=Cognitive
+app.login.popup.height=610
+app.author.email=application author's e-mail
+app.android.package.name=
+native=700999277
+app.login.popup.width=920
+app.environment=android
+app.android.public.signing.key=
+app.mainfile=index.html
+app.author.name=application's author

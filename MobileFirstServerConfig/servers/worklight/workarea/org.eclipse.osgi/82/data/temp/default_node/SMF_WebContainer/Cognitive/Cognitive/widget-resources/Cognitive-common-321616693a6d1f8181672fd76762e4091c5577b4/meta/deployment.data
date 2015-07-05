@@ -1,0 +1,19 @@
+#Deployment data.
+#Sat Jul 04 22:07:31 BRT 2015
+app.login.displaytype=POPUP
+app.build.time=1436058451724
+app.displayname=Cognitive
+platform.version=7.0.0.00.20150610-1353
+app.author.name=application's author
+app.author.email=application author's e-mail
+app.version=1.0
+app.environment=common
+app.token.expiration=3600
+app.unpacked.size.default=857520
+app.user.identity.realms=
+app.mainfile=index.html
+app.description=Cognitive
+app.login.popup.width=920
+app.checksum.default=55789384
+app.login.popup.height=610
+app.id=Cognitive
