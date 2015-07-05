@@ -19,5 +19,10 @@ $("#searchbtn" ).click(function() {
 });
 
 function renderList2(data) {
-	alert(data);
+   var sresults;
+   $.each( data.evidencelist, function() {
+      sresults = sresults + data.evidencelists[i].text + "<BR>";
+      alert(data.evidencelists[i].text); 
+   }
+	
 }
