@@ -3,13 +3,12 @@
 $("#searchbtn" ).click(function() {
   searchvalue = $("#searchterm").val();	
   
-  var gbWS ="http://pergunte.mybluemix.net/watson/search/"+searchvalue;
-	// faz chamda ao WS REST via ajax	
+  var gbWS ="http://pergunte.mybluemix.net/watson/search/"+searchvalue;	
 	  $.ajax({
 		type: 'GET',
 		url: gbWS,
 		crossDomain: true,
-		dataType: "json", 
+		dataType: "text", 
 		success: renderList2, // função de retorno do WS
 		error: function(xhr, status, error) {
 			  var err = eval("(" + xhr.responseText + ")");
@@ -19,10 +18,15 @@ $("#searchbtn" ).click(function() {
 });
 
 function renderList2(data) {
-   var sresults;
-   $.each( data.evidencelist, function() {
-      sresults = sresults + data.evidencelists[i].text + "<BR>";
-      alert(data.evidencelists[i].text); 
-   }
-	
-}
+   var sdata = data.substring(1,data.length-1);
+   var jdata = $.parseJSON(sdata);
+   console.log(jdata);
+   var sresults = "";
+   $('#results').html("");
+   
+   for (i = 0; i < jdata.question.evidencelist.length; i++) { 
+       sresults = sresults + jdata.question.evidencelist[i].text + "<BR><BR>";
+   	}
+
+   $('#results').append(sresults);
+} 

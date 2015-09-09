@@ -185,310 +185,319 @@ function printStackTrace(e){e=e||{guess:true};var t=e.e||null,n=!!e.guess;var r=
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
 
-function __WL(){}
+ /*globals WLJSX, WLJQ*/
+
+/*jshint unused:false*/
+function __WL() {}
 var WL = WL ? WL : {};
 
 window.WLJSX = {
-	/*
-	 * Constant values, required for prototype.js functionality 
-	 */
-	emptyFunction: function (){},
-	
-	/*
-	 * Search for an element with a specified ID and returns it as a DOM element. 
-	 * Returns null if element is not found 
-	 * 
-	 * @Param selector - a string with the requires DOM element's Id
-	 */
-	$ : function(id) {
-		var elements = WLJQ("#" + id);
-		if (elements.length == 0) {
-			return null;
-		} else {
-			return elements[0];
-		}
-	},
 
-	/*
-	 * Searches for the elements with a specified selector and returns them as an array of DOM elements 
-	 * 
-	 * @Param selector - a string representing a CSS selector
-	 */
-	$$ : function(selector) {
-		return WLJQ(selector);
-	},
-	
-	$$$ : function(elem) {
-		var elements = WLJQ(elem);
-		if (elements.length == 0) {
-			return null;
-		} else {
-			return elements[0];
-		}
-	},
+  /*jshint strict:false*/
 
-	/*
-	 * Same as $$ but searches inside of a given element only. Returns array of DOM elements 
-	 * 
-	 * @Param el - the DOM element to search inside of 
-	 * @Param selector - a string representing a CSS selector
-	 */
-	find : function(el, selector) {
-		return WLJQ(el).find(selector);
-	},
+  /*
+   * Constant values, required for prototype.js functionality
+   */
+  emptyFunction: function() {},
 
-	/*
-	 * Creates a new DOM element and returns it 
-	 * 
-	 * @Param type - a string representing the element type (tag name, e.g. "<div/>") 
-	 * @Param attrs - an object of attributes to be added to newly created element
-	 */
-	newElement : function(type, attrs) {
-		return WLJQ(type, attrs)[0];
-	},
+  /**
+   * Search for an element with a specified ID and returns it as a DOM element.
+   * Returns null if element is not found
+   *
+   * @Param selector - a string with the requires DOM element's Id
+   */
+  $: function(id) {
+    var elements = WLJQ('#' + id);
+    if (elements.length === 0) {
+      return null;
+    } else {
+      return elements[0];
+    }
+  },
 
-	/*
-	 * Appends the content before the end of a DOM element 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to append content to 
-	 * @Param content - new content to be appended
-	 */
-	append : function(el, content) {
-		WLJQ(el).append(content);
-	},
+  /**
+   * Searches for the elements with a specified selector and returns them as an array of DOM elements
+   *
+   * @Param selector - a string representing a CSS selector
+   */
+  $$: function(selector) {
+    return WLJQ(selector);
+  },
 
-	/*
-	 * Prepends the content at the beginning of a DOM element 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to prepend content to 
-	 * @Param content - new content to be prepended
-	 */
-	prepend : function(el, content) {
-		WLJQ(el).prepend(content);
-	},
+  $$$: function(elem) {
+    var elements = WLJQ(elem);
+    if (elements.length === 0) {
+      return null;
+    } else {
+      return elements[0];
+    }
+  },
 
-	/*
-	 * Sets or Gets DOM element's content 
-	 * 
-	 * @Param el - the DOM element to update content in 
-	 * @Param content - new content, can be string or other DOM elements
-	 */
-	html : function(el, content) {
-		if (content) {
-			WLJQ(el).html(content);
-		} else {
-			return WLJQ(el).html();
-		}
-	},
+  /**
+   * Same as $$ but searches inside of a given element only. Returns array of DOM elements
+   *
+   * @Param el - the DOM element to search inside of
+   * @Param selector - a string representing a CSS selector
+   */
+  find: function(el, selector) {
+    return WLJQ(el).find(selector);
+  },
 
-	/*
-	 * Empties the content of a given DOM element 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to empty
-	 */
-	empty : function(el) {
-		WLJQ(el).empty();
-	},
+  /**
+   * Creates a new DOM element and returns it
+   *
+   * @Param type - a string representing the element type (tag name, e.g. '<div/>')
+   * @Param attrs - an object of attributes to be added to newly created element
+   */
+  newElement: function(type, attrs) {
+    return WLJQ(type, attrs)[0];
+  },
 
-	/*
-	 * Shows a DOM element (makes visible) 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to make visible
-	 */
-	show : function(el) {
-		WLJQ(el).show();
-	},
+  /**
+   * Appends the content before the end of a DOM element
+   *
+   * @Param el - the DOM element (or CSS selector string) to append content to
+   * @Param content - new content to be appended
+   */
+  append: function(el, content) {
+    WLJQ(el).append(content);
+  },
 
-	/*
-	 * Hides a DOM element (makes invisible) 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to hide
-	 */
-	hide : function(el) {
-		WLJQ(el).hide();
-	},
+  /**
+   * Prepends the content at the beginning of a DOM element
+   *
+   * @Param el - the DOM element (or CSS selector string) to prepend content to
+   * @Param content - new content to be prepended
+   */
+  prepend: function(el, content) {
+    WLJQ(el).prepend(content);
+  },
 
-	/*
-	 * Adds a specified CSS class to DOM elements 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to add the CSS class to 
-	 * @Param className - string with the class' name
-	 */
-	addClass : function(el, className) {
-		WLJQ(el).addClass(className);
-	},
+  /**
+   * Sets or Gets DOM element's content
+   *
+   * @Param el - the DOM element to update content in
+   * @Param content - new content, can be string or other DOM elements
+   */
+  html: function(el, content) {
+    if (content) {
+      WLJQ(el).html(content);
+    } else {
+      return WLJQ(el).html();
+    }
+  },
 
-	/*
-	 * Removes a specified CSS class from DOM elements 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to remove the CSS class from 
-	 * @Param className - string with the class' name
-	 */
-	removeClass : function(el, className) {
-		WLJQ(el).removeClass(className);
-	},
+  /**
+   * Empties the content of a given DOM element
+   *
+   * @Param el - the DOM element (or CSS selector string) to empty
+   */
+  empty: function(el) {
+    WLJQ(el).empty();
+  },
 
-	/*
-	 * Sets or Gets the width of a DOM element (first one in case several elements fit CSS selector) 
-	 * 
-	 * @Param el - the DOM element to get/set width 
-	 * @Param width - new width to set
-	 */
-	width : function(el, width) {
-		if (width) {
-			WLJQ(el).width(width);
-		} else {
-			return WLJQ(el).width();
-		}
-	},
+  /**
+   * Shows a DOM element (makes visible)
+   *
+   * @Param el - the DOM element (or CSS selector string) to make visible
+   */
+  show: function(el) {
+    WLJQ(el).show();
+  },
 
-	/*
-	 * Sets or Gets the height of a DOM element (first one in case several elements fit CSS selector) 
-	 * 
-	 * @Param el - the DOM element to get/set height 
-	 * @Param height - new height to set
-	 */
-	height : function(el, height) {
-		if (height) {
-			WLJQ(el).height(height);
-		} else {
-			return WLJQ(el).height();
-		}
-	},
+  /**
+   * Hides a DOM element (makes invisible)
+   *
+   * @Param el - the DOM element (or CSS selector string) to hide
+   */
+  hide: function(el) {
+    WLJQ(el).hide();
+  },
 
-	/*
-	 * Removes an element from the DOM. 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to remove
-	 */
-	remove : function(el) {
-		WLJQ(el).remove();
-	},
+  /**
+   * Adds a specified CSS class to DOM elements
+   *
+   * @Param el - the DOM element (or CSS selector string) to add the CSS class to
+   * @Param className - string with the class' name
+   */
+  addClass: function(el, className) {
+    WLJQ(el).addClass(className);
+  },
 
-	/*
-	 * Sets specific CSS style on the DOM elements 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to set CSS style on 
-	 * @Param style - an object of CSS styles to be set
-	 */
-	css : function(el, style) {
-		WLJQ(el).css(style);
-	},
+  /**
+   * Removes a specified CSS class from DOM elements
+   *
+   * @Param el - the DOM element (or CSS selector string) to remove the CSS class from
+   * @Param className - string with the class' name
+   */
+  removeClass: function(el, className) {
+    WLJQ(el).removeClass(className);
+  },
 
-	/*
-	 * Sets or Gets the attribute of a DOM element 
-	 * 
-	 * @Param el - the DOM element to get/set attribute 
-	 * @Param attrName - the name of an attribute 
-	 * @Param attrValue - the new value of the attribute
-	 */
-	attr : function(el, attrName, attrValue) {
-		if (attrValue) {
-			WLJQ(el).attr(attrName, attrValue);
-		} else {
-			return WLJQ(el).attr(attrName);
-		}
-	},
+  /**
+   * Sets or Gets the width of a DOM element (first one in case several elements fit CSS selector)
+   *
+   * @Param el - the DOM element to get/set width
+   * @Param width - new width to set
+   */
+  width: function(el, width) {
+    if (width) {
+      WLJQ(el).width(width);
+    } else {
+      return WLJQ(el).width();
+    }
+  },
 
-	/*
-	 * Adds the event listener to DOM elements for a specified event 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to add event listener to 
-	 * @Param event - string with the event's name, e.g. "click", "change" etc. 
-	 * @Param callback - a JavaScript function to be invoked once event is triggered
-	 */
-	bind : function(el, event, callback) {
-		WLJQ(el).bind(event, callback);
-	},
+  /**
+   * Sets or Gets the height of a DOM element (first one in case several elements fit CSS selector)
+   *
+   * @Param el - the DOM element to get/set height
+   * @Param height - new height to set
+   */
+  height: function(el, height) {
+    if (height) {
+      WLJQ(el).height(height);
+    } else {
+      return WLJQ(el).height();
+    }
+  },
 
-	/*
-	 * Removes the event listener from DOM elements 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to remove event listener form 
-	 * @Param event - string with the event's name, e.g. "click", "change" etc.
-	 */
-	unbind : function(el, event) {
-		if (event) {
-			WLJQ(el).unbind(event);
-		} else {
-			WLJQ(el).unbind();
-		}
-	},
+  /**
+   * Removes an element from the DOM.
+   *
+   * @Param el - the DOM element (or CSS selector string) to remove
+   */
+  remove: function(el) {
+    WLJQ(el).remove();
+  },
 
-	/*
-	 * Triggers a specific event on DOM elements 
-	 * 
-	 * @Param el - the DOM element (or CSS selector string) to trigger the event on 
-	 * @Param event - string with the event's name, e.g. "click", "change" etc.
-	 */
-	trigger : function(el, event) {
-		WLJQ(el).trigger(event);
-	},
+  /**
+   * Sets specific CSS style on the DOM elements
+   *
+   * @Param el - the DOM element (or CSS selector string) to set CSS style on
+   * @Param style - an object of CSS styles to be set
+   */
+  css: function(el, style) {
+    WLJQ(el).css(style);
+  },
 
-	/*
-	 * Retrieves the element that triggered the event (event's target) 
-	 * 
-	 * @Param event - event to get the target from
-	 */
-	eventTarget : function(event) {
-		return event.target;
-	},
-	
-	/*
-	 * Detects browser types. Implementation taken from Prototype.js
-	 */
-	detectBrowser: function (){
-		var userAgent = navigator.userAgent;
-		var isOpera = Object.prototype.toString.call(window.opera) == '[object Opera]';
-		return {
-			isIE 			: !!window.attachEvent && !isOpera,
-			isOpera 		: isOpera,
-			isWebKit 		: userAgent.indexOf('AppleWebKit/') > -1,
-			isGecko 		: userAgent.indexOf('Gecko') > -1 && userAgent.indexOf('KHTML') === -1,
-			isMobileSafari 	: /Apple.*Mobile/.test(userAgent),
-			isWP81RT : userAgent.indexOf('Windows Phone 8.1') > -1
-		};
-	},
-	
-	/*
-	 * Returns viewport root element depending on a browser. Implementation taken from Prototype.js
-	 */
-	getViewportRootElement: function (){
-		var browser = WLJSX.detectBrowser();
-		
-		if (browser.isWebKit && !document.evaluate)
-			return document;
-		
-		if (browser.isOpera && window.parseFloat(window.opera.version()) < 9.5)
-			return document.body;
+  /**
+   * Sets or Gets the attribute of a DOM element
+   *
+   * @Param el - the DOM element to get/set attribute
+   * @Param attrName - the name of an attribute
+   * @Param attrValue - the new value of the attribute
+   */
+  attr: function(el, attrName, attrValue) {
+    if (attrValue) {
+      WLJQ(el).attr(attrName, attrValue);
+    } else {
+      return WLJQ(el).attr(attrName);
+    }
+  },
 
-		return document.documentElement;
-	},
-	
-	/*
-	 * Returns the width of a viewport
-	 */
-	getViewportWidth: function (){
-		return (this.getViewportRootElement())["clientWidth"];		
-	},
+  /**
+   * Adds the event listener to DOM elements for a specified event
+   *
+   * @Param el - the DOM element (or CSS selector string) to add event listener to
+   * @Param event - string with the event's name, e.g. 'click', 'change' etc.
+   * @Param callback - a JavaScript function to be invoked once event is triggered
+   */
+  bind: function(el, event, callback) {
+    WLJQ(el).bind(event, callback);
+  },
 
-	/*
-	 * Returns the height of a viewport
-	 */
-	getViewportHeight: function (){
-		return (this.getViewportRootElement())["clientHeight"];
-	}, 
-	
-	isEmptyObject: function(obj){
-		return WLJQ.isEmptyObject(obj);
-	}
-	
+  /**
+   * Removes the event listener from DOM elements
+   *
+   * @Param el - the DOM element (or CSS selector string) to remove event listener form
+   * @Param event - string with the event's name, e.g. 'click', 'change' etc.
+   */
+  unbind: function(el, event) {
+    if (event) {
+      WLJQ(el).unbind(event);
+    } else {
+      WLJQ(el).unbind();
+    }
+  },
+
+  /**
+   * Triggers a specific event on DOM elements
+   *
+   * @Param el - the DOM element (or CSS selector string) to trigger the event on
+   * @Param event - string with the event's name, e.g. 'click', 'change' etc.
+   */
+  trigger: function(el, event) {
+    WLJQ(el).trigger(event);
+  },
+
+  /**
+   * Retrieves the element that triggered the event (event's target)
+   *
+   * @Param event - event to get the target from
+   */
+  eventTarget: function(event) {
+    return event.target;
+  },
+
+  /*
+   * Detects browser types. Implementation taken from Prototype.js
+   */
+  detectBrowser: function() {
+    var userAgent = navigator.userAgent;
+    /*jshint eqeqeq:false*/
+    var isOpera = Object.prototype.toString.call(window.opera) == '[object Opera]';
+    return {
+      isIE: !!window.attachEvent && !isOpera,
+      isOpera: isOpera,
+      isWebKit: userAgent.indexOf('AppleWebKit/') > -1,
+      isGecko: userAgent.indexOf('Gecko') > -1 && userAgent.indexOf('KHTML') === -1,
+      isMobileSafari: /Apple.*Mobile/.test(userAgent),
+      isWP81RT: userAgent.indexOf('Windows Phone 8.1') > -1
+    };
+  },
+
+  /*
+   * Returns viewport root element depending on a browser. Implementation taken from Prototype.js
+   */
+  getViewportRootElement: function() {
+    var browser = WLJSX.detectBrowser();
+
+    if (browser.isWebKit && !document.evaluate) {
+      return document;
+    }
+
+    if (browser.isOpera && window.parseFloat(window.opera.version()) < 9.5) {
+      return document.body;
+    }
+
+    return document.documentElement;
+  },
+
+  /*
+   * Returns the width of a viewport
+   */
+  getViewportWidth: function() {
+    return (this.getViewportRootElement())['clientWidth'];
+  },
+
+  /*
+   * Returns the height of a viewport
+   */
+  getViewportHeight: function() {
+    return (this.getViewportRootElement())['clientHeight'];
+  },
+
+  isEmptyObject: function(obj) {
+    return WLJQ.isEmptyObject(obj);
+  }
+
 
 };
 
@@ -500,508 +509,576 @@ window.WLJSX = {
  * Class object defines a Class.create API for object oriented JS approach
  */
 window.WLJSX.Class = (function() {
-	var IS_DONTENUM_BUGGY = (function(){
-		for (var p in { toString: 1 }) {
-			if (p === 'toString') return false;
-		}
-		return true;
-	})();
+  var IS_DONTENUM_BUGGY = (function() {
+    for (var p in {
+        toString: 1
+      }) {
+      if (p === 'toString') {
+        return false;
+      }
+    }
+    return true;
+  })();
 
-	function subclass() {};
-	function create() {
-		var parent = null;
-		var properties = WLJSX.Object.toArray(arguments);
-		
-		if (WLJSX.Object.isFunction(properties[0]))
-			parent = properties.shift();
+  function subclass() {}
 
-		function klass() {
-			this.initialize.apply(this, arguments);
-		}
+  function create() {
+    var parent = null;
+    var properties = WLJSX.Object.toArray(arguments);
 
-		WLJSX.Object.extend(klass, WLJSX.Class.Methods);
-		klass.superclass = parent;
-		klass.subclasses = [];
+    if (WLJSX.Object.isFunction(properties[0])) {
+      parent = properties.shift();
+    }
 
-		if (parent) {
-			subclass.prototype = parent.prototype;
-			klass.prototype = new subclass;
-			parent.subclasses.push(klass);
-		}
+    function klass() {
+      this.initialize.apply(this, arguments);
+    }
 
-		for (var i = 0, length = properties.length; i < length; i++)
-			klass.addMethods(properties[i]);
+    WLJSX.Object.extend(klass, WLJSX.Class.Methods);
+    klass.superclass = parent;
+    klass.subclasses = [];
 
-		if (!klass.prototype.initialize)
-			klass.prototype.initialize = WLJSX.emptyFunction;
+    if (parent) {
+      subclass.prototype = parent.prototype;
+      /*jshint newcap:false*/
+      klass.prototype = new subclass();
+      parent.subclasses.push(klass);
+    }
 
-		klass.prototype.constructor = klass;
-		return klass;
-	}
+    for (var i = 0, length = properties.length; i < length; i++) {
+      klass.addMethods(properties[i]);
+    }
 
-	function addMethods(source) {
-		var ancestor = this.superclass && this.superclass.prototype,
-			properties = WLJSX.Object.keys(source);
+    if (!klass.prototype.initialize) {
+      klass.prototype.initialize = WLJSX.emptyFunction;
+    }
 
-		if (IS_DONTENUM_BUGGY) {
-			if (source.toString != Object.prototype.toString)
-				properties.push("toString");
-			if (source.valueOf != Object.prototype.valueOf)
-				properties.push("valueOf");
-		}
+    klass.prototype.constructor = klass;
+    return klass;
+  }
 
-		for (var i = 0, length = properties.length; i < length; i++) {
-			var property = properties[i], 
-				value = source[property];
-			
-			if (ancestor && WLJSX.Object.isFunction(value) && value.argumentNames()[0] == "__super") {
-				var method = value;
-				value = (function(m) {
-					return function() { return ancestor[m].apply(this, arguments); };
-				})(property).wrap(method);
+  function addMethods(source) {
+    var ancestor = this.superclass && this.superclass.prototype,
+      properties = WLJSX.Object.keys(source);
 
-				value.valueOf = method.valueOf.bind(method);
-				value.toString = method.toString.bind(method);
-			}
-			this.prototype[property] = value;
-		}
-		return this;
-	}
+    if (IS_DONTENUM_BUGGY) {
+      /*jshint eqeqeq:false*/
+      if (source.toString != Object.prototype.toString) {
+        properties.push('toString');
+      }
+      if (source.valueOf != Object.prototype.valueOf) {
+        properties.push('valueOf');
+      }
+    }
 
-	return {
-		create: create,
-		Methods: {
-			addMethods: addMethods
-		}
-	};
+    for (var i = 0, length = properties.length; i < length; i++) {
+      var property = properties[i],
+        value = source[property];
+
+      if (ancestor && WLJSX.Object.isFunction(value) && value.argumentNames()[0] == '__super') {
+        var method = value;
+        /*jshint -W083*/
+        value = (function(m) {
+          return function() {
+            return ancestor[m].apply(this, arguments);
+          };
+        })
+        (property).wrap(method);
+
+        value.valueOf = method.valueOf.bind(method);
+        value.toString = method.toString.bind(method);
+      }
+      this.prototype[property] = value;
+    }
+    return this;
+  }
+
+  return {
+    create: create,
+    Methods: {
+      addMethods: addMethods
+    }
+  };
 })();
 
 /*
  * WLJSX.Object APIs are responsible for Object related functionality
- * 
+ *
  * WLJSX.Object.objectSize(obj) - returns the number of properties in the supplied object
  * WLJSX.Object.toArray(iterable) - coverts object to array
  * WLJSX.Object.toJSON(obj) - converts object to it's JSON representation
- * WLJSX.Object.extend(destination, source) - extends destination object with properties from the source object   
+ * WLJSX.Object.extend(destination, source) - extends destination object with properties from the source object
  * WLJSX.Object.toQueryString(obj) - converts object to a query string
  * WLJSX.Object.keys(obj) - returns object keys as array
  * WLJSX.Object.clone(obj) - returns a new copy of a supplied object
  * WLJSX.Object.isArray(obj) - checks whether object is an array
- * WLJSX.Object.isFunction(obj) - checks whether object is a function 
+ * WLJSX.Object.isFunction(obj) - checks whether object is a function
  * WLJSX.Object.isString(obj) - checks whether object is a string
  * WLJSX.Object.isNumber(obj) - checks whether object is a number
  * WLJSX.Object.isDate(obj) - checks whether object is a date
- * WLJSX.Object.isUndefined(obj) - checks whether object is undefined 
+ * WLJSX.Object.isUndefined(obj) - checks whether object is undefined
  */
 window.WLJSX.Object = {
-		_toString: Object.prototype.toString,
-		NULL_TYPE: 'Null',
-	UNDEFINED_TYPE: 'Undefined',
-	BOOLEAN_TYPE: 'Boolean',
-	NUMBER_TYPE: 'Number',
-	STRING_TYPE: 'String',
-	OBJECT_TYPE: 'Object',
-	FUNCTION_CLASS: '[object Function]',
-	BOOLEAN_CLASS: '[object Boolean]',
-    NUMBER_CLASS: '[object Number]',
-    STRING_CLASS: '[object String]',
-    ARRAY_CLASS: '[object Array]',
-    DATE_CLASS: '[object Date]',
-    
-    NATIVE_JSON_STRINGIFY_SUPPORT: (window.JSON &&
-    	typeof JSON.stringify === 'function' &&
-    	JSON.stringify(0) === '0' &&
-    	typeof JSON.stringify(function(x) { return x; }) === 'undefined'),
-	
-    objectSize: function(obj){
-		var count = 0;
-		for (var key in obj)
-			count++;
-		return count;
-	},
+  _toString: Object.prototype.toString,
+  NULL_TYPE: 'Null',
+  UNDEFINED_TYPE: 'Undefined',
+  BOOLEAN_TYPE: 'Boolean',
+  NUMBER_TYPE: 'Number',
+  STRING_TYPE: 'String',
+  OBJECT_TYPE: 'Object',
+  FUNCTION_CLASS: '[object Function]',
+  BOOLEAN_CLASS: '[object Boolean]',
+  NUMBER_CLASS: '[object Number]',
+  STRING_CLASS: '[object String]',
+  ARRAY_CLASS: '[object Array]',
+  DATE_CLASS: '[object Date]',
 
-	toArray: function (iterable){
-		if (!iterable) return [];
-		if ('toArray' in Object(iterable)) return iterable.toArray();
-		var length = iterable.length || 0;
-		var result = new Array(length);
-		while (length--) result[length] = iterable[length];
-		return result;
-	},
-	
-	Type: function (o) {
-		switch(o) {
-			case null: return WLJSX.Object.NULL_TYPE;
-			case (void 0): return WLJSX.Object.UNDEFINED_TYPE;
-		}
-		var type = typeof o;
-		switch(type) {
-			case 'boolean': return WLJSX.Object.BOOLEAN_TYPE;
-			case 'number':  return WLJSX.Object.NUMBER_TYPE;
-			case 'string':  return WLJSX.Object.STRING_TYPE;
-		}
-		return WLJSX.Object.OBJECT_TYPE;
-	},
-	
-	extend: function (destination, source) {
-		for (var property in source)
-			destination[property] = source[property];
-		return destination;
-	},
-	
-	toJSON: function(object) {
-		if (WLJSX.Object.NATIVE_JSON_STRINGIFY_SUPPORT) 
-			return JSON.stringify(object);
-		else 
-			return WLJSX.Object.Str('', { '': object }, []);
-	},
-	
-	Str: function(key, holder, stack) {
-		var value = holder[key];
-		var type = typeof value;
-			if (WLJSX.Object.Type(value) === WLJSX.Object.OBJECT_TYPE && typeof value.toJSON === 'function') {
-			value = value.toJSON(key);
-		}
-			var _class = WLJSX.Object._toString.call(value);
-			switch (_class) {
-			case WLJSX.Object.NUMBER_CLASS:
-			case WLJSX.Object.BOOLEAN_CLASS:
-			case WLJSX.Object.STRING_CLASS:
-				value = value.valueOf();
-		}
-			switch (value) {
-			case null: return 'null';
-			case true: return 'true';
-			case false: return 'false';
-		}
-			type = typeof value;
-		switch (type) {
-			case 'string':
-				return value;
-			case 'number':
-				return isFinite(value) ? String(value) : 'null';
-			case 'object':
-				for (var i = 0, length = stack.length; i < length; i++) {
-					if (stack[i] === value) { throw new TypeError(); }
-				}
-				stack.push(value);
-					var partial = [];
-				if (_class === WLJSX.Object.ARRAY_CLASS) {
-					for (var i = 0, length = value.length; i < length; i++) {
-						var str = WLJSX.Object.Str(i, value, stack);
-						partial.push(typeof str === 'undefined' ? 'null' : str);
-					}
-					partial = '[' + partial.join(',') + ']';
-				} else {
-					var keys = WLJSX.Object.keys(value);
-					for (var i = 0, length = keys.length; i < length; i++) {
-						var key = keys[i];
-						var str = WLJSX.Object.Str(key, value, stack);
-						if (typeof str !== "undefined") {
-							partial.push(WLJSX.String.inspect(key, true)+ ':' + str);
-						}
-					}
-					partial = '{' + partial.join(',') + '}';
-				}
-				stack.pop();
-				return partial;
-		}
-	},
-	
-	toQueryString: function(object) {
-		var results = [];
+  NATIVE_JSON_STRINGIFY_SUPPORT: (window.JSON &&
+    typeof JSON.stringify === 'function' &&
+    JSON.stringify(0) === '0' &&
+    typeof JSON.stringify(function(x) {
+      return x;
+    }) === 'undefined'),
 
-		for (var key in object){
-			key = encodeURIComponent(key);
-			var value = object[key];
-			var queryPair = (WLJSX.Object.isUndefined(value)) ? key : key + '=' + encodeURIComponent(WLJSX.String.interpret(value));
-				results.push(queryPair);
-			}		
-		return results.join('&');
-	},
+  objectSize: function(obj) {
+    var count = 0;
+    /*jshint forin:false*/
+    for (var key in obj) {
+      count++;
+    }
+    return count;
+  },
 
-	keys: function(object) {
-		if (WLJSX.Object.Type(object) !== WLJSX.Object.OBJECT_TYPE) { throw new TypeError(); }
-		var results = [];
-		for (var property in object) {
-			if (object.hasOwnProperty(property)) {
-				results.push(property);
-			}
-		}
-		return results;
-	},
+  toArray: function(iterable) {
+    if (!iterable) {
+      return [];
+    }
+    if ('toArray' in Object(iterable)) {
+      return iterable.toArray();
+    }
+    var length = iterable.length || 0;
+    var result = new Array(length);
+    while (length--) {
+      result[length] = iterable[length];
+    }
+    return result;
+  },
 
-	clone: function(object) {
-		return WLJSX.Object.extend({ }, object);
-	},
+  Type: function(o) {
+    switch (o) {
+      case null:
+        return WLJSX.Object.NULL_TYPE;
+      case (void 0):
+        return WLJSX.Object.UNDEFINED_TYPE;
+    }
+    var type = typeof o;
+    switch (type) {
+      case 'boolean':
+        return WLJSX.Object.BOOLEAN_TYPE;
+      case 'number':
+        return WLJSX.Object.NUMBER_TYPE;
+      case 'string':
+        return WLJSX.Object.STRING_TYPE;
+    }
+    return WLJSX.Object.OBJECT_TYPE;
+  },
 
-	isArray: function(object) {
-		if ((typeof Array.isArray == 'function') && Array.isArray([]) && !Array.isArray({})) {
-			return Array.isArray(object);
-		} else {
-			return WLJSX.Object._toString.call(object) === WLJSX.Object.ARRAY_CLASS;
-			}
-		},
+  extend: function(destination, source) {
+    /*jshint forin:false*/
+    for (var property in source) {
+      destination[property] = source[property];
+    }
+    return destination;
+  },
 
-	isFunction: function (object) {
-		return WLJSX.Object._toString.call(object) === WLJSX.Object.FUNCTION_CLASS;
-	},
+  toJSON: function(object) {
+    if (WLJSX.Object.NATIVE_JSON_STRINGIFY_SUPPORT) {
+      return JSON.stringify(object);
+    }
+    else {
+      return WLJSX.Object.Str('', {
+        '': object
+      }, []);
+    }
+  },
 
-	isString: function (object) {
-		return WLJSX.Object._toString.call(object) === WLJSX.Object.STRING_CLASS;
-	},
+  Str: function(key, holder, stack) {
+    var value = holder[key];
+    var type = typeof value;
+    if (WLJSX.Object.Type(value) === WLJSX.Object.OBJECT_TYPE && typeof value.toJSON === 'function') {
+      value = value.toJSON(key);
+    }
+    var _class = WLJSX.Object._toString.call(value);
+    switch (_class) {
+      case WLJSX.Object.NUMBER_CLASS:
+      case WLJSX.Object.BOOLEAN_CLASS:
+      case WLJSX.Object.STRING_CLASS:
+        value = value.valueOf();
+    }
+    switch (value) {
+      case null:
+        return 'null';
+      case true:
+        return 'true';
+      case false:
+        return 'false';
+    }
+    type = typeof value;
+    switch (type) {
+      case 'string':
+        return value;
+      case 'number':
+        return isFinite(value) ? String(value) : 'null';
+      case 'object':
+        for (var i = 0, length = stack.length; i < length; i++) {
+          if (stack[i] === value) {
+            throw new TypeError();
+          }
+        }
+        stack.push(value);
+        var partial = [];
+        if (_class === WLJSX.Object.ARRAY_CLASS) {
+          for (i = 0, length = value.length; i < length; i++) {
+            var str = WLJSX.Object.Str(i, value, stack);
+            partial.push(typeof str === 'undefined' ? 'null' : str);
+          }
+          partial = '[' + partial.join(',') + ']';
+        } else {
+          var keys = WLJSX.Object.keys(value);
+          for (i = 0, length = keys.length; i < length; i++) {
+            key = keys[i];
+            var strResult = WLJSX.Object.Str(key, value, stack);
+            if (typeof strResult !== 'undefined') {
+              partial.push(WLJSX.String.inspect(key, true) + ':' + strResult);
+            }
+          }
+          partial = '{' + partial.join(',') + '}';
+        }
+        stack.pop();
+        return partial;
+    }
+  },
 
-	isNumber: function(object) {
-		return WLJSX.Object._toString.call(object) === WLJSX.Object.NUMBER_CLASS;
-	},
+  toQueryString: function(object) {
+    var results = [];
 
-	isDate: function(object) {
-		return WLJSX.Object._toString.call(object) === WLJSX.Object.DATE_CLASS;
-	},
+    /*jshint forin:false*/
+    for (var key in object) {
+      key = encodeURIComponent(key);
+      var value = object[key];
+      var queryPair = (WLJSX.Object.isUndefined(value)) ? key : key + '=' + encodeURIComponent(WLJSX.String.interpret(value));
+      results.push(queryPair);
+    }
+    return results.join('&');
+  },
 
-	isUndefined: function(object) {
-		return typeof object === "undefined";
-	}
+  keys: function(object) {
+    if (WLJSX.Object.Type(object) !== WLJSX.Object.OBJECT_TYPE) {
+      throw new TypeError();
+    }
+    var results = [];
+    for (var property in object) {
+      if (object.hasOwnProperty(property)) {
+        results.push(property);
+      }
+    }
+    return results;
+  },
+
+  clone: function(object) {
+    return WLJSX.Object.extend({}, object);
+  },
+
+  isArray: function(object) {
+    if ((typeof Array.isArray === 'function') && Array.isArray([]) && !Array.isArray({})) {
+      return Array.isArray(object);
+    } else {
+      return WLJSX.Object._toString.call(object) === WLJSX.Object.ARRAY_CLASS;
+    }
+  },
+
+  isFunction: function(object) {
+    return WLJSX.Object._toString.call(object) === WLJSX.Object.FUNCTION_CLASS;
+  },
+
+  isString: function(object) {
+    return WLJSX.Object._toString.call(object) === WLJSX.Object.STRING_CLASS;
+  },
+
+  isNumber: function(object) {
+    return WLJSX.Object._toString.call(object) === WLJSX.Object.NUMBER_CLASS;
+  },
+
+  isDate: function(object) {
+    return WLJSX.Object._toString.call(object) === WLJSX.Object.DATE_CLASS;
+  },
+
+  isUndefined: function(object) {
+    return typeof object === 'undefined';
+  }
 };
+
+/*jshint -W100*/
 
 /*
  * WLJSX.String APIs are responsible for String related functionality
- * 
+ *
  * WLJSX.String.stripScripts(str) - stripts <script> tags from string
  * WLJSX.String.escapeHTML(str) - replaces &, < and > characters with their escaped HTML values
  * WLJSX.String.inspect(str) - Returns a debug-oriented version of the string (i.e. wrapped in single or double quotes, with backslashes and quotes escaped)
- * WLJSX.String.interpret(str) - Forces value into a string. Returns an empty string for null  
+ * WLJSX.String.interpret(str) - Forces value into a string. Returns an empty string for null
  * WLJSX.String.strip(str) - Strips all leading and trailing whitespace from a string
  * WLJSX.String.isJSON(str) - validates whether string is a valid JSON representation
- * WLJSX.String.isBlank(str) - Check if the string is "blank" � either empty (length of 0) or containing only whitespace.
+ * WLJSX.String.isBlank(str) - Check if the string is 'blank' � either empty (length of 0) or containing only whitespace.
  * WLJSX.String.unfilterJSON(str) - Strips comment delimiters around Ajax JSON or JavaScript responses. This security method is called internally
  * WLJSX.String.evalJSON(str) - Evaluates the JSON in the string and returns the resulting object
-*/
+ */
 window.WLJSX.String = {
-	specialChar : {
-		'\b': '\\b',
-		'\t': '\\t',
-		'\n': '\\n',
-		'\f': '\\f',
-		'\r': '\\r',
-		'\\': '\\\\'
-	},
-	stripScripts: function (str){
-		return str.replace(new RegExp('<script[^>]*>([\\S\\s]*?)<\/script>', 'img'), '');
-	},
-		
-	escapeHTML: function(str){
-		return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-	},
+  specialChar: {
+    '\b': '\\b',
+    '\t': '\\t',
+    '\n': '\\n',
+    '\f': '\\f',
+    '\r': '\\r',
+    '\\': '\\\\'
+  },
+  stripScripts: function(str) {
+    return str.replace(new RegExp('<script[^>]*>([\\S\\s]*?)<\/script>', 'img'), '');
+  },
 
-	interpret: function(str){
-		return str == null ? '' : String(str);
-	},
+  escapeHTML: function(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  },
 
-	strip: function (str){
-		return str.replace(/^\s+/, '').replace(/\s+$/, '');
-	},
-	
-	toQueryParams: function(str){
-		var match = WLJSX.String.strip(str).match(/([^?#]*)(#.*)?$/);
-		if (!match) return { };
+  interpret: function(str) {
+    return str === null ? '' : String(str);
+  },
 
-		var paramsArray = match[1].split('&');
-		var paramsObj = {};
-		for (var i=0; i<paramsArray.length; i++){
-			var pair = paramsArray[i].split('=');
-			if (pair[0]) {
-				var key = decodeURIComponent(pair.shift());
-				var value = pair.length > 1 ? pair.join('=') : pair[0];
-				if (value != undefined) value = decodeURIComponent(value);
-				paramsObj[key] = value;
-			}
-		}
-		return paramsObj;
-	},
+  strip: function(str) {
+    return str.replace(/^\s+/, '').replace(/\s+$/, '');
+  },
 
-	isJSON: function(str){
-		if (WLJSX.String.isBlank(str)) return false;
-		str = str.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@');
-		str = str.replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']');
-		str = str.replace(/(?:^|:|,)(?:\s*\[)+/g, '');
-		return (/^[\],:{}\s]*$/).test(str);
-	},
+  toQueryParams: function(str) {
+    var match = WLJSX.String.strip(str).match(/([^?#]*)(#.*)?$/);
+    if (!match) {
+      return {};
+    }
 
-	isBlank: function(str){
-			return /^\s*$/.test(str);
-		},
+    var paramsArray = match[1].split('&');
+    var paramsObj = {};
+    for (var i = 0; i < paramsArray.length; i++) {
+      var pair = paramsArray[i].split('=');
+      if (pair[0]) {
+        var key = decodeURIComponent(pair.shift());
+        var value = pair.length > 1 ? pair.join('=') : pair[0];
+        if (value !== undefined) {
+          value = decodeURIComponent(value);
+        }
+        paramsObj[key] = value;
+      }
+    }
+    return paramsObj;
+  },
 
-	inspect: function (str, useDoubleQuotes){
-		var escapedString = str.replace(/[\x00-\x1f\\]/g, function(character) {
-			if (character in WLJSX.String.specialChar) {
-				return WLJSX.String.specialChar[character];
-			}
-			return '\\u00' + character.charCodeAt().toPaddedString(2, 16);
-		});
-		if (useDoubleQuotes) return '"' + escapedString.replace(/"/g, '\\"') + '"';
-		return "'" + escapedString.replace(/'/g, '\\\'') + "'";
-	},
-	
-	unfilterJSON: function(str){
-		return str.replace(/^\/\*-secure-([\s\S]*)\*\/\s*$/, '$1');
-	},
-	
-	evalJSON: function(str, sanitize){
-		var json = WLJSX.String.unfilterJSON(str);
-		if (window.JSON && typeof JSON.parse === 'function' && JSON.parse('{"test": true}').test){
-			// Native json parse support
-			return JSON.parse(json);
-		} else {
-			// No native json parse support
-			cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
-			if (cx.test(json)) {
-				json = json.replace(cx, function (a) {
-					return '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-				});
-			}
-			try {
-				if (!sanitize || WLJSX.String.isJSON(json)) return eval('(' + json + ')');
-			} catch (e) { }
-			throw new SyntaxError('Badly formed JSON string: ' + WLJSX.String.inspect(str));
-		}
-	}
+  isJSON: function(str) {
+    if (WLJSX.String.isBlank(str)) {
+      return false;
+    }
+    str = str.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@');
+    str = str.replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']');
+    str = str.replace(/(?:^|:|,)(?:\s*\[)+/g, '');
+    return (/^[\],:{}\s]*$/).test(str);
+  },
+
+  isBlank: function(str) {
+    return (/^\s*$/).test(str);
+  },
+
+  inspect: function(str, useDoubleQuotes) {
+    var escapedString = str.replace(/[\x00-\x1f\\]/g, function(character) {
+      if (character in WLJSX.String.specialChar) {
+        return WLJSX.String.specialChar[character];
+      }
+      return '\\u00' + character.charCodeAt().toPaddedString(2, 16);
+    });
+    if (useDoubleQuotes) {
+      return '"' + escapedString.replace(/"/g, '\\"') + '"';
+    }
+    return '\'' + escapedString.replace(/'/g, '\\\'') + '\'';
+  },
+
+  unfilterJSON: function(str) {
+    return str.replace(/^\/\*-secure-([\s\S]*)\*\/\s*$/, '$1');
+  },
+
+  evalJSON: function(str, sanitize) {
+    var json = WLJSX.String.unfilterJSON(str);
+    if (window.JSON && typeof JSON.parse === 'function' && JSON.parse('{"test": true}').test) {
+      // Native json parse support
+      return JSON.parse(json);
+    } else {
+      // No native json parse support
+      var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;
+      if (cx.test(json)) {
+        json = json.replace(cx, function(a) {
+          return '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+        });
+      }
+      try {
+        if (!sanitize || WLJSX.String.isJSON(json)) {
+          /*jshint evil:true*/
+          return eval('(' + json + ')');
+        }
+      } catch (e) {}
+      throw new SyntaxError('Badly formed JSON string: ' + WLJSX.String.inspect(str));
+    }
+  }
 };
 
 /*
  * WLJSX.PeriodicalExecuter APIs are responsible for PeriodicalExecuter related functionality
- * 
+ *
  * WLJSX.Object.execute() - Executes a callback supplied at initialization
  * WLJSX.Object.stop() - Stops the timer interval execution
- * new WLJSX.PeriodicalExecuter(callback, frequency) - returns new WLJSX.PeriodicalExecuter() object 
+ * new WLJSX.PeriodicalExecuter(callback, frequency) - returns new WLJSX.PeriodicalExecuter() object
  * which will call callback at specified frequencies (in seconds)
  */
-window.WLJSX.PeriodicalExecuter = function(callback, frequency){
-	var callback = callback;
-	var frequency = frequency;
-	var currentlyExecuting = false;
+window.WLJSX.PeriodicalExecuter = function(callback, frequency) {
+  var currentlyExecuting = false;
 
-	function onTimerEvent() {
-		if (!currentlyExecuting) {
-			try {
-				currentlyExecuting = true;
-				callback();
-				currentlyExecuting = false;
-			} catch(e) {
-				currentlyExecuting = false;
-				throw e;
-			}
-		}
-	}
+  function onTimerEvent() {
+    if (!currentlyExecuting) {
+      try {
+        currentlyExecuting = true;
+        callback();
+        currentlyExecuting = false;
+      } catch (e) {
+        currentlyExecuting = false;
+        throw e;
+      }
+    }
+  }
 
-	var timer = setInterval(onTimerEvent.bind(this), frequency * 1000);
-	
-	return {
-		execute: function() {
-			callback(this);
-		},
+  var timer = setInterval(onTimerEvent.bind(this), frequency * 1000);
 
-		stop: function() {
-			if (!timer) return;
-			clearInterval(timer);
-			timer = null;
-		}
-	}
+  return {
+    execute: function() {
+      callback(this);
+    },
+
+    stop: function() {
+      if (!timer) {
+        return;
+      }
+      clearInterval(timer);
+      timer = null;
+    }
+  };
 };
 
 
 /*
  * Extends JavaScript Function object
- * 
+ *
  * Public API:
  * functionName.argumentNames - http://api.prototypejs.org/language/Function/prototype/argumentNames/
  * finctionName.bind - http://api.prototypejs.org/language/Function/prototype/bind/
- * functionName.bindAsEventListener - http://api.prototypejs.org/language/Function/prototype/bindAsEventListener/ 
+ * functionName.bindAsEventListener - http://api.prototypejs.org/language/Function/prototype/bindAsEventListener/
  * functionName.curry - http://api.prototypejs.org/language/Function/prototype/curry/
  * functionName.delay - http://api.prototypejs.org/language/Function/prototype/delay/
  * functionName.defer - http://api.prototypejs.org/language/Function/prototype/defer/
  * functionName.wrap - http://api.prototypejs.org/language/Function/prototype/wrap/
  */
 WLJSX.Object.extend(Function.prototype, (function() {
-	var slice = Array.prototype.slice;
+  var slice = Array.prototype.slice;
 
-	function update(array, args) {
-		var arrayLength = array.length, length = args.length;
-		while (length--) array[arrayLength + length] = args[length];
-		return array;
-	}
+  function update(array, args) {
+    var arrayLength = array.length,
+      length = args.length;
+    while (length--) {
+      array[arrayLength + length] = args[length];
+    }
+    return array;
+  }
 
-	function merge(array, args) {
-		array = slice.call(array, 0);
-		return update(array, args);
-	}
+  function merge(array, args) {
+    array = slice.call(array, 0);
+    return update(array, args);
+  }
 
-	function argumentNames() {
-		var names = this.toString().match(/^[\s\(]*function[^(]*\(([^)]*)\)/)[1]
-			.replace(/\/\/.*?[\r\n]|\/\*(?:.|[\r\n])*?\*\//g, '')
-			.replace(/\s+/g, '').split(',');
-		return names.length == 1 && !names[0] ? [] : names;
-	}
+  function argumentNames() {
+    var names = this.toString().match(/^[\s\(]*function[^(]*\(([^)]*)\)/)[1]
+      .replace(/\/\/.*?[\r\n]|\/\*(?:.|[\r\n])*?\*\//g, '')
+      .replace(/\s+/g, '').split(',');
+    /*jshint eqeqeq:false*/
+    return names.length == 1 && !names[0] ? [] : names;
+  }
 
-	function bind(context) {
-		if (arguments.length < 2 && WLJSX.Object.isUndefined(arguments[0])) return this;
-		var __method = this, args = slice.call(arguments, 1);
-		return function() {
-			var a = merge(args, arguments);
-			return __method.apply(context, a);
-		};
-	}
+  function bind(context) {
+    if (arguments.length < 2 && WLJSX.Object.isUndefined(arguments[0])) {
+      return this;
+    }
+    var __method = this,
+      args = slice.call(arguments, 1);
+    return function() {
+      var a = merge(args, arguments);
+      return __method.apply(context, a);
+    };
+  }
 
-	function bindAsEventListener(context) {
-		var __method = this, args = slice.call(arguments, 1);
-		return function(event) {
-			var a = update([event || window.event], args);
-			return __method.apply(context, a);
-		};
-	}
+  function bindAsEventListener(context) {
+    var __method = this,
+      args = slice.call(arguments, 1);
+    return function(event) {
+      var a = update([event || window.event], args);
+      return __method.apply(context, a);
+    };
+  }
 
-	function curry() {
-		if (!arguments.length) return this;
-		var __method = this, args = slice.call(arguments, 0);
-		return function() {
-			var a = merge(args, arguments);
-			return __method.apply(this, a);
-		};
-	}
+  function curry() {
+    if (!arguments.length) {
+      return this;
+    }
+    var __method = this,
+      args = slice.call(arguments, 0);
+    return function() {
+      var a = merge(args, arguments);
+      return __method.apply(this, a);
+    };
+  }
 
-	function delay(timeout) {
-		var __method = this, args = slice.call(arguments, 1);
-		timeout = timeout * 1000;
-		return window.setTimeout(function() {
-			return __method.apply(__method, args);
-		}, timeout);
-	}
+  function delay(timeout) {
+    var __method = this,
+      args = slice.call(arguments, 1);
+    timeout = timeout * 1000;
+    return window.setTimeout(function() {
+      return __method.apply(__method, args);
+    }, timeout);
+  }
 
-	function defer() {
-		var args = update([0.01], arguments);
-		return this.delay.apply(this, args);
-	}
+  function defer() {
+    var args = update([0.01], arguments);
+    return this.delay.apply(this, args);
+  }
 
-	function wrap(wrapper) {
-		var __method = this;
-		return function() {
-			var a = update([__method.bind(this)], arguments);
-			return wrapper.apply(this, a);
-		};
-	}
+  function wrap(wrapper) {
+    var __method = this;
+    return function() {
+      var a = update([__method.bind(this)], arguments);
+      return wrapper.apply(this, a);
+    };
+  }
 
-	return {
-		argumentNames:       argumentNames,
-		bind:                bind,
-		bindAsEventListener: bindAsEventListener,
-		curry:               curry,
-		delay:               delay,
-		defer:               defer,
-		wrap:                wrap
-	};
+  return {
+    argumentNames: argumentNames,
+    bind: bind,
+    bindAsEventListener: bindAsEventListener,
+    curry: curry,
+    delay: delay,
+    defer: defer,
+    wrap: wrap
+  };
 })());
-
-
 
 
 /**
@@ -1017,13 +1094,21 @@ WLJSX.Object.extend(Function.prototype, (function() {
  * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  */
 
+ /*globals WLJSX, WL, escape, unescape*/
+
+ /*jshint strict:false*/
+
 window.WLJSX.Ajax = {
   getTransport: function() {
     var tr = null;
     try {
       tr = new XMLHttpRequest();
-			if (tr == null) tr = new ActiveXObject('Msxml2.XMLHTTP');
-			if (tr == null) tr = new ActiveXObject('Microsoft.XMLHTTP');
+      if (tr === null) {
+        tr = new ActiveXObject('Msxml2.XMLHTTP');
+      }
+      if (tr === null) {
+        tr = new ActiveXObject('Microsoft.XMLHTTP');
+      }
     } catch (e) {}
 
     return tr;
@@ -1062,7 +1147,7 @@ window.WLJSX.Ajax.Request = WLJSX.Class.create({
       this.options.parameters : WLJSX.Object.toQueryString(this.options.parameters);
 
     if (this.method !== 'get' && this.method !== 'post') {
-			params += (params ? '&' : '') + "_method=" + this.method;
+      params += (params ? '&' : '') + '_method=' + this.method;
       this.method = 'post';
     }
 
@@ -1077,33 +1162,41 @@ window.WLJSX.Ajax.Request = WLJSX.Class.create({
 
     try {
       var response = new window.WLJSX.Ajax.Response(this);
-			if (this.options.onCreate) this.options.onCreate(response);
+      if (this.options.onCreate) {
+        this.options.onCreate(response);
+      }
 
       this.transport.open(this.method.toUpperCase(), this.url, this.options.asynchronous);
 
-			if (this.options.asynchronous) this.respondToReadyState.bind(this).defer(1);
+      if (this.options.asynchronous) {
+        this.respondToReadyState.bind(this).defer(1);
+      }
 
       this.transport.onreadystatechange = this.onStateChange.bind(this);
       this.setRequestHeaders();
 
-      WL.Analytics._logOutboundRequest(this.url, this.trackingId);
+      WL.Analytics._logOutboundRequest(this);
 
+      /*jshint eqeqeq:false*/
       this.body = this.method == 'post' ? (this.options.postBody || params) : null;
       this.transport.send(this.body);
 
       /* Force Firefox to handle ready state 4 for synchronous requests */
-			if (!this.options.asynchronous && this.transport.overrideMimeType)
+      if (!this.options.asynchronous && this.transport.overrideMimeType) {
         this.onStateChange();
       }
-		catch (e) {
+
+    } catch (e) {
       this.dispatchException(e);
     }
   },
 
   onStateChange: function() {
     var readyState = this.transport.readyState;
-		if (readyState > 1 && !((readyState == 4) && this._complete))
+    /*jshint eqeqeq:false*/
+    if (readyState > 1 && !((readyState == 4) && this._complete)) {
       this.respondToReadyState(this.transport.readyState);
+    }
   },
 
   setRequestHeaders: function() {
@@ -1114,10 +1207,11 @@ window.WLJSX.Ajax.Request = WLJSX.Class.create({
     };
 
     this.trackingId = WL.Analytics._getTrackingId();
-		if(this.trackingId != null){
-			headers['x-wl-analytics-tracking-id'] = this.trackingId
+    if (this.trackingId !== null) {
+      headers['x-wl-analytics-tracking-id'] = this.trackingId;
     }
 
+    /*jshint eqeqeq:false*/
     if (this.method == 'post') {
       headers['Content-type'] = this.options.contentType + (this.options.encoding ? '; charset=' + this.options.encoding : '');
 
@@ -1125,64 +1219,73 @@ window.WLJSX.Ajax.Request = WLJSX.Class.create({
        * around a bug where XMLHttpRequest sends an incorrect
        * Content-length header. See Mozilla Bugzilla #246651.
        */
-			if (this.transport.overrideMimeType && (navigator.userAgent.match(/Gecko\/(\d{4})/) || [0,2005])[1] < 2005)
+      if (this.transport.overrideMimeType && (navigator.userAgent.match(/Gecko\/(\d{4})/) || [0, 2005])[1] < 2005) {
         headers['Connection'] = 'close';
       }
+    }
 
     if (typeof this.options.requestHeaders == 'object') {
       var extras = this.options.requestHeaders;
 
-			if (WLJSX.Object.isFunction(extras.push))
-				for (var i = 0, length = extras.length; i < length; i += 2)
+      if (WLJSX.Object.isFunction(extras.push)) {
+        for (var i = 0, length = extras.length; i < length; i += 2) {
           headers[extras[i]] = extras[i + 1];
-			else
-				for (key in extras){
-          var value = extras[key];
-					headers[key] = (value == null || typeof(value) == 'undefined') ? "" : value;
         }
       }
-
-		for (var name in headers)
+      else {
+        /*jshint forin:false*/
+        for (var key in extras) {
+          var value = extras[key];
+          headers[key] = (value === null || typeof(value) == 'undefined') ? '' : value;
+        }
+      }
+    }
+    for (var name in headers) {
       this.transport.setRequestHeader(name, unescape(encodeURIComponent(headers[name])));
+    }
   },
 
   success: function() {
     var status = this.getStatus();
-		if (status == 0 && this.isSameOrigin() == false) {
+    if (status === 0 && this.isSameOrigin() === false) {
       return false;
     }
+    /*jshint eqeqeq:false*/
     return !status || (status >= 200 && status < 300) || status == 304;
   },
 
   getStatus: function() {
     try {
-			if (this.transport.status === 1223) return 204;
+      if (this.transport.status === 1223) {
+        return 204;
+      }
       return this.transport.status || 0;
-		} catch (e) { return 0; }
+    } catch (e) {
+      return 0;
+    }
   },
 
   respondToReadyState: function(readyState) {
     var state = window.WLJSX.Ajax.Request.Events[readyState],
       response = new window.WLJSX.Ajax.Response(this);
 
+    /*jshint eqeqeq:false*/
     if (state == 'Complete') {
       try {
         this._complete = true;
-				(this.options['on' + response.status]
-				|| this.options['on' + (this.success() ? 'Success' : 'Failure')]
-				|| WLJSX.emptyFunction)(response, response.headerJSON);
+        (this.options['on' + response.status] || this.options['on' + (this.success() ? 'Success' : 'Failure')] || WLJSX.emptyFunction)(response, response.headerJSON);
       } catch (e) {
         this.dispatchException(e);
       }
 
       var contentType = response.getHeader('Content-type');
-			if (this.options.evalJS == 'force'
-				|| (	this.options.evalJS && 
+      if (this.options.evalJS == 'force' || (this.options.evalJS &&
           this.isSameOrigin() &&
           contentType &&
-						contentType.match(/^\s*(text|application)\/(x-)?(java|ecma)script(;.*)?\s*$/i)))
+          contentType.match(/^\s*(text|application)\/(x-)?(java|ecma)script(;.*)?\s*$/i))) {
         this.evalResponse();
       }
+    }
 
     try {
       (this.options['on' + state] || WLJSX.emptyFunction)(response, response.headerJSON);
@@ -1198,18 +1301,24 @@ window.WLJSX.Ajax.Request = WLJSX.Class.create({
   isSameOrigin: function() {
     var m = this.url.match(/^\s*https?:\/\/[^\/]*/);
     var url = location.protocol + '//' + document.domain;
-		if (location.port) url += ':' + location.port;
+    if (location.port) {
+      url += ':' + location.port;
+    }
+    /*jshint eqeqeq:false*/
     return (!m || (m[0] == url));
   },
 
   getHeader: function(name) {
     try {
       return this.transport.getResponseHeader(name) || null;
-		} catch (e) { return null; }
+    } catch (e) {
+      return null;
+    }
   },
 
   evalResponse: function() {
     try {
+      /*jshint evil:true*/
       return eval(WLJSX.String.unfilterJSON(this.transport.responseText || ''));
     } catch (e) {
       this.dispatchException(e);
@@ -1229,6 +1338,7 @@ window.WLJSX.Ajax.Response = WLJSX.Class.create({
     var transport = this.transport = request.transport,
       readyState = this.readyState = transport.readyState;
 
+    /*jshint eqeqeq:false*/
     if ((readyState > 2 && !WLJSX.detectBrowser().isIE) || readyState == 4) {
       this.status = this.getStatus();
       this.statusText = this.getStatusText();
@@ -1254,7 +1364,9 @@ window.WLJSX.Ajax.Response = WLJSX.Class.create({
   getStatusText: function() {
     try {
       return this.transport.statusText || '';
-		} catch (e) { return '' }
+    } catch (e) {
+      return '';
+    }
   },
 
   getHeader: window.WLJSX.Ajax.Request.prototype.getHeader,
@@ -1262,7 +1374,9 @@ window.WLJSX.Ajax.Response = WLJSX.Class.create({
   getAllHeaders: function() {
     try {
       return this.getAllResponseHeaders();
-		} catch (e) { return null }
+    } catch (e) {
+      return null;
+    }
   },
 
   getResponseHeader: function(name) {
@@ -1275,10 +1389,12 @@ window.WLJSX.Ajax.Response = WLJSX.Class.create({
 
   _getHeaderJSON: function() {
     var json = this.getHeader('X-JSON');
-		if (!json) return null;
+    if (!json) {
+      return null;
+    }
     json = decodeURIComponent(escape(json));
     try {
-			return Sting.wl.evalJSON(json, this.request.options.sanitizeJSON || !this.request.isSameOrigin());
+      return String.wl.evalJSON(json, this.request.options.sanitizeJSON || !this.request.isSameOrigin());
     } catch (e) {
       this.request.dispatchException(e);
     }
@@ -1291,14 +1407,14 @@ window.WLJSX.Ajax.Response = WLJSX.Class.create({
     try {
       return WLJSX.String.evalJSON(this.responseText, (options.sanitizeJSON || !this.request.isSameOrigin()));
     } catch (e) {
-            if (    !options.evalJSON 
-                    || (options.evalJSON != 'force' && (this.getHeader('Content-type') || '').indexOf('application/json') < 0) 
-                    || WLJSX.String.isBlank(this.responseText))
+      /*jshint eqeqeq:false*/
+      if (!options.evalJSON || (options.evalJSON != 'force' && (this.getHeader('Content-type') || '').indexOf('application/json') < 0) || WLJSX.String.isBlank(this.responseText)) {
         return null;
-            else
+      } else {
         this.request.dispatchException(e);
       }
     }
+  }
 });
 
 /**
@@ -1308,211 +1424,216 @@ window.WLJSX.Ajax.Response = WLJSX.Class.create({
  */
 
 /**
-* @license
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * @license
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*globals WL, WLJSX, WLJQ*/
 
 /* JavaScript content from wlclient/js/window.js in Common Resources */
 WL.DialogWindow = WLJSX.Class.create();
 WL.DialogWindow.prototype = {
-    initialize : function() {
-	this.options = WLJSX.Object.extend({
-	    className : 'modalWindow',
-	    title : '&nbsp;',
-	    body : '&nbsp;',
-	    buttons : [{}],
-	    width : 200,
-	    height : 300
-	}, arguments[0] || {});
 
-	var win, overlay, dialog, content, viewportWidth, viewportHeight, dialogWidth, dialogHeight, wlDialogTitle, wlDialogBody, langDirection;
-	// remove old dialogs if exists
-	var oldDialog = WLJSX.$('WLdialogContainer');
-	if (oldDialog) {
-	    WLJSX.remove(oldDialog);
-	}
+  /*jshint strict:false*/
 
-	// create new dialog with children elements
-	win = WLJSX.newElement('<div/>', {
-	    'id' : 'WLdialogContainer'
-	});
-    
-	// To get the language (WL.ClientMessages.lang injected by server) used by the browser in preview environment
-	if(WL.StaticAppProps.ENVIRONMENT == WL.Environment.PREVIEW && WL.StaticAppProps.PREVIEW_ENVIRONMENT == 'common' && typeof WL.ClientMessages.lang !== undefined) {
-		langDirection = WL.Utils.getLanguageDirectionality(WL.ClientMessages.lang); 
-	} else {
-		langDirection = WL.Utils.getLanguageDirectionality();
-	}
-	
-    if(langDirection === WL.Language.DIRECTION_RTL) {
-    	win.dir = 'rtl';
+  initialize: function() {
+    this.options = WLJSX.Object.extend({
+      className: 'modalWindow',
+      title: '&nbsp;',
+      body: '&nbsp;',
+      buttons: [{}],
+      width: 200,
+      height: 300
+    }, arguments[0] || {});
+
+    /*jshint unused:false*/
+    var win, overlay, dialog, content, viewportWidth, viewportHeight, dialogWidth, dialogHeight, wlDialogTitle, wlDialogBody, langDirection;
+    // remove old dialogs if exists
+    var oldDialog = WLJSX.$('WLdialogContainer');
+    if (oldDialog) {
+      WLJSX.remove(oldDialog);
     }
 
-	overlay = WLJSX.newElement('<div/>', {
-	    'id' : 'WLdialogOverlay'
-	});
+    // create new dialog with children elements
+    win = WLJSX.newElement('<div/>', {
+      'id': 'WLdialogContainer'
+    });
 
-	dialog = WLJSX.newElement('<div/>', {
-	    'id' : 'WLdialog'
-	});
-
-	wlDialogTitle = WLJSX.newElement('<h1/>', {
-	    'id' : 'WLdialogTitle'
-	});
-
-	wlDialogBody = WLJSX.newElement('<p/>', {
-	    'id' : 'WLdialogBody'
-	});
-
-	WLJSX.html(wlDialogTitle, this.options.title);
-	WLJSX.html(wlDialogBody, this.options.body);
-
-	WLJSX.prepend(dialog, wlDialogTitle);
-	WLJSX.append(dialog, wlDialogBody);
-
-	WLJSX.prepend(win, overlay);
-	WLJSX.append(win, dialog);
-
-	// append dialog to the body element
-	WLJSX.prepend(WLJSX.$$$('body'), win);
-
-	// position the dialog in the middle of the screen
-	viewportWidth = WLJSX.getViewportWidth();
-	viewportHeight = WLJSX.getViewportHeight();
-	dialogWidth = WLJQ(dialog).outerWidth();
-	dialogHeight = WLJQ(dialog).outerHeight();
-
-	WLJSX.css(dialog, {
-	    left : viewportWidth / 2 - dialogWidth / 2 + 'px',
-	    top : viewportHeight / 2 - dialogHeight / 2 + 'px'
-	});
-    },
-
-    setTitle : function(title) {
-	if (!title || title === '') {
-	    title = '&nbsp;';
-	}
-	var dialogTitle = WLJSX.$('WLdialogTitle');
-	WLJSX.html(dialogTitle, title);
-    },
-
-    setHTMLContent : function(html) {
-	var dialogBody = WLJSX.$('WLdialogBody');
-	WLJSX.html(dialogBody, html);
-    },
-
-    setContent : function(html) {
-	var dialogBody = WLJSX.$('WLdialogBody');
-	WLJSX.html(dialogBody, html);
-    },
-
-    showCenter : function() {
-	this.show();
-    },
-
-    show : function() {
-	// hack for Safari
-	if (typeof this.overlayOpacity === 'undefined') {
-	    var that = this;
-	    setTimeout(function() {
-		that.show();
-	    }, 10);
-	    return;
-	}
-	var wlDialogContainer = WLJSX.$('WLdialogContainer');
-	WLJSX.show(wlDialogContainer);
-    },
-
-    hide : function() {
-	var wlDialogContainer = WLJSX.$('WLdialogContainer');
-	WLJSX.hide(wlDialogContainer);
-    },
-
-    destroy : function() {
-	var wlDialogContainer = WLJSX.$('WLdialogContainer');
-	WLJSX.remove(wlDialogContainer);
+    // To get the language (WL.ClientMessages.lang injected by server) used by the browser in preview environment
+    /*jshint eqeqeq:false*/
+    if (WL.StaticAppProps.ENVIRONMENT == WL.Environment.PREVIEW && WL.StaticAppProps.PREVIEW_ENVIRONMENT == 'common' && typeof WL.ClientMessages.lang !== undefined) {
+      langDirection = WL.Utils.getLanguageDirectionality(WL.ClientMessages.lang);
+    } else {
+      langDirection = WL.Utils.getLanguageDirectionality();
     }
+
+    if (langDirection === WL.Language.DIRECTION_RTL) {
+      win.dir = 'rtl';
+    }
+
+    overlay = WLJSX.newElement('<div/>', {
+      'id': 'WLdialogOverlay'
+    });
+
+    dialog = WLJSX.newElement('<div/>', {
+      'id': 'WLdialog'
+    });
+
+    wlDialogTitle = WLJSX.newElement('<h1/>', {
+      'id': 'WLdialogTitle'
+    });
+
+    wlDialogBody = WLJSX.newElement('<p/>', {
+      'id': 'WLdialogBody'
+    });
+
+    WLJSX.html(wlDialogTitle, this.options.title);
+    WLJSX.html(wlDialogBody, this.options.body);
+
+    WLJSX.prepend(dialog, wlDialogTitle);
+    WLJSX.append(dialog, wlDialogBody);
+
+    WLJSX.prepend(win, overlay);
+    WLJSX.append(win, dialog);
+
+    // append dialog to the body element
+    WLJSX.prepend(WLJSX.$$$('body'), win);
+
+    // position the dialog in the middle of the screen
+    viewportWidth = WLJSX.getViewportWidth();
+    viewportHeight = WLJSX.getViewportHeight();
+    dialogWidth = WLJQ(dialog).outerWidth();
+    dialogHeight = WLJQ(dialog).outerHeight();
+
+    WLJSX.css(dialog, {
+      left: viewportWidth / 2 - dialogWidth / 2 + 'px',
+      top: viewportHeight / 2 - dialogHeight / 2 + 'px'
+    });
+  },
+
+  setTitle: function(title) {
+    if (!title || title === '') {
+      title = '&nbsp;';
+    }
+    var dialogTitle = WLJSX.$('WLdialogTitle');
+    WLJSX.html(dialogTitle, title);
+  },
+
+  setHTMLContent: function(html) {
+    var dialogBody = WLJSX.$('WLdialogBody');
+    WLJSX.html(dialogBody, html);
+  },
+
+  setContent: function(html) {
+    var dialogBody = WLJSX.$('WLdialogBody');
+    WLJSX.html(dialogBody, html);
+  },
+
+  showCenter: function() {
+    this.show();
+  },
+
+  show: function() {
+    // hack for Safari
+    if (typeof this.overlayOpacity === 'undefined') {
+      var that = this;
+      setTimeout(function() {
+        that.show();
+      }, 10);
+      return;
+    }
+    var wlDialogContainer = WLJSX.$('WLdialogContainer');
+    WLJSX.show(wlDialogContainer);
+  },
+
+  hide: function() {
+    var wlDialogContainer = WLJSX.$('WLdialogContainer');
+    WLJSX.hide(wlDialogContainer);
+  },
+
+  destroy: function() {
+    var wlDialogContainer = WLJSX.$('WLdialogContainer');
+    WLJSX.remove(wlDialogContainer);
+  }
 };
 
 
 /**
  * A Wrapper for the dialog required libraries:
- * 
+ *
  * @author Benny Weingarten, Raanan Avidor
  * @require window.js
  */
 WL.Dialog = WLJSX.Class.create();
 WL.Dialog.prototype = {
 
-    __dialog : null,
-    __options : {
-	title : "",
-	text : ""
-    },
+  __dialog: null,
+  __options: {
+    title: '',
+    text: ''
+  },
 
-    /**
-     * The constructor creates the dialog but does not display it. Call the show() method to display the
-     * dialog.
-     * 
-     * @param options Optional. An object of the following form: { title: string, text: string }
-     */
-    initialize : function(containerId, options) {
-	WL.Validators.validateOptions({
-	    title : 'string',
-	    text : 'string'
-	}, options, 'new WL.Dialog');
+  /**
+   * The constructor creates the dialog but does not display it. Call the show() method to display the
+   * dialog.
+   *
+   * @param options Optional. An object of the following form: { title: string, text: string }
+   */
+  initialize: function(containerId, options) {
+    WL.Validators.validateOptions({
+      title: 'string',
+      text: 'string'
+    }, options, 'new WL.Dialog');
 
-	WLJSX.Object.extend(this.__options, options || {});
+    WLJSX.Object.extend(this.__options, options || {});
 
-	__dialog = new WL.DialogWindow({
-	    title : this.__options.title,
-	    text : this.__options.text
-	});
-	this.setText(this.__options.text);
-    },
+    this.__dialog = new WL.DialogWindow({
+      title: this.__options.title,
+      text: this.__options.text
+    });
+    this.setText(this.__options.text);
+  },
 
-    /**
-     * Sets the title of the dialog.
-     * @param titleText the title of the dialog.
-     */
-    setTitle : function(titleText) {
-	__dialog.setTitle(titleText);
-    },
+  /**
+   * Sets the title of the dialog.
+   * @param titleText the title of the dialog.
+   */
+  setTitle: function(titleText) {
+    this.__dialog.setTitle(titleText);
+  },
 
-    /**
-     * Sets text within the dialog.
-     * @param text text within the dialog.
-     */
-    setText : function(text) {
-	__dialog.setHTMLContent(text);
-    },
+  /**
+   * Sets text within the dialog.
+   * @param text text within the dialog.
+   */
+  setText: function(text) {
+    this.__dialog.setHTMLContent(text);
+  },
 
-    /**
-     * Shows the dialog.
-     */
-    show : function() {
-	__dialog.showCenter();
-    },
+  /**
+   * Shows the dialog.
+   */
+  show: function() {
+    this.__dialog.showCenter();
+  },
 
-    /**
-     * Hides the dialog.
-     */
-    hide : function() {
-	__dialog.hide();
-    },
+  /**
+   * Hides the dialog.
+   */
+  hide: function() {
+    this.__dialog.hide();
+  },
 
-    /**
-     * Destroys the dialog.
-     */
-    destroy : function() {
-	__dialog.destroy();
-    }
+  /**
+   * Destroys the dialog.
+   */
+  destroy: function() {
+    this.__dialog.destroy();
+  }
 };
-
-
 
 /**
  * ================================================================= 
@@ -1521,779 +1642,792 @@ WL.Dialog.prototype = {
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
 
+/*globals WL, WL_, __WL, WLJSX, WLJQ, getSkinName, WLAuthorizationManager, WL_SKINLOADER_CHECKSUM, WL_I18N_MESSAGES, WL_CLASS_NAME_TRANSLATE*/
 
 /*
  * IBM MobileFirst Platform Utils
  */
-__WLUtils = function() {
+var __WLUtils = function() {
 
-    // ........................Private methods........................
+  /*jshint strict:false*/
 
-    function getStyle(element, cssprop) {
-        if (element.currentStyle) { // IE
-            return element.currentStyle[cssprop];
-        } else if (document.defaultView && document.defaultView.getComputedStyle) { // Firefox
-            return document.defaultView.getComputedStyle(element, "")[cssprop];
-        } else { // try and get inline style
-            return element.style[cssprop];
-        }
+  // ........................Private methods........................
+
+  function getStyle(element, cssprop) {
+    if (element.currentStyle) { // IE
+      return element.currentStyle[cssprop];
+    } else if (document.defaultView && document.defaultView.getComputedStyle) { // Firefox
+      return document.defaultView.getComputedStyle(element, '')[cssprop];
+    } else { // try and get inline style
+      return element.style[cssprop];
     }
+  }
 
-    function getUrlParam(name) {
-        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-        var regexS = "[\\?&]" + name + "=([^&#]*)";
-        var regex = new RegExp(regexS);
-        var results = regex.exec(window.location.href);
-        if (results == null) {
-            return "";
-        } else {
-            return results[1];
-        }
+  function getUrlParam(name) {
+    /*jshint quotmark:false*/
+    name = name.replace(/[\[]/, "[").replace(/[\]]/, "]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.href);
+    if (results === null) {
+      return '';
+    } else {
+      return results[1];
     }
+  }
 
-    function getWidth(element) {
-        var maxWidth = getStyle(element, 'width');
-        var isPercentage = (maxWidth + '').indexOf('%') > -1;
+  function getWidth(element) {
+    var maxWidth = getStyle(element, 'width');
+    var isPercentage = (maxWidth + '').indexOf('%') > -1;
+    maxWidth = parseInt(maxWidth, 10);
+    if (maxWidth === null || isNaN(maxWidth) || maxWidth === 0 || isPercentage) {
+      maxWidth = getStyle(element, 'maxWidth');
+      isPercentage = (maxWidth + '').indexOf('%') > -1;
+      maxWidth = parseInt(maxWidth, 10);
+      if (maxWidth === null || isNaN(maxWidth) || maxWidth === 0 || isPercentage) {
+        maxWidth = WLJSX.width(element);
         maxWidth = parseInt(maxWidth, 10);
-        if (maxWidth === null || isNaN(maxWidth) || maxWidth === 0 || isPercentage) {
-            maxWidth = getStyle(element, 'maxWidth');
-            isPercentage = (maxWidth + '').indexOf('%') > -1;
-            maxWidth = parseInt(maxWidth, 10);
-            if (maxWidth === null || isNaN(maxWidth) || maxWidth === 0 || isPercentage) {
-                maxWidth = WLJSX.width(element);
-                maxWidth = parseInt(maxWidth, 10);
-                if (maxWidth === null || isNaN(maxWidth)) {
-                    maxWidth = 0;
-                }
-            }
+        if (maxWidth === null || isNaN(maxWidth)) {
+          maxWidth = 0;
         }
-        return maxWidth;
+      }
+    }
+    return maxWidth;
+  }
+
+  // @Deprecated
+  function doEllipsis(elm, options) {
+    var currentOptions = {
+      maxWidth: 0,
+      addTitle: false
+    };
+
+    WLJSX.Object.extend(currentOptions, options || {});
+    var origText = elm.innerHTML;
+    var display = elm.style.display;
+    elm.style.display = 'inline';
+    var whiteSpace = elm.style.whiteSpace;
+    elm.style.whiteSpace = 'nowrap';
+    var maxWidth = currentOptions.maxWidth > 0 ? currentOptions.maxWidth : getWidth(elm);
+    var width = elm.style.width;
+    elm.style.width = 'auto';
+    // Can't get the width of the element, no ellipsis is performed.
+    if (maxWidth === 0 || WLJSX.width(elm) <= maxWidth) {
+      elm.style.display = display;
+      elm.style.width = width;
+      elm.style.whiteSpace = whiteSpace;
+      return;
+    }
+    // Reset content of element
+    var text = origText;
+
+    // Start width - assume min 3px per char
+    var maxNumberOfChars = Math.ceil(maxWidth / 3);
+    text = text.substring(0, maxNumberOfChars);
+
+    // First reduce text size to fit the element
+    while (WLJSX.width(elm) >= maxWidth && text.length > 3) {
+      text = text.substr(0, text.length - 2);
+      WLJSX.html(elm, text);
     }
 
-    // @Deprecated
-    function doEllipsis(elm, options) {
-        var currentOptions = {
-            maxWidth : 0,
-            addTitle : false
-        };
+    do {
+      text = text.substr(0, text.length - 1);
+      WLJSX.html(elm, text + '...');
+    } while (WLJSX.width(elm) > maxWidth && text.length > 3);
 
-        WLJSX.Object.extend(currentOptions, options || {});
-        var origText = elm.innerHTML;
-        var display = elm.style.display;
-        elm.style.display = 'inline';
-        var whiteSpace = elm.style.whiteSpace;
-        elm.style.whiteSpace = 'nowrap';
-        var maxWidth = currentOptions.maxWidth > 0 ? currentOptions.maxWidth : getWidth(elm);
-        var width = elm.style.width;
-        elm.style.width = 'auto';
-        // Can't get the width of the element, no ellipsis is performed.
-        if (maxWidth === 0 || WLJSX.width(elm) <= maxWidth) {
-            elm.style.display = display;
-            elm.style.width = width;
-            elm.style.whiteSpace = whiteSpace;
-            return;
-        }
-        // Reset content of element
-        var text = origText;
-
-        // Start width - assume min 3px per char
-        var maxNumberOfChars = Math.ceil(maxWidth / 3);
-        text = text.substring(0, maxNumberOfChars);
-
-        // First reduce text size to fit the element
-        while (WLJSX.width(elm) >= maxWidth && text.length > 3) {
-            text = text.substr(0, text.length - 2);
-            WLJSX.html(elm, text);
-        }
-
-        do {
-            text = text.substr(0, text.length - 1);
-            WLJSX.html(elm, text + "...");
-        } while (WLJSX.width(elm) > maxWidth && text.length > 3);
-
-        if (text !== origText && currentOptions.addTitle) {
-            elm.title = origText;
-        }
-        elm.style.display = display;
-        elm.style.width = width;
-        elm.style.whiteSpace = whiteSpace;
+    if (text !== origText && currentOptions.addTitle) {
+      elm.title = origText;
     }
-    
-    function loadWLClientMessages(lang) {
-      	
-    	var url = "worklight/messages/" + lang + "/messages.json";
-    	if(lang === null || typeof lang === 'undefined' || lang.indexOf('en') == 0) {
-    		// why indexOf? check 41118
-    		url = "worklight/messages/messages.json";
-        }
-    	
-    	//Windows 8 does not allow ajax calls to local json files. For Windows 8 environment set isLocal option in the ajax call to false.
-		//For other environments keep it as true.        	
-		var isLocal = true;
-		if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8) {
-			isLocal = false;
-		}
-		
-    	// try-catch block required.In Windows 8 if load does not succeed, it does not go to error callback.
-    	// Instead throws an exception and execution ends.
-    	try{					
-    		WLJQ.ajax({
-				async : false,
-				isLocal : isLocal,
-				dataType : "json",
-				url : url,
-				success : function(data) {
-					WL.ClientMessages = data;					
-				},
-				error : function(data) {}
-			});
-    	}catch(e){};
+    elm.style.display = display;
+    elm.style.width = width;
+    elm.style.whiteSpace = whiteSpace;
+  }
+
+  function loadWLClientMessages(lang) {
+
+    var url = 'worklight/messages/' + lang + '/messages.json';
+    if (lang === null || typeof lang === 'undefined' || lang.indexOf('en') === 0) {
+      // why indexOf? check 41118
+      url = 'worklight/messages/messages.json';
     }
 
-    this.wlReachableCallback = function(connection) {
-    };
+    //Windows 8 does not allow ajax calls to local json files. For Windows 8 environment set isLocal option in the ajax call to false.
+    //For other environments keep it as true.         
+    var isLocal = true;
+    if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL ) {
+      isLocal = false;
+    }
 
-    // .................... Public methods ...........................
+    // try-catch block required.In Windows 8 if load does not succeed, it does not go to error callback.
+    // Instead throws an exception and execution ends.
+    try {
+      WLJQ.ajax({
+        async: false,
+        isLocal: isLocal,
+        dataType: 'json',
+        url: url,
+        success: function(data) {
+          WL.ClientMessages = data;
+        },
+        error: function() {}
+      });
+    } catch (e) {}
+  }
 
-    this.__networkCheckTimeout = function() {
-        if (!window.connectivityCheckDone) {
-            WL.Logger.debug("Connectivity check has timed out");
-            window.connectivityCheckDone = true;
-            WL.Utils.dispatchWLEvent(__WL.InternalEvents.REACHABILITY_TEST_FAILURE);
-        }
-    };
+  this.wlReachableCallback = function() {};
 
-    // checks that the WL server is available, and fires an appropriate event.
-    this.wlCheckReachability = function() {
-        this.wlCheckServerReachability();
-    };
+  // .................... Public methods ...........................
 
-    this.wlCheckServerReachability = function() {
-    	WL.Utils.dispatchWLEvent(__WL.InternalEvents.REACHABILITY_TEST_SUCCESS);        
-    };
+  this.__networkCheckTimeout = function() {
+    if (!window.connectivityCheckDone) {
+      WL.Logger.debug('Connectivity check has timed out');
+      window.connectivityCheckDone = true;
+      WL.Utils.dispatchWLEvent(__WL.InternalEvents.REACHABILITY_TEST_FAILURE);
+    }
+  };
 
-    /**
-     * Retrieves from the server the suitable skinLoader.js content, based on
-     * the appId and appVersion parameters, computes the skin name, and pass it
-     * to the provided callback. The method works only with development server
-     * (not production).
-     */
-    this.__getSkinFromRemoteSkinLoader = function(appId, appVersion, callback) {
-        // displaying an error message if appId or appVersion are missing
-        if (!appId) {
-            WL.SimpleDialog.show(WL.ClientMessages.error, WL.ClientMessages.downloadAppWebResourcesPleaseSpecifyAppID,
-                    [ {
-                        text : WL.ClientMessages.close
-                    } ]);
-            return;
-        } else if (!appVersion) {
-            WL.SimpleDialog.show(WL.ClientMessages.error,
-                    WL.ClientMessages.downloadAppWebResourcesPleaseSpecifyAppVersion, [ {
-                        text : WL.ClientMessages.close
-                    } ]);
-            return;
-        }
+  // checks that the WL server is available, and fires an appropriate event.
+  this.wlCheckReachability = function() {
+    this.wlCheckServerReachability();
+  };
 
-        // send request to the server for getting the app's skinLoader.js
-        // content
-        var url
-        if(WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_SERVER_CHANGE)){
-        	url = WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_ROOT_URL) + "/dev/appdata?appId=" + appId + "&appVer=" + appVersion + "&appEnv=" + WL.Client.getEnvironment();
+  this.wlCheckServerReachability = function() {
+    WL.Utils.dispatchWLEvent(__WL.InternalEvents.REACHABILITY_TEST_SUCCESS);
+  };
+
+  /**
+   * Retrieves from the server the suitable skinLoader.js content, based on
+   * the appId and appVersion parameters, computes the skin name, and pass it
+   * to the provided callback. The method works only with development server
+   * (not production).
+   */
+  this.__getSkinFromRemoteSkinLoader = function(appId, appVersion, callback) {
+    // displaying an error message if appId or appVersion are missing
+    if (!appId) {
+      WL.SimpleDialog.show(WL.ClientMessages.error, WL.ClientMessages.downloadAppWebResourcesPleaseSpecifyAppID, [{
+        text: WL.ClientMessages.close
+      }]);
+      return;
+    } else if (!appVersion) {
+      WL.SimpleDialog.show(WL.ClientMessages.error,
+        WL.ClientMessages.downloadAppWebResourcesPleaseSpecifyAppVersion, [{
+          text: WL.ClientMessages.close
+        }]);
+      return;
+    }
+
+    // send request to the server for getting the app's skinLoader.js
+    // content
+    var url;
+    if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_SERVER_CHANGE)) {
+      url = WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_ROOT_URL) + '/dev/appdata?appId=' + appId + '&appVer=' + appVersion + '&appEnv=' + WL.Client.getEnvironment();
+    } else {
+      url = WL.StaticAppProps.WORKLIGHT_BASE_URL + '/dev/appdata?appId=' + appId + '&appVer=' + appVersion + '&appEnv=' + WL.Client.getEnvironment();
+    }
+
+    var requestOptions = {
+      requestHeaders: {},
+      postBody: '',
+      onSuccess: function(response) {
+        // evaluating skinLoader.js content (which defines the
+        // method
+        // getSkinName), and then passing the callback the
+        // getSkinName()
+        // return value
+        WL._isInnerAppChanged = true;
+        /*jshint evil:true*/
+        eval(response.responseJSON.skinLoaderContent);
+        var newSkinName = getSkinName();
+        if (response.responseJSON.availableSkins.indexOf(newSkinName) !== -1) {
+          callback(newSkinName);
         } else {
-        	url = WL.StaticAppProps.WORKLIGHT_BASE_URL + "/dev/appdata?appId=" + appId + "&appVer=" + appVersion + "&appEnv=" + WL.Client.getEnvironment();
+          WL.SimpleDialog.show(WL.ClientMessages.error, WL.Utils.formatString(
+            WL.ClientMessages.downloadAppWebResourcesSkinIsNotValid, newSkinName), [{
+            text: WL.ClientMessages.close
+          }]);
         }
-        
-        var requestOptions = {
-        	requestHeaders : {},
-        	postBody : "",
-            onSuccess : function(response) {
-                // evaluating skinLoader.js content (which defines the
-                // method
-                // getSkinName), and then passing the callback the
-                // getSkinName()
-                // return value
-                WL._isInnerAppChanged = true;
-                eval(response.responseJSON.skinLoaderContent);
-                var newSkinName = getSkinName();
-                if (response.responseJSON.availableSkins.indexOf(newSkinName) != -1) {
-                    callback(newSkinName);
-                } else {
-                    WL.SimpleDialog.show(WL.ClientMessages.error, WL.Utils.formatString(
-                            WL.ClientMessages.downloadAppWebResourcesSkinIsNotValid, newSkinName), [ {
-                        text : WL.ClientMessages.close
-                    } ]);
-                }
-            },
-            onFailure : function(response) {
-                if (response.status == 0) {
-                    WL.SimpleDialog.show(WL.ClientMessages.error,
-                            WL.ClientMessages.downloadAppWebResourcesConnectionToServerUnavailable, [ {
-                                text : WL.ClientMessages.close
-                            } ]);
-                } else {
-                    switch (response.responseJSON.error) {
-                    case "singleSkin":
-                        WL._isInnerAppChanged = true;
-                        // this is not a real failure, it happens
-                        // whenever the
-                        // target app has only a single skin (and
-                        // therefore it
-                        // has no skinLoader.js file).
-                        callback("default");
-                        break;
-                    case "appNotExist":
-                        WL.SimpleDialog.show(WL.ClientMessages.error, WL.Utils.formatString(
-                                WL.ClientMessages.downloadAppWebResourcesAppIdNotExist, appId), [ {
-                            text : WL.ClientMessages.close
-                        } ]);
-                        break;
-                    case "versionNotExist":
-                        WL.SimpleDialog.show(WL.ClientMessages.error, WL.Utils.formatString(
-                                WL.ClientMessages.downloadAppWebResourcesAppVersionNotExist, appId, appVersion,
-                                WL.Client.getEnvironment()), [ {
-                            text : WL.ClientMessages.close
-                        } ]);
-                        break;
-                    default:
-                        WL.SimpleDialog.show(WL.ClientMessages.error, response.responseJSON.errorText, [ {
-                            text : WL.ClientMessages.close
-                        } ]);
-                    }
-                }
+      },
+      onFailure: function(response) {
+        if (response.status === 0) {
+          WL.SimpleDialog.show(WL.ClientMessages.error,
+            WL.ClientMessages.downloadAppWebResourcesConnectionToServerUnavailable, [{
+              text: WL.ClientMessages.close
+            }]);
+        } else {
+          switch (response.responseJSON.error) {
+            case 'singleSkin':
+              WL._isInnerAppChanged = true;
+              // this is not a real failure, it happens
+              // whenever the
+              // target app has only a single skin (and
+              // therefore it
+              // has no skinLoader.js file).
+              callback('default');
+              break;
+            case 'appNotExist':
+              WL.SimpleDialog.show(WL.ClientMessages.error, WL.Utils.formatString(
+                WL.ClientMessages.downloadAppWebResourcesAppIdNotExist, appId), [{
+                text: WL.ClientMessages.close
+              }]);
+              break;
+            case 'versionNotExist':
+              WL.SimpleDialog.show(WL.ClientMessages.error, WL.Utils.formatString(
+                WL.ClientMessages.downloadAppWebResourcesAppVersionNotExist, appId, appVersion,
+                WL.Client.getEnvironment()), [{
+                text: WL.ClientMessages.close
+              }]);
+              break;
+            default:
+              WL.SimpleDialog.show(WL.ClientMessages.error, response.responseJSON.errorText, [{
+                text: WL.ClientMessages.close
+              }]);
+          }
+        }
+      }
+    };
+
+    if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_OAUTH) && typeof(WLAuthorizationManager) !== 'undefined') {
+      WLAuthorizationManager.__addHeadersToWLRequest(requestOptions.requestHeaders)
+        .always(__sendRequest);
+    } else {
+      __sendRequest();
+    }
+
+    /*jshint latedef:false*/
+    function __sendRequest() {
+      /*jshint nonew:false*/
+      new WLJSX.Ajax.Request(url, requestOptions);
+    }
+  };
+
+  /**
+   * @param {Object}
+   *            value
+   * @return value if defined or null otherwise.
+   */
+  this.safeGetValue = function(value) {
+    if (!WLJSX.Object.isUndefined(value)) {
+      return value;
+    } else {
+      return null;
+    }
+  };
+
+  /**
+   * @deprecated - use WL.App.getErrorMessage(
+   */
+  this.getErrorMessage = function(e) {
+    if (e === null) {
+      return null;
+    } else if (WLJSX.Object.isString(e)) {
+      return e;
+    } else if (e.description) {
+      return e.description;
+    } else if (e.message) {
+      return e.message;
+    } else if (WLJSX.Object.isArray(e)) {
+      return e.join(',');
+    } else {
+      return e.toString();
+    }
+  };
+
+  /**
+   * Adds a parameter to the given URL.
+   *
+   * @param {string}
+   *            url
+   * @param {string}
+   *            parameter name
+   * @param {string}
+   *            parameter value
+   * @return the url with the added parameter.
+   */
+  this.addParameterToURL = function(url, name, value) {
+    if (url.indexOf('?') === -1) {
+      url += '?';
+    } else {
+      url += '&';
+    }
+    url += (name + '=' + encodeURIComponent(value));
+    return url;
+  };
+
+  // @Deprecated
+  this.ellipsisByClassName = function(className, options) {
+    var elements = WLJSX.$$('.' + className);
+    for (var i = 0; i < elements.length; i++) {
+      doEllipsis(elements[i], options);
+    }
+  };
+
+  // @Deprecated
+  this.ellipsisByElement = function(e, options) {
+    doEllipsis(e, options);
+  };
+
+  this.formatString = function() {
+    var resStr = arguments[0];
+    for (var i = 1; i < arguments.length; i++) {
+      var re = new RegExp('\\{' + (i - 1) + '\\}', 'g');
+      resStr = resStr.replace(re, arguments[i]);
+    }
+    return resStr;
+  };
+
+  var __deviceLocale;
+  this.setLocalization = function() {
+    var deviceLocale = WL.App.getDeviceLocale();
+    //The json containing user facing messages needs to be loaded and assigned only once. 
+    //Check if the object has already been assigned.Else re-use the existing object
+    if (typeof WL.ClientMessages === 'undefined' || __deviceLocale !== deviceLocale) {
+      __deviceLocale = deviceLocale;
+      WL.ClientMessages = undefined;
+      // In web (mobile web and desktop web), we inject the proper WL.ClientMessages in the HTML file at the server,
+      // so we would never get into this conditional code block.  This is a good thing!  No extra round trips to the
+      // server to pick up language files.  We trust the web browser's Accept-Language header in those environments.
+
+      // Windows Phone 8 returns inconsistent values for WL.App.getDeviceLocale().
+      // Use navigator.userLanguage is case of Windows Phone environment
+      if (WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE || WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE_8) {
+        deviceLocale = navigator.userLanguage;
+      }
+
+      // Ensure that the messages.json files are placed in lang folders or lang-COUNTRYCODE folders. 
+      // Ensure that the separator is '-' and not '_' as the RPX tool places translated files into folders with '-'.          
+      var lang = deviceLocale.substring(0, 2);
+      var region = deviceLocale.substring(3);
+      deviceLocale = lang.toLowerCase();
+      if (region) {
+        deviceLocale += '-' + region.toUpperCase();
+      }
+
+      // special fallback for zh languages (see 41026)
+      if (deviceLocale.indexOf('zh-HANS') !== -1) {
+        deviceLocale = 'zh';
+      }
+      else if (deviceLocale.indexOf('zh-HANT') !== -1 || deviceLocale.indexOf('zh-HK') !== -1) {
+        deviceLocale = 'zh-TW';
+      }
+
+      try {
+        //Check if the languagePreferences has been populated
+        if (typeof WL.StaticAppProps.LANGUAGE_PREFERENCES !== 'undefined' &&
+          WL.StaticAppProps.LANGUAGE_PREFERENCES !== null &&
+          WL.StaticAppProps.LANGUAGE_PREFERENCES.trim().length > 0) {
+
+          var wlLangPrefs = WL.StaticAppProps.LANGUAGE_PREFERENCES.split(',');
+
+          /*jshint maxdepth:4*/
+          for (var i = 0, len = wlLangPrefs.length; i < len; i++) {
+            wlLangPrefs[i] = wlLangPrefs[i].trim();
+            // special fallback for zh languages (see 41026)
+
+            /*jshint maxdepth:5*/
+            if (wlLangPrefs[i].indexOf('zh-Hans') !== -1) {
+              wlLangPrefs[i] = 'zh';
             }
-        };
-        
-        if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_OAUTH) && typeof(WLAuthorizationManager) !== 'undefined') {	    
-		    WLAuthorizationManager.__addHeadersToWLRequest(requestOptions.requestHeaders)
-			.always(__sendRequest);
-		} else {
-			__sendRequest();
-		}
-        
-        function __sendRequest() {
-        	new WLJSX.Ajax.Request(url, requestOptions);
-        }
-    };
-
-    /**
-     * @param {Object}
-     *            value
-     * @return value if defined or null otherwise.
-     */
-    this.safeGetValue = function(value) {
-        if (!WLJSX.Object.isUndefined(value)) {
-            return value;
-        } else {
-            return null;
-        }
-    };
-
-    /**
-     * @deprecated - use WL.App.getErrorMessage(
-     */
-    this.getErrorMessage = function(e) {
-        if (e === null) {
-            return null;
-        } else if (WLJSX.Object.isString(e)) {
-            return e;
-        } else if (e.description) {
-            return e.description;
-        } else if (e.message) {
-            return e.message;
-        } else if (WLJSX.Object.isArray(e)) {
-            return e.join(",");
-        } else {
-            return e.toString();
-        }
-    };
-
-    /**
-     * Adds a parameter to the given URL.
-     * 
-     * @param {string}
-     *            url
-     * @param {string}
-     *            parameter name
-     * @param {string}
-     *            parameter value
-     * @return the url with the added parameter.
-     */
-    this.addParameterToURL = function(url, name, value) {
-        if (url.indexOf("?") === -1) {
-            url += "?";
-        } else {
-            url += "&";
-        }
-        url += (name + '=' + encodeURIComponent(value));
-        return url;
-    };
-
-    // @Deprecated
-    this.ellipsisByClassName = function(className, options) {
-        var elements = WLJSX.$$('.' + className);
-        for ( var i = 0; i < elements.length; i++) {
-            doEllipsis(elements[i], options);
-        }
-    };
-
-    // @Deprecated
-    this.ellipsisByElement = function(e, options) {
-        doEllipsis(e, options);
-    };
-
-    this.formatString = function() {
-        var resStr = arguments[0];
-        for ( var i = 1; i < arguments.length; i++) {
-            var re = new RegExp("\\{" + (i - 1) + "\\}", "g");
-            resStr = resStr.replace(re, arguments[i]);
-        }
-        return resStr;
-    };
-
-    var __deviceLocale;
-    this.setLocalization = function() {
-    	var deviceLocale = WL.App.getDeviceLocale();
-    	//The json containing user facing messages needs to be loaded and assigned only once. 
-    	//Check if the object has already been assigned.Else re-use the existing object
-    	if(typeof WL.ClientMessages === 'undefined' || __deviceLocale !== deviceLocale) {
-    		__deviceLocale = deviceLocale;
-    		WL.ClientMessages = undefined;
-    		// In web (mobile web and desktop web), we inject the proper WL.ClientMessages in the HTML file at the server,
-    		// so we would never get into this conditional code block.  This is a good thing!  No extra round trips to the
-    		// server to pick up language files.  We trust the web browser's Accept-Language header in those environments.
-
-    		var deviceLanguage = WL.App.getDeviceLanguage();    	
-
-    		// Windows Phone 8 returns inconsistent values for WL.App.getDeviceLocale().
-    		// Use navigator.userLanguage is case of Windows Phone environment
-    		if (WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE || WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE_8) {
-    			deviceLocale = navigator.userLanguage;
-    		}
-
-    		// Ensure that the messages.json files are placed in lang folders or lang-COUNTRYCODE folders. 
-    		// Ensure that the separator is "-" and not "_" as the RPX tool places translated files into folders with "-".        	
-    		var lang = deviceLocale.substring(0, 2);    	
-    		var region = deviceLocale.substring(3);        	
-    		deviceLocale = lang.toLowerCase();
-    		if(region) {    		
-    			deviceLocale +=  "-" + region.toUpperCase();
-    		}
-    		
-    		// special fallback for zh languages (see 41026)
-    		if(deviceLocale.indexOf("zh-HANS") != -1) deviceLocale = "zh";
-    		else if(deviceLocale.indexOf("zh-HANT") != -1 || deviceLocale.indexOf("zh-HK") != -1) deviceLocale = "zh-TW";
-
-    		try {
-	    		//Check if the languagePreferences has been populated
-	    		if(typeof WL.StaticAppProps.LANGUAGE_PREFERENCES !== 'undefined' &&
-	    				WL.StaticAppProps.LANGUAGE_PREFERENCES !== null && 
-	    				WL.StaticAppProps.LANGUAGE_PREFERENCES.trim().length > 0) {
-	
-	    			var wlLangPrefs = WL.StaticAppProps.LANGUAGE_PREFERENCES.split(",");
-	    			
-	    			for(var i = 0, len = wlLangPrefs.length; i < len; i++) {
-	    				wlLangPrefs[i] = wlLangPrefs[i].trim();
-	    				// special fallback for zh languages (see 41026)
-	    				if(wlLangPrefs[i].indexOf("zh-Hans") != -1) wlLangPrefs[i] = "zh";
-	    				if(wlLangPrefs[i].indexOf("zh-Hant") != -1 || wlLangPrefs[i].indexOf("zh-HK") != -1) wlLangPrefs[i] = "zh-TW";
-	    			}
-	    			
-	    			// check if the deviceLocale is part of the preference list.If so load it and skip rest.
-	    			if(wlLangPrefs.indexOf(deviceLocale) != -1) {
-	    				loadWLClientMessages(deviceLocale);
-	    			} 
-	    			
-	    			// deviceLocale will always have language and locale part
-	    			if(typeof WL.ClientMessages === 'undefined'/* && deviceLocale.length > 2*/) {
-	    				// deviceLocale is not part of wlLangPrefs,
-	    				// check if the deviceLanguage is part of the preference list. If so, load it
-	    				if(wlLangPrefs.indexOf(lang) != -1) {
-	    					loadWLClientMessages(lang);
-	    				}
-	    			}
-	    			
-	    			if(typeof WL.ClientMessages === 'undefined') {
-	    				// Loop through wlLangPrefs to find the first valid language
-	    				for(var i = 0, len = wlLangPrefs.length; i < len; i++) {
-	    					loadWLClientMessages(wlLangPrefs[i]);
-	    					if (typeof WL.ClientMessages !== 'undefined') {
-	    						break;
-	    					}
-						}
-	    			}
-	    		} else {
-	    			// Get the file from which to pickup the user visible messages.
-	    			// prefer deviceLocale, then deviceLanguage, then English, in that order
-            if (typeof WL.ClientMessages === 'undefined') { 
-	    			  loadWLClientMessages(deviceLocale);
+            if (wlLangPrefs[i].indexOf('zh-Hant') !== -1 || wlLangPrefs[i].indexOf('zh-HK') !== -1) {
+              wlLangPrefs[i] = 'zh-TW';
             }
-	    			// we don't have a deviceLanguage translation file, try deviceLanguage
-	    			if (typeof WL.ClientMessages === 'undefined') { 
-	    				loadWLClientMessages(lang);
-	    			}
-	    		}
-    		} catch(e){
-    			//TODO: log error
-    		}
-    		
-    		// fall back to English
-    		if (typeof WL.ClientMessages === 'undefined') {
-				  loadWLClientMessages('en');
-				  // TODO: log and crash?  If WL.ClientMessages is still undefined here, we're dead (but this could be made safe by using a function in WL.ClientMessages to
-				  // retrieve messages rather than referring to a (possibly undefined) value directly
-		    }
-    	}
-    };
-    
-    this.getLanguageDirectionality = function(lang) {
-    	if(typeof lang !== 'string') {
-    		lang = WL.App.getDeviceLanguage();
-    	}
-    	if(WL_.indexOf(WL.Language.LANGUAGES_RTL, lang) != -1) {
-    		return WL.Language.DIRECTION_RTL;
-    	}
-    	return WL.Language.DIRECTION_LTR;
-    };    
-    
-    this.clearText = function(className, attribute) {
-        var elementsToClear = WLJSX.$$('.' + className);
-        var element;
-        for ( var i = 0; i < elementsToClear.length; i++) {
-            element = elementsToClear[i];
-            if (!attribute || attribute === 'innerHTML') {
-                if (element.tagName.toLowerCase() === 'input') {
-                    element.value = '';
-                } else {
-                    WLJSX.empty(element);
-                }
-            } else if (attribute === 'title') {
-                element.title = '';
-            } else if (attribute === 'alt') {
-                element.alt = '';
+          }
+
+          // check if the deviceLocale is part of the preference list.If so load it and skip rest.
+          if (wlLangPrefs.indexOf(deviceLocale) !== -1) {
+            loadWLClientMessages(deviceLocale);
+          }
+
+          // deviceLocale will always have language and locale part
+          if (typeof WL.ClientMessages === 'undefined' /* && deviceLocale.length > 2*/ ) {
+            // deviceLocale is not part of wlLangPrefs,
+            // check if the deviceLanguage is part of the preference list. If so, load it
+            if (wlLangPrefs.indexOf(lang) !== -1) {
+              loadWLClientMessages(lang);
             }
-        }
-    };
+          }
 
-    this.replaceElementsText = function(parentId, dictionary, attribute) {
-        if (!dictionary) {
-            dictionary = WL_I18N_MESSAGES;
-        }
-
-        var cssSelector;
-        if (parentId) {
-            cssSelector = "#" + parentId + " ." + WL_CLASS_NAME_TRANSLATE;
+          if (typeof WL.ClientMessages === 'undefined') {
+            // Loop through wlLangPrefs to find the first valid language
+            for (var j = 0, length = wlLangPrefs.length; j < length; j++) {
+              loadWLClientMessages(wlLangPrefs[j]);
+              /*jshint maxdepth:6*/
+              if (typeof WL.ClientMessages !== 'undefined') {
+                break;
+              }
+            }
+          }
         } else {
-            cssSelector = "." + WL_CLASS_NAME_TRANSLATE;
+          // Get the file from which to pickup the user visible messages.
+          // prefer deviceLocale, then deviceLanguage, then English, in that order
+          if (typeof WL.ClientMessages === 'undefined') {
+            loadWLClientMessages(deviceLocale);
+          }
+          // we don't have a deviceLanguage translation file, try deviceLanguage
+          if (typeof WL.ClientMessages === 'undefined') {
+            loadWLClientMessages(lang);
+          }
         }
+      } catch (e) {
+        //TODO: log error
+      }
 
-        var elementsToFill = WLJSX.$$(cssSelector);
-        var element;
-        for ( var i = 0; i < elementsToFill.length; i++) {
-            element = elementsToFill[i];
-            if (!attribute || attribute === 'innerHTML') {
-                // Use value instead of innerHTML in input elements
-                if (element.tagName.toLowerCase() === 'input') {
-                    element.value = dictionary[element.id];
-                } else {
-                    WLJSX.html(element, dictionary[element.id]);
-                }
-            } else if (attribute === 'title') {
-                element.title = dictionary[element.id];
-            } else if (attribute === 'alt') {
-                element.alt = dictionary[element.id];
-            }
-        }
-    };
+      // fall back to English
+      if (typeof WL.ClientMessages === 'undefined') {
+        loadWLClientMessages('en');
+        // TODO: log and crash?  If WL.ClientMessages is still undefined here, we're dead (but this could be made safe by using a function in WL.ClientMessages to
+        // retrieve messages rather than referring to a (possibly undefined) value directly
+      }
+    }
+  };
 
-    /*
-     * Adds the URL prefix to the URL if not already added and
-     * WL.StaticAppProps.WORKLIGHT_ROOT_URL is set This is used when working
-     * with desktop gadget and we need a static URL
-     */
-    this.createAPIRequestURL = function(path) {
-        var resultURL;
+  this.getLanguageDirectionality = function(lang) {
+    if (typeof lang !== 'string') {
+      lang = WL.App.getDeviceLanguage();
+    }
+    if (WL_.indexOf(WL.Language.LANGUAGES_RTL, lang) !== -1) {
+      return WL.Language.DIRECTION_RTL;
+    }
+    return WL.Language.DIRECTION_LTR;
+  };
 
-        // if "path" is an absolute URL we just use it
-        if (/^[a-z]+:\/\//i.test(path)) {
-            resultURL = path;
-        }//check itms-services (download app inside app url) and if it is that, accept it.
-        else if ((WL.Client.getEnvironment() === WL.Environment.IPHONE || WL.Client.getEnvironment() === WL.Environment.IPAD) && path.indexOf("itms-services") === 0) {
-        	resultURL = path;
-        }
-        else if (path.indexOf("/") === 0) {
-            // In case using absolute url like "/random" it must be under app/services
-        	if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_SERVER_CHANGE)) {
-        		var appServicesUrl = WL.Client.getAppProperty(WL.AppProp.APP_SERVICES_RELATIVE_URL);
-        	} else {
-        		var appServicesUrl = WL.Client.getAppProperty(WL.AppProp.APP_SERVICES_URL);
-        	}
-            resultURL = appServicesUrl.substr(0, appServicesUrl.length - 1) + path;
+  this.clearText = function(className, attribute) {
+    var elementsToClear = WLJSX.$$('.' + className);
+    var element;
+    for (var i = 0; i < elementsToClear.length; i++) {
+      element = elementsToClear[i];
+      if (!attribute || attribute === 'innerHTML') {
+        if (element.tagName.toLowerCase() === 'input') {
+          element.value = '';
         } else {
-            // Relative URL
-        	if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_SERVER_CHANGE)) {
-        		// We take <env-name>/" - and append "path" to it
-        		resultURL = WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_RELATIVE_URL) + path;
-        	} else {
-        		// We take http://<IP>:<PORT>/<app-name>/<env-name>/" - and append "path" to it
-        		resultURL = WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_ROOT_URL) + path;
-        	}
+          WLJSX.empty(element);
         }
-        return resultURL;
-    };
+      } else if (attribute === 'title') {
+        element.title = '';
+      } else if (attribute === 'alt') {
+        element.alt = '';
+      }
+    }
+  };
 
-    /*
-     * Extends the target object with the source object only with fields and
-     * methods that do not already exist on the target.
-     */
-    this.extend = function(target, source) {
-        target = WLJSX.Object.extend(WLJSX.Object.clone(source), target);
-        return target;
-    };
+  this.replaceElementsText = function(parentId, dictionary, attribute) {
+    if (!dictionary) {
+      dictionary = WL_I18N_MESSAGES;
+    }
 
-    /*
-     * extracts the host part of a url. For example, for the input
-     * url="https://212.10.0.15:8888/application/service/?arg=blue", the result
-     * would be "212.10.0.15".
-     */
-    this.getHostname = function(url) {
-        var re = new RegExp('^(?:f|ht)tp(?:s)?\://([^/:]+)', 'im');
-        return url.match(re)[1].toString();
-    };
+    var cssSelector;
+    if (parentId) {
+      cssSelector = '#' + parentId + ' .' + WL_CLASS_NAME_TRANSLATE;
+    } else {
+      cssSelector = '.' + WL_CLASS_NAME_TRANSLATE;
+    }
 
-    this.dispatchWLEvent = function(eventName) {
-        // ie (WP7/VISTA) support custom event
-        if (typeof document.createEvent == "undefined") {
-            WLJSX.trigger(document, eventName);
+    var elementsToFill = WLJSX.$$(cssSelector);
+    var element;
+    for (var i = 0; i < elementsToFill.length; i++) {
+      element = elementsToFill[i];
+      if (!attribute || attribute === 'innerHTML') {
+        // Use value instead of innerHTML in input elements
+        if (element.tagName.toLowerCase() === 'input') {
+          element.value = dictionary[element.id];
         } else {
-            var e = document.createEvent('Events');
-            e.initEvent(eventName, false, false);
-            document.dispatchEvent(e);
+          WLJSX.html(element, dictionary[element.id]);
         }
+      } else if (attribute === 'title') {
+        element.title = dictionary[element.id];
+      } else if (attribute === 'alt') {
+        element.alt = dictionary[element.id];
+      }
+    }
+  };
+
+  /*
+   * Adds the URL prefix to the URL if not already added and
+   * WL.StaticAppProps.WORKLIGHT_ROOT_URL is set This is used when working
+   * with desktop gadget and we need a static URL
+   */
+  this.createAPIRequestURL = function(path) {
+    var resultURL;
+
+    // if "path" is an absolute URL we just use it
+    if (/^[a-z]+:\/\//i.test(path)) {
+      resultURL = path;
+    } //check itms-services (download app inside app url) and if it is that, accept it.
+    else if ((WL.Client.getEnvironment() === WL.Environment.IPHONE || WL.Client.getEnvironment() === WL.Environment.IPAD) && path.indexOf('itms-services') === 0) {
+      resultURL = path;
+    } else if (path.indexOf('/') === 0) {
+      // In case using absolute url like "/random" it must be under app/services
+      var appServicesUrl;
+      if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_SERVER_CHANGE)) {
+        appServicesUrl = WL.Client.getAppProperty(WL.AppProp.APP_SERVICES_RELATIVE_URL);
+      } else {
+        appServicesUrl = WL.Client.getAppProperty(WL.AppProp.APP_SERVICES_URL);
+      }
+      resultURL = appServicesUrl.substr(0, appServicesUrl.length - 1) + path;
+    } else {
+      // Relative URL
+      if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_SERVER_CHANGE)) {
+        // We take <env-name>/" - and append "path" to it
+        resultURL = WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_RELATIVE_URL) + path;
+      } else {
+        // We take http://<IP>:<PORT>/<app-name>/<env-name>/" - and append "path" to it
+        resultURL = WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_ROOT_URL) + path;
+      }
+    }
+    return resultURL;
+  };
+
+  /*
+   * Extends the target object with the source object only with fields and
+   * methods that do not already exist on the target.
+   */
+  this.extend = function(target, source) {
+    target = WLJSX.Object.extend(WLJSX.Object.clone(source), target);
+    return target;
+  };
+
+  /*
+   * extracts the host part of a url. For example, for the input
+   * url="https://212.10.0.15:8888/application/service/?arg=blue", the result
+   * would be "212.10.0.15".
+   */
+  this.getHostname = function(url) {
+    var re = new RegExp('^(?:f|ht)tp(?:s)?://([^/:]+)', 'im');
+    return url.match(re)[1].toString();
+  };
+
+  this.dispatchWLEvent = function(eventName) {
+    // ie (WP7/VISTA) support custom event
+    if (typeof document.createEvent === 'undefined') {
+      WLJSX.trigger(document, eventName);
+    } else {
+      var e = document.createEvent('Events');
+      e.initEvent(eventName, false, false);
+      document.dispatchEvent(e);
+    }
+  };
+
+  this.getCurrentSkinName = function() {
+    var skinName = null;
+    // readUserPref is syncronized on Android but async on iOS, this is why
+    // the implementation differ
+
+    if (WL.Client.getEnvironment() === WL.Env.ANDROID || WL.EnvProfile.isEnabled(WL.EPField.ISIOS)) {
+      skinName = WL.StaticAppProps.SKIN_NAME;
+    } else if (WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE || WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE_8) {
+      skinName = getUrlParam('skinName');
+      if (skinName.length === 0) {
+        skinName = 'default';
+      }
+    }
+    // environements that don't support skins should return 'default'
+    else {
+      skinName = 'default';
+    }
+    return skinName;
+  };
+
+  /**
+   * function: getFreeSpaceOnDevice return: free space on device in Bytes
+   * Should be called only for environments that support direct update
+   * (currently Android + iOS)
+   */
+  this.getFreeSpaceOnDevice = function() {
+    var freeSpace;
+
+    if (WL.EnvProfile.isEnabled(WL.EPField.ISIOS) || WL.Client.getEnvironment() === WL.Env.ANDROID) {
+      freeSpace = WL.StaticAppProps.FREE_SPACE;
+    }
+    // environements that don't support skins should return 'default'
+    else {
+      var msg = 'WL.Utils.getFreeSpaceOnDevice(..) should be supported only on environments that support direct update';
+      var ex = new Error(msg);
+      WL.Logger.error(msg, ex);
+      throw ex;
+    }
+    return Number(freeSpace).toFixed(2);
+  };
+
+  // hide application with a black div
+  this.addBlackDiv = function() {
+    var blackDiv = WLJSX.newElement('<div/>', {
+      'id': 'blockingDiv',
+      'style': 'background-color:black; z-index: 9999; position: fix; top:0; left:0; right:0; bottom:0;'
+    });
+    document.body.appendChild(blackDiv);
+  };
+
+  this.removeBlackDiv = function() {
+    while (WLJSX.$('blockingDiv')) {
+      document.body.removeChild(WLJSX.$('blockingDiv'));
+    }
+  };
+
+  this.getSkinLoaderChecksum = function() {
+    var skinLoaderChecksum;
+    if (WL.EnvProfile.isEnabled(WL.EPField.ISIOS) || WL.Client.getEnvironment() === WL.Env.ANDROID) {
+      skinLoaderChecksum = WL.StaticAppProps.SKIN_LOADER_CHECKSUM;
+    }
+    // environments that don't support skins should return null
+    else {
+      var msg = 'WL.Utils.getSkinLoaderChecksum(..) should be supported only on environments that support direct update';
+      var ex = new Error(msg);
+      WL.Logger.error(msg, ex);
+      throw ex;
+    }
+
+    if ((typeof skinLoaderChecksum === 'undefined') || (skinLoaderChecksum === null) || (skinLoaderChecksum.length === 0)) {
+      skinLoaderChecksum = WL_SKINLOADER_CHECKSUM.checksum;
+      WL.Utils.setSkinLoaderChecksum(skinLoaderChecksum);
+    }
+    return skinLoaderChecksum;
+  };
+
+  this.setSkinLoaderChecksum = function(skinLoaderChecksum) {
+    if ((WL.Client.getEnvironment() === WL.Env.ANDROID) || (WL.EnvProfile.isEnabled(WL.EPField.ISIOS))) {
+      WL.App.writeUserPref('wlSkinLoaderChecksum', skinLoaderChecksum);
+    }
+    // environments that don't support skins should return null
+    else {
+      var msg = 'WL.Utils.setSkinLoaderChecksum(..) should be supported only on environments that support direct update';
+      var ex = new Error(msg);
+      WL.Logger.error(msg, ex);
+      throw ex;
+    }
+  };
+
+  this.safeInnerHTML = function(target, contentToSet, options) {
+    // iPhone sometimes just fails to set innerHTML - no idea why. you
+    // end up with an empty div.
+    // it's more reliable with a setTimeout but still not reliable enough.
+    // this function sets the text and then checks it. if it's not
+    // there, it tries once more. horrible, but necessary.
+    // note: this really became an issue within the app and was even
+    // worse in 1st gen and 3g. 3GS was mostly fixed with one timeout,
+    // whereas even 3 didn't seem to always fix pre-3GS
+    // some blog posts indicated that they noticed the problem only
+    // when the messed with location.href
+    // (http://blog.johnmckerrell.com/2007/03/07/problems-with-safari-and-innerhtml/)
+    // so i've removed this stuff in the app and location.href is no
+    // longer changed. seems to be worse with database than it was
+    // with XHR but assume we'll leave it in place to be safe
+    var _options = {
+      onSuccess: function() {},
+      onFailure: function() {
+        WL.Logger.debug('safeInnerHtml error. Could not perform ' + target.id + '.innerHtml = ' + contentToSet)
+          .bind(this);
+      },
+      count: 10
     };
+    if (!WLJSX.Object.isUndefined(options)) {
+      _options = WLJSX.Object.extend(_options, options);
+    }
 
-    this.getCurrentSkinName = function() {
-        var skinName = null;
-        // readUserPref is syncronized on Android but async on iOS, this is why
-        // the implementation differ
+    if (!WL.EnvProfile.isEnabled(WL.EPField.ISIOS)) {
+      target.innerHTML = contentToSet;
+      _options.onSuccess();
+      return;
+    }
 
-        if (WL.Client.getEnvironment() === WL.Env.ANDROID || WL.EnvProfile.isEnabled(WL.EPField.ISIOS)) {
-        	skinName = WL.StaticAppProps.SKIN_NAME;
-        } else if (WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE || WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE_8) {
-            skinName = getUrlParam("skinName");
-            if (skinName.length == 0) {
-                skinName = "default";
-            }
-        }
-        // environements that don't support skins should return 'default'
-        else {
-            skinName = 'default';
-        }
-        return skinName;
-    };
+    target.innerHTML = contentToSet;
+    var timeout = 50;
+    var count = _options.count;
 
-    /**
-     * function: getFreeSpaceOnDevice return: free space on device in Bytes
-     * Should be called only for environments that support direct update
-     * (currently Android + iOS)
-     */
-    this.getFreeSpaceOnDevice = function() {
-        var freeSpace;
-        
-        if (WL.EnvProfile.isEnabled(WL.EPField.ISIOS) || WL.Client.getEnvironment() === WL.Env.ANDROID) {
-            freeSpace = WL.StaticAppProps.FREE_SPACE;
-        }
-        // environements that don't support skins should return 'default'
-        else {
-            var msg = "WL.Utils.getFreeSpaceOnDevice(..) should be supported only on environments that support direct update";
-            var ex = new Error(msg);
-            WL.Logger.error(msg, ex);
-            throw ex;
-        }
-        return Number(freeSpace).toFixed(2);
-    };
+    if ((contentToSet !== '' && target.innerHTML === '') || (contentToSet === '' && target.innerHTML !== '')) {
+      if (_options.count <= 0) {
+        _options.onFailure();
+      } else {
+        WL.Logger.debug(target.id + '.innerHTML failed. number of attempts remaining: ' + count + ' ( + ' + timeout + 'ms timout)');
+        --count;
+        _options.count = count;
+        setTimeout(function() {
+          this.safeInnerHTML(target, contentToSet, _options);
+        }, timeout);
+      }
+    } else {
+      _options.onSuccess();
+    }
+  };
 
-    // hide application with a black div
-    this.addBlackDiv = function() {
-        var blackDiv = WLJSX.newElement('<div/>', {
-            'id' : 'blockingDiv',
-            'style' : 'background-color:black; z-index: 9999; position: fix; top:0; left:0; right:0; bottom:0;'
-        });
-        document.body.appendChild(blackDiv);
-    };
+  /**
+   * Helper function, there is a difference between IOS and Android In Android
+   * Cordova returns the data as is, while in IOS it envelops it in another
+   * Object. Check if IOS and if so return the inner data
+   *
+   * @param response -
+   *            Cordova response Object
+   * @param innerFieldName -
+   *            the name of the inner object to retrieved in IOS
+   */
+  this.getCordovaPluginResponseObject = function(response, innerFieldName) {
+    if (WL.EnvProfile.isEnabled(WL.EPField.ISIOS)) {
+      if (response) {
+        return response[innerFieldName];
+      }
+    }
+    return response;
+  };
 
-    this.removeBlackDiv = function() {
-        while (WLJSX.$('blockingDiv')) {
-            document.body.removeChild(WLJSX.$('blockingDiv'));
-        }
-    };
+  /**
+   * Version compares 2 version numbers in strings to the length of the maxLength parameter
+   * @param {string} x
+   * @param {string} y
+   * @param {string} maxLength
+   * @return -1 if x>y, 1 if x<y, or 0 if equal
+   */
+  this.versionCompare = function(x, y, maxLength) {
+    var i = 0,
+      /*jshint camelcase:false*/
+      x_components = x.split('.'),
+      y_components = y.split('.'),
+      len = Math.min(x_components.length, y_components.length),
+      maxLng = maxLength || 5;
 
-    this.getSkinLoaderChecksum = function() {
-        var skinLoaderChecksum;
-        if (WL.EnvProfile.isEnabled(WL.EPField.ISIOS) || WL.Client.getEnvironment() === WL.Env.ANDROID) {
-            skinLoaderChecksum = WL.StaticAppProps.SKIN_LOADER_CHECKSUM;
-        }
-        // environments that don't support skins should return null
-        else {
-            var msg = "WL.Utils.getSkinLoaderChecksum(..) should be supported only on environments that support direct update";
-            var ex = new Error(msg);
-            WL.Logger.error(msg, ex);
-            throw ex;
-        }
+    if (x === y) {
+      return 0;
+    }
 
-        if ((typeof skinLoaderChecksum === 'undefined') || (skinLoaderChecksum == null)
-                || (skinLoaderChecksum.length == 0)) {
-            skinLoaderChecksum = WL_SKINLOADER_CHECKSUM.checksum;
-            WL.Utils.setSkinLoaderChecksum(skinLoaderChecksum);
-        }
-        return skinLoaderChecksum;
-    };
+    for (i = 0; i < len; i += 1) {
 
-    this.setSkinLoaderChecksum = function(skinLoaderChecksum) {
-        if ((WL.Client.getEnvironment() === WL.Env.ANDROID) || (WL.EnvProfile.isEnabled(WL.EPField.ISIOS))) {
-            WL.App.writeUserPref('wlSkinLoaderChecksum', skinLoaderChecksum);
-        }
-        // environments that don't support skins should return null
-        else {
-            var msg = "WL.Utils.setSkinLoaderChecksum(..) should be supported only on environments that support direct update";
-            var ex = new Error(msg);
-            WL.Logger.error(msg, ex);
-            throw ex;
-        }
-    };
+      // x > y
+      if (parseInt(x_components[i], 10) > parseInt(y_components[i], 10)) {
+        return 1;
+      }
 
-    this.safeInnerHTML = function(target, contentToSet, options) {
-        // iPhone sometimes just fails to set innerHTML - no idea why. you
-        // end up with an empty div.
-        // it's more reliable with a setTimeout but still not reliable enough.
-        // this function sets the text and then checks it. if it's not
-        // there, it tries once more. horrible, but necessary.
-        // note: this really became an issue within the app and was even
-        // worse in 1st gen and 3g. 3GS was mostly fixed with one timeout,
-        // whereas even 3 didn't seem to always fix pre-3GS
-        // some blog posts indicated that they noticed the problem only
-        // when the messed with location.href
-        // (http://blog.johnmckerrell.com/2007/03/07/problems-with-safari-and-innerhtml/)
-        // so i've removed this stuff in the app and location.href is no
-        // longer changed. seems to be worse with database than it was
-        // with XHR but assume we'll leave it in place to be safe
-        var _options = {
-            onSuccess : function() {
-            },
-            onFailure : function() {
-                WL.Logger.debug("safeInnerHtml error. Could not perform " + target.id + ".innerHtml = " + contentToSet)
-                        .bind(this);
-            },
-            count : 10
-        };
-        if (!WLJSX.Object.isUndefined(options)) {
-            _options = WLJSX.Object.extend(_options, options);
-        }
+      // y > x
+      if (parseInt(x_components[i], 10) < parseInt(y_components[i], 10)) {
+        return -1;
+      }
 
-        if (!WL.EnvProfile.isEnabled(WL.EPField.ISIOS)) {
-            target.innerHTML = contentToSet;
-            _options.onSuccess();
-            return;
-        }
+      if (i >= maxLng) {
+        break; //check only up to maxLength+1 parts
+      }
 
-        target.innerHTML = contentToSet;
-        var timeout = 50;
-        var count = _options.count;
+      // If one's a prefix of the other, the longer one is greater.
+      if (x_components.length > y_components.length) {
+        return 1;
+      }
 
-        if ((contentToSet != '' && target.innerHTML == '') || (contentToSet == '' && target.innerHTML != '')) {
-            if (_options.count <= 0) {
-                _options.onFailure();
-            } else {
-                WL.Logger.debug(target.id + ".innerHTML failed. number of attempts remaining: " + count + " ( + "
-                        + timeout + "ms timout)");
-                --count;
-                _options.count = count;
-                setTimeout(function() {
-                    safeInnerHTML(target, contentToSet, _options);
-                }, timeout);
-            }
-        } else {
-            _options.onSuccess();
-        }
-    };
+      if (x_components.length < y_components.length) {
+        return -1;
+      }
 
-    /**
-     * Helper function, there is a difference between IOS and Android In Android
-     * Cordova returns the data as is, while in IOS it envelops it in another
-     * Object. Check if IOS and if so return the inner data
-     * 
-     * @param response -
-     *            Cordova response Object
-     * @param innerFieldName -
-     *            the name of the inner object to retrieved in IOS
-     */
-    this.getCordovaPluginResponseObject = function(response, innerFieldName) {
-        if (WL.EnvProfile.isEnabled(WL.EPField.ISIOS)) {
-            if (response) {
-                return response[innerFieldName];
-            }
-        }
-        return response;
-    };
-    
-    /**
-	 * Version compares 2 version numbers in strings to the length of the maxLength parameter
-	 * @param {string} x
-	 * @param {string} y
-	 * @param {string} maxLength
-	 * @return -1 if x>y, 1 if x<y, or 0 if equal
-	 */
-	this.versionCompare = function(x, y, maxLength){
-		var i = 0,
-		x_components = x.split("."),
-		y_components = y.split("."),
-		len = Math.min(x_components.length, y_components.length),
-		maxLng = maxLength || 5;
 
-		if (x === y) {
-			return 0;
-		}
-	
-		for (i = 0; i < len; i += 1) {
-	
-			// x > y
-			if (parseInt(x_components[i]) > parseInt(y_components[i])) {
-				return 1;
-			}
-	
-			// y > x
-			if (parseInt(x_components[i]) < parseInt(y_components[i])) {
-				return -1;
-			}
-			
-			if(i >= maxLng) break; //check only up to maxLength+1 parts
-			
-			// If one's a prefix of the other, the longer one is greater.
-		    if (x_components.length > y_components.length)
-		    {
-		        return 1;
-		    }
-	
-		    if (x_components.length < y_components.length)
-		    {
-		        return -1;
-		    }
-			
-			
-		}
-	
-		return 0; //same
-	};
+    }
+
+    return 0; //same
+  };
 }; // End WL.Utils
 
-__WL.prototype.Utils = new __WLUtils;
-WL.Utils = new __WLUtils;
-
+/*jshint newcap:false*/
+__WL.prototype.Utils = new __WLUtils();
+WL.Utils = new __WLUtils();
 
 /**
  * ================================================================= 
@@ -2302,36 +2436,38 @@ WL.Utils = new __WLUtils;
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
 
+/*globals WL, __WL, WLJSX*/
+/*jshint camelcase:false*/
 
 WL.AppProperty = {
-    AIR_ICON_16x16_PATH : "AIR_ICON_16x16_PATH",
-    AIR_ICON_128x128_PATH : "AIR_ICON_128x128_PATH",
-    DOWNLOAD_APP_LINK : "DOWNLOAD_APP_LINK",
-    ENVIRONMENT : "ENVIRONMENT",
-    APP_DISPLAY_NAME : "APP_DISPLAY_NAME",
-    APP_LOGIN_TYPE : "APP_LOGIN_TYPE",
-    APP_VERSION : "APP_VERSION",
-    HEIGHT : "HEIGHT",
-    IID : "IID",
-    LATEST_VERSION : "LATEST_VERSION",
-    LOGIN_DISPLAY_TYPE : "LOGIN_DISPLAY_TYPE",
-    LOGIN_REALM : "LOGIN_REALM",
-    MAIN_FILE_PATH : "MAIN_FILE_PATH",
-    SHOW_IN_TASKBAR : "SHOW_IN_TASKBAR",
-    THUMBNAIL_IMAGE_URL : "THUMBNAIL_IMAGE_URL",
-    WELCOME_PAGE_URL : "WELCOME_PAGE_URL",
-    WIDTH : "WIDTH",
-    WORKLIGHT_ROOT_URL : "WORKLIGHT_ROOT_URL",
-    WORKLIGHT_RELATIVE_URL : "WORKLIGHT_RELATIVE_URL",
-    APP_SERVICES_URL : "APP_SERVICES_URL",
-    APP_SERVICES_RELATIVE_URL : "APP_SERVICES_RELATIVE_URL",
-    WLCLIENT_TIMEOUT_IN_MILLIS : "WLCLIENT_TIMEOUT_IN_MILLIS"
+  AIR_ICON_16x16_PATH: 'AIR_ICON_16x16_PATH',
+  AIR_ICON_128x128_PATH: 'AIR_ICON_128x128_PATH',
+  DOWNLOAD_APP_LINK: 'DOWNLOAD_APP_LINK',
+  ENVIRONMENT: 'ENVIRONMENT',
+  APP_DISPLAY_NAME: 'APP_DISPLAY_NAME',
+  APP_LOGIN_TYPE: 'APP_LOGIN_TYPE',
+  APP_VERSION: 'APP_VERSION',
+  HEIGHT: 'HEIGHT',
+  IID: 'IID',
+  LATEST_VERSION: 'LATEST_VERSION',
+  LOGIN_DISPLAY_TYPE: 'LOGIN_DISPLAY_TYPE',
+  LOGIN_REALM: 'LOGIN_REALM',
+  MAIN_FILE_PATH: 'MAIN_FILE_PATH',
+  SHOW_IN_TASKBAR: 'SHOW_IN_TASKBAR',
+  THUMBNAIL_IMAGE_URL: 'THUMBNAIL_IMAGE_URL',
+  WELCOME_PAGE_URL: 'WELCOME_PAGE_URL',
+  WIDTH: 'WIDTH',
+  WORKLIGHT_ROOT_URL: 'WORKLIGHT_ROOT_URL',
+  WORKLIGHT_RELATIVE_URL: 'WORKLIGHT_RELATIVE_URL',
+  APP_SERVICES_URL: 'APP_SERVICES_URL',
+  APP_SERVICES_RELATIVE_URL: 'APP_SERVICES_RELATIVE_URL',
+  WLCLIENT_TIMEOUT_IN_MILLIS: 'WLCLIENT_TIMEOUT_IN_MILLIS'
 };
 
 // Short alias:
@@ -2339,17 +2475,18 @@ WL.AppProp = WL.AppProperty;
 
 // A copy of the Java GadgetEnvironment version.
 var __WLEnvironment = {
-    PREVIEW : "preview",
-    IPHONE : "iphone",
-    IPAD : "ipad",
-    DESKTOPBROWSER : "desktopbrowser",
-    ADOBE_AIR : "air",
-    ANDROID : "android",
-    BLACKBERRY : "blackberry",
-    BLACKBERRY10 : "blackberry10",
-    WINDOWS_PHONE_8: "windowsphone8",
-    WINDOWS8: 'windows8',
-    MOBILE_WEB: "mobilewebapp"
+  PREVIEW: 'preview',
+  IPHONE: 'iphone',
+  IPAD: 'ipad',
+  DESKTOPBROWSER: 'desktopbrowser',
+  ADOBE_AIR: 'air',
+  ANDROID: 'android',
+  BLACKBERRY: 'blackberry',
+  BLACKBERRY10: 'blackberry10',
+  WINDOWS_PHONE_8: 'windowsphone8',
+  WINDOWS8: 'windows8',
+  WINDOWSPHONEUNIVERSAL: 'windowsphoneuniversal',
+  MOBILE_WEB: 'mobilewebapp'
 };
 __WL.prototype.Environment = __WLEnvironment;
 WL.Environment = __WLEnvironment;
@@ -2357,38 +2494,39 @@ WL.Environment = __WLEnvironment;
 WL.Env = WL.Environment;
 
 // Constants for language manipulations
+/*jshint unused:false*/
 var WL_CLASS_NAME_TRANSLATE = 'translate';
 var WL_I18N_MESSAGES = null;
 
 // A copy of the Java AppLoginType version.
 WL.AppLoginType = {
-    LOGIN_ON_STARTUP : "onStartup",
-    LOGIN_ON_DEMAND : "onDemand",
-    NO_LOGIN : "never"
+  LOGIN_ON_STARTUP: 'onStartup',
+  LOGIN_ON_DEMAND: 'onDemand',
+  NO_LOGIN: 'never'
 };
 
 WL.UserInfo = {
-    IS_USER_AUTHENTICATED : "isUserAuthenticated",
-    USER_NAME : "userName",
-    LOGIN_NAME : "loginName",
-    USER_ID : "userId"
+  IS_USER_AUTHENTICATED: 'isUserAuthenticated',
+  USER_NAME: 'userName',
+  LOGIN_NAME: 'loginName',
+  USER_ID: 'userId'
 };
 
 WL.Orientation = {
-    AUTO : -1,
-    LANDSCAPE : 0,
-    PORTRAIT : 1
+  AUTO: -1,
+  LANDSCAPE: 0,
+  PORTRAIT: 1
 };
 
 WL.FixedViewType = {
-    TOP : "top",
-    BOTTOM : "bottom"
+  TOP: 'top',
+  BOTTOM: 'bottom'
 };
 
 WL.Language = {
-	DIRECTION_LTR : 0,
-	DIRECTION_RTL : 1,
-	LANGUAGES_RTL : ['he', 'iw', 'ar']
+  DIRECTION_LTR: 0,
+  DIRECTION_RTL: 1,
+  LANGUAGES_RTL: ['he', 'iw', 'ar']
 };
 
 
@@ -2400,30 +2538,30 @@ WL._isInnerAppChanged = false;
  * java enumeration.
  */
 var __WLErrorCode = {
-    UNEXPECTED_ERROR : "UNEXPECTED_ERROR",
-    API_INVOCATION_FAILURE : "API_INVOCATION_FAILURE",
-    USER_INSTANCE_ACCESS_VIOLATION : "USER_INSTANCE_ACCESS_VIOLATION",
-    AUTHENTICATION_REQUIRED : "AUTHENTICATION_REQUIRED",
-    DOMAIN_ACCESS_FORBIDDEN : "DOMAIN_ACCESS_FORBIDDEN",
+  UNEXPECTED_ERROR: 'UNEXPECTED_ERROR',
+  API_INVOCATION_FAILURE: 'API_INVOCATION_FAILURE',
+  USER_INSTANCE_ACCESS_VIOLATION: 'USER_INSTANCE_ACCESS_VIOLATION',
+  AUTHENTICATION_REQUIRED: 'AUTHENTICATION_REQUIRED',
+  DOMAIN_ACCESS_FORBIDDEN: 'DOMAIN_ACCESS_FORBIDDEN',
 
-    // Client Side Errors
-    UNRESPONSIVE_HOST : "UNRESPONSIVE_HOST",
-    LOGIN_FAILURE : "LOGIN_FAILURE",
-    REQUEST_TIMEOUT : "REQUEST_TIMEOUT",
-    PROCEDURE_ERROR : "PROCEDURE_ERROR",
-    UNSUPPORTED_VERSION : "UNSUPPORTED_VERSION",
-    UNSUPPORTED_BROWSER : "UNSUPPORTED_BROWSER",
-    DISABLED_COOKIES : "DISABLED_COOKIES",
-    CONNECTION_IN_PROGRESS : "CONNECTION_IN_PROGRESS",
-    AUTHORIZATION_FAILURE : "AUTHORIZATION_FAILURE",
-    CHALLENGE_HANDLING_CANCELED : "CHALLENGE_HANDLING_CANCELED"
+  // Client Side Errors
+  UNRESPONSIVE_HOST: 'UNRESPONSIVE_HOST',
+  LOGIN_FAILURE: 'LOGIN_FAILURE',
+  REQUEST_TIMEOUT: 'REQUEST_TIMEOUT',
+  PROCEDURE_ERROR: 'PROCEDURE_ERROR',
+  UNSUPPORTED_VERSION: 'UNSUPPORTED_VERSION',
+  UNSUPPORTED_BROWSER: 'UNSUPPORTED_BROWSER',
+  DISABLED_COOKIES: 'DISABLED_COOKIES',
+  CONNECTION_IN_PROGRESS: 'CONNECTION_IN_PROGRESS',
+  AUTHORIZATION_FAILURE: 'AUTHORIZATION_FAILURE',
+  CHALLENGE_HANDLING_CANCELED: 'CHALLENGE_HANDLING_CANCELED'
 };
 __WL.prototype.ErrorCode = __WLErrorCode;
 WL.ErrorCode = __WLErrorCode;
 
 WL.FBRealmPopupOptions = {
-    width : 1000,
-    height : 600
+  width: 1000,
+  height: 600
 };
 
 // save the base url since the WL.StaticAppProps.WORKLIGHT_ROOT_URL &&
@@ -2434,154 +2572,161 @@ WL.StaticAppProps.POSTFIX_APP_SERVICES_URL = WL.StaticAppProps.APP_SERVICES_URL;
 
 WL.EPField = {
 
-	    // NOTICE - value must be equal to the field name!!!
-	    SUPPORT_COOKIES : "SUPPORT_COOKIES",
-	    DESKTOP : "DESKTOP",
-	    WEB : "WEB",
-	    MOBILE : "MOBILE",
-	    USES_AUTHENTICATOR : "USES_AUTHENTICATOR",
-	    SAVES_USERNAME : "SAVES_USERNAME",
-	    HAS_NATIVE_LOGGER : "HAS_NATIVE_LOGGER",
-	    USES_NATIVE_TOOLBAR : "USES_NATIVE_TOOLBAR",
-	    USES_CORDOVA : "USES_CORDOVA",
-	    SUPPORT_DIRECT_UPDATE_FROM_SERVER : "SUPPORT_DIRECT_UPDATE_FROM_SERVER",
-	    SUPPORT_DIAGNOSTIC : "SUPPORT_DIAGNOSTIC",
-	    ISIOS : "ISIOS",
-	    SUPPORT_PUSH : "SUPPORT_PUSH",
-	    SUPPORT_PUSH_SMS : "SUPPORT_PUSH_SMS",
-	    WEB_BROWSER_ONLY : "WEB_BROWSER_ONLY",
-	    SUPPORT_CHALLENGE : "SUPPORT_CHALLENGE",
-	    SUPPORT_SHELL : "SUPPORT_SHELL",
-	    SUPPORT_DEVICE_AUTH : "SUPPORT_DEVICE_AUTH",
-	    SERVER_ADDRESS_CONFIGURABLE : "SERVER_ADDRESS_CONFIGURABLE",
-	    SUPPORT_WL_USER_PREF : "SUPPORT_WL_USER_PREF",	    
-	    SUPPORT_WL_NATIVE_XHR : "SUPPORT_WL_NATIVE_XHR",
-	    SUPPORT_WL_SERVER_CHANGE :"SUPPORT_WL_SERVER_CHANGE",
-	    SUPPORT_OAUTH : "SUPPORT_OAUTH"
-	};
+  // NOTICE - value must be equal to the field name!!!
+  SUPPORT_COOKIES: 'SUPPORT_COOKIES',
+  DESKTOP: 'DESKTOP',
+  WEB: 'WEB',
+  MOBILE: 'MOBILE',
+  USES_AUTHENTICATOR: 'USES_AUTHENTICATOR',
+  SAVES_USERNAME: 'SAVES_USERNAME',
+  HAS_NATIVE_LOGGER: 'HAS_NATIVE_LOGGER',
+  USES_NATIVE_TOOLBAR: 'USES_NATIVE_TOOLBAR',
+  USES_CORDOVA: 'USES_CORDOVA',
+  SUPPORT_DIRECT_UPDATE_FROM_SERVER: 'SUPPORT_DIRECT_UPDATE_FROM_SERVER',
+  SUPPORT_DIAGNOSTIC: 'SUPPORT_DIAGNOSTIC',
+  ISIOS: 'ISIOS',
+  SUPPORT_PUSH: 'SUPPORT_PUSH',
+  SUPPORT_PUSH_SMS: 'SUPPORT_PUSH_SMS',
+  WEB_BROWSER_ONLY: 'WEB_BROWSER_ONLY',
+  SUPPORT_CHALLENGE: 'SUPPORT_CHALLENGE',
+  SUPPORT_SHELL: 'SUPPORT_SHELL',
+  SUPPORT_DEVICE_AUTH: 'SUPPORT_DEVICE_AUTH',
+  SERVER_ADDRESS_CONFIGURABLE: 'SERVER_ADDRESS_CONFIGURABLE',
+  SUPPORT_WL_USER_PREF: 'SUPPORT_WL_USER_PREF',
+  SUPPORT_WL_NATIVE_XHR: 'SUPPORT_WL_NATIVE_XHR',
+  SUPPORT_WL_SERVER_CHANGE: 'SUPPORT_WL_SERVER_CHANGE',
+  SUPPORT_OAUTH: 'SUPPORT_OAUTH'
+};
 
-	WL.EnvProfileField = WL.EPField;
-	WL.BaseProfileData = {
-	    SUPPORT_COOKIES : true,
-	    SUPPORT_DIRECT_UPDATE_FROM_SERVER : false,
-	    SUPPORT_DIAGNOSTIC : false,
-	    SUPPORT_PUSH : false,
-	    SUPPORT_PUSH_SMS : false,
-	    SUPPORT_DEVICE_AUTH : false,
-	    SERVER_ADDRESS_CONFIGURABLE : false,
-	    SUPPORT_WL_USER_PREF : false
-	};
-	WL.WebProfileData = {
-	    WEB : true
-	};
-	WL.WebProfileData = WL.Utils.extend(WL.WebProfileData, WL.BaseProfileData);
+WL.EnvProfileField = WL.EPField;
+WL.BaseProfileData = {
+  SUPPORT_COOKIES: true,
+  SUPPORT_DIRECT_UPDATE_FROM_SERVER: false,
+  SUPPORT_DIAGNOSTIC: false,
+  SUPPORT_PUSH: false,
+  SUPPORT_PUSH_SMS: false,
+  SUPPORT_DEVICE_AUTH: false,
+  SERVER_ADDRESS_CONFIGURABLE: false,
+  SUPPORT_WL_USER_PREF: false
+};
+WL.WebProfileData = {
+  WEB: true
+};
+WL.WebProfileData = WL.Utils.extend(WL.WebProfileData, WL.BaseProfileData);
 
-	WL.DesktopProfileData = {
-	    DESKTOP : true,
-	    USES_AUTHENTICATOR : true,
-	    SAVES_USERNAME : false
-	};
+WL.DesktopProfileData = {
+  DESKTOP: true,
+  USES_AUTHENTICATOR: true,
+  SAVES_USERNAME: false
+};
 
-	WL.MobileProfileData = {
-	    USES_AUTHENTICATOR : true,
-	    SAVES_USERNAME : false
-	};
+WL.MobileProfileData = {
+  USES_AUTHENTICATOR: true,
+  SAVES_USERNAME: false
+};
 
-	WL.MobileProfileData = WL.Utils.extend(WL.MobileProfileData, WL.BaseProfileData);
+WL.MobileProfileData = WL.Utils.extend(WL.MobileProfileData, WL.BaseProfileData);
 
-	// Notice that the default profile is web so all web environments
-	// Do not need to explicitly define one unless they want to
-	// define a field differently.
-	WL.DefaultProfileData = WLJSX.Object.clone(WL.WebProfileData);
+// Notice that the default profile is web so all web environments
+// Do not need to explicitly define one unless they want to
+// define a field differently.
+WL.DefaultProfileData = WLJSX.Object.clone(WL.WebProfileData);
 
-	WL.airProfileData = WLJSX.Object.clone(WL.DesktopProfileData);
-	WL.airProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
+WL.airProfileData = WLJSX.Object.clone(WL.DesktopProfileData);
+WL.airProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
 
-	WL.previewProfileData = WLJSX.Object.clone(WL.WebProfileData);
-	WL.previewProfileData[WL.EPField.WEB_BROWSER_ONLY] = true;
-	WL.previewProfileData[WL.EPField.SUPPORT_OAUTH] = true;
+WL.previewProfileData = WLJSX.Object.clone(WL.WebProfileData);
+WL.previewProfileData[WL.EPField.WEB_BROWSER_ONLY] = true;
+WL.previewProfileData[WL.EPField.SUPPORT_OAUTH] = true;
 
-	WL.embeddedProfileData = WLJSX.Object.clone(WL.WebProfileData);
-	WL.embeddedProfileData[WL.EPField.WEB_BROWSER_ONLY] = true;
+WL.embeddedProfileData = WLJSX.Object.clone(WL.WebProfileData);
+WL.embeddedProfileData[WL.EPField.WEB_BROWSER_ONLY] = true;
 
-	WL.mobilewebappProfileData = WLJSX.Object.clone(WL.WebProfileData);
-	WL.mobilewebappProfileData[WL.EPField.WEB_BROWSER_ONLY] = true;
+WL.mobilewebappProfileData = WLJSX.Object.clone(WL.WebProfileData);
+WL.mobilewebappProfileData[WL.EPField.WEB_BROWSER_ONLY] = true;
 
-	WL.iosDeviceProfileData = WLJSX.Object.clone(WL.MobileProfileData);
-	WL.iosDeviceProfileData[WL.EPField.MOBILE] = true;
-	WL.iosDeviceProfileData[WL.EPField.DESKTOP] = false;
-	WL.iosDeviceProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_DIRECT_UPDATE_FROM_SERVER] = true;
-	WL.iosDeviceProfileData[WL.EPField.SAVES_USERNAME] = true;
-	WL.iosDeviceProfileData[WL.EPField.SAVES_USERNAME] = true;
-	WL.iosDeviceProfileData[WL.EPField.ISIOS] = true;
-	WL.iosDeviceProfileData[WL.EPField.USES_CORDOVA] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_DIAGNOSTIC] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_PUSH] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_SHELL] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_DEVICE_AUTH] = true;
-	WL.iosDeviceProfileData[WL.EPField.SERVER_ADDRESS_CONFIGURABLE] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_WL_USER_PREF] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_WL_SERVER_CHANGE] = true;
-	WL.iosDeviceProfileData[WL.EPField.SUPPORT_OAUTH] = true;
-	
+WL.iosDeviceProfileData = WLJSX.Object.clone(WL.MobileProfileData);
+WL.iosDeviceProfileData[WL.EPField.MOBILE] = true;
+WL.iosDeviceProfileData[WL.EPField.DESKTOP] = false;
+WL.iosDeviceProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_DIRECT_UPDATE_FROM_SERVER] = true;
+WL.iosDeviceProfileData[WL.EPField.SAVES_USERNAME] = true;
+WL.iosDeviceProfileData[WL.EPField.SAVES_USERNAME] = true;
+WL.iosDeviceProfileData[WL.EPField.ISIOS] = true;
+WL.iosDeviceProfileData[WL.EPField.USES_CORDOVA] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_DIAGNOSTIC] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_PUSH] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_SHELL] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_DEVICE_AUTH] = true;
+WL.iosDeviceProfileData[WL.EPField.SERVER_ADDRESS_CONFIGURABLE] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_WL_USER_PREF] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_WL_SERVER_CHANGE] = true;
+WL.iosDeviceProfileData[WL.EPField.SUPPORT_OAUTH] = true;
 
-	WL.iphoneProfileData = WLJSX.Object.clone(WL.iosDeviceProfileData);
-	WL.ipadProfileData = WLJSX.Object.clone(WL.iosDeviceProfileData);
 
-	WL.androidProfileData = WLJSX.Object.clone(WL.MobileProfileData);
-	WL.androidProfileData[WL.EPField.MOBILE] = true;
-	WL.androidProfileData[WL.EPField.DESKTOP] = false;
-	WL.androidProfileData[WL.EPField.USES_NATIVE_TOOLBAR] = true;
-	WL.androidProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_DIRECT_UPDATE_FROM_SERVER] = true;
-	WL.androidProfileData[WL.EPField.SAVES_USERNAME] = true;
-	WL.androidProfileData[WL.EPField.USES_CORDOVA] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_DIAGNOSTIC] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_PUSH] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_SHELL] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_DEVICE_AUTH] = true;
-	WL.androidProfileData[WL.EPField.SERVER_ADDRESS_CONFIGURABLE] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_WL_USER_PREF] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_WL_SERVER_CHANGE] = true;
-	WL.androidProfileData[WL.EPField.SUPPORT_OAUTH] = true;
+WL.iphoneProfileData = WLJSX.Object.clone(WL.iosDeviceProfileData);
+WL.ipadProfileData = WLJSX.Object.clone(WL.iosDeviceProfileData);
 
-	WL.blackberryProfileData = WLJSX.Object.clone(WL.MobileProfileData);
-	WL.blackberryProfileData[WL.EPField.MOBILE] = true;
-	WL.blackberryProfileData[WL.EPField.HAS_NATIVE_LOGGER] = false;
-	WL.blackberryProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
+WL.androidProfileData = WLJSX.Object.clone(WL.MobileProfileData);
+WL.androidProfileData[WL.EPField.MOBILE] = true;
+WL.androidProfileData[WL.EPField.DESKTOP] = false;
+WL.androidProfileData[WL.EPField.USES_NATIVE_TOOLBAR] = true;
+WL.androidProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_DIRECT_UPDATE_FROM_SERVER] = true;
+WL.androidProfileData[WL.EPField.SAVES_USERNAME] = true;
+WL.androidProfileData[WL.EPField.USES_CORDOVA] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_DIAGNOSTIC] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_PUSH] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_SHELL] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_DEVICE_AUTH] = true;
+WL.androidProfileData[WL.EPField.SERVER_ADDRESS_CONFIGURABLE] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_WL_USER_PREF] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_WL_SERVER_CHANGE] = true;
+WL.androidProfileData[WL.EPField.SUPPORT_OAUTH] = true;
 
-	WL.blackberry10ProfileData = WLJSX.Object.clone(WL.MobileProfileData);
-	WL.blackberry10ProfileData[WL.EPField.MOBILE] = true;
-	WL.blackberry10ProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
-	WL.blackberry10ProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
-	WL.blackberry10ProfileData[WL.EPField.USES_CORDOVA] = true;
+WL.blackberryProfileData = WLJSX.Object.clone(WL.MobileProfileData);
+WL.blackberryProfileData[WL.EPField.MOBILE] = true;
+WL.blackberryProfileData[WL.EPField.HAS_NATIVE_LOGGER] = false;
+WL.blackberryProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
 
-	WL.windowsphone8ProfileData = WLJSX.Object.clone(WL.MobileProfileData);
-	WL.windowsphone8ProfileData[WL.EPField.MOBILE] = true;
-	WL.windowsphone8ProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
-	WL.windowsphone8ProfileData[WL.EPField.USES_CORDOVA] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SUPPORT_PUSH] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SUPPORT_DIRECT_UPDATE_FROM_SERVER] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SUPPORT_WL_SERVER_CHANGE] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SERVER_ADDRESS_CONFIGURABLE] = true;
-	WL.windowsphone8ProfileData[WL.EPField.SUPPORT_OAUTH] = true;
-	
-	WL.windows8ProfileData = WLJSX.Object.clone(WL.DesktopProfileData);
-	WL.windows8ProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
-	WL.windows8ProfileData[WL.EPField.SUPPORT_PUSH] = true;
-	WL.windows8ProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
-	WL.windows8ProfileData[WL.EPField.SUPPORT_OAUTH] = true;
+WL.blackberry10ProfileData = WLJSX.Object.clone(WL.MobileProfileData);
+WL.blackberry10ProfileData[WL.EPField.MOBILE] = true;
+WL.blackberry10ProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
+WL.blackberry10ProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
+WL.blackberry10ProfileData[WL.EPField.USES_CORDOVA] = true;
 
+WL.windowsphone8ProfileData = WLJSX.Object.clone(WL.MobileProfileData);
+WL.windowsphone8ProfileData[WL.EPField.MOBILE] = true;
+WL.windowsphone8ProfileData[WL.EPField.HAS_NATIVE_LOGGER] = true;
+WL.windowsphone8ProfileData[WL.EPField.USES_CORDOVA] = true;
+WL.windowsphone8ProfileData[WL.EPField.SUPPORT_PUSH_SMS] = true;
+WL.windowsphone8ProfileData[WL.EPField.SUPPORT_PUSH] = true;
+WL.windowsphone8ProfileData[WL.EPField.SUPPORT_DIRECT_UPDATE_FROM_SERVER] = true;
+WL.windowsphone8ProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
+WL.windowsphone8ProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
+WL.windowsphone8ProfileData[WL.EPField.SUPPORT_WL_SERVER_CHANGE] = true;
+WL.windowsphone8ProfileData[WL.EPField.SERVER_ADDRESS_CONFIGURABLE] = true;
+WL.windowsphone8ProfileData[WL.EPField.SUPPORT_OAUTH] = true;
+
+WL.windows8ProfileData = WLJSX.Object.clone(WL.DesktopProfileData);
+WL.windows8ProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
+WL.windows8ProfileData[WL.EPField.SUPPORT_PUSH] = true;
+WL.windows8ProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
+WL.windows8ProfileData[WL.EPField.SUPPORT_OAUTH] = true;
+WL.windows8ProfileData[WL.EPField.USES_CORDOVA] = true;
+
+WL.windowsphoneuniversalProfileData = WLJSX.Object.clone(WL.DesktopProfileData);
+WL.windowsphoneuniversalProfileData[WL.EPField.SUPPORT_CHALLENGE] = true;
+WL.windowsphoneuniversalProfileData[WL.EPField.SUPPORT_PUSH] = true;
+WL.windowsphoneuniversalProfileData[WL.EPField.SUPPORT_WL_NATIVE_XHR] = true;
+WL.windowsphoneuniversalProfileData[WL.EPField.SUPPORT_OAUTH] = true;
+WL.windowsphoneuniversalProfileData[WL.EPField.USES_CORDOVA] = true;
 
 /**
  * ================================================================= 
@@ -2590,193 +2735,207 @@ WL.EPField = {
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
 
+
+/*globals WL, WLJSX, cordova, blackberry, Windows, __WL, __WLSimpleDialog*/
+/*jshint -W020*/
 
 /**
  * Opens a native dialog using phonegap notification api
  */
 __WLSimpleDialog = function() {
-    this.__buttons = null;
-    this.__dialog = null;
 
-    this.__callback = function(result) {
+  /*jshint strict:false*/
 
-        if (WL.EnvProfile.isEnabled(WL.EPField.USES_CORDOVA)) {
-            // Phonegap bug - native code returns button number instead of
-            // button index
-        	//returned index from Cordova is one-based indexing 1,2,3..so
-       		result--;
-            
-        } else if (WL.StaticAppProps.ENVIRONMENT == WL.Environment.BLACKBERRY) {
-        } else if (WL.StaticAppProps.ENVIRONMENT == WL.Environment.WINDOWS8) {
-        } else {
-            WL.SimpleDialog.__dialog.hide();
-            WL.SimpleDialog.__dialog = null;
-        }
-        
-        // in case of invalid result value just clean up the array of buttons (otherwise next show will fail)
-        if (result < 0 || result >= WL.SimpleDialog.__buttons.length) {
-        	WL.SimpleDialog.__buttons = null;
-        	WL.SimpleDialog.__dialog = null;
-        	return;
-        }
+  this.__buttons = null;
+  this.__dialog = null;
 
-        var handler = WL.SimpleDialog.__buttons[result].handler;
+  this.__callback = function(result) {
 
-        WL.SimpleDialog.__buttons = null;
+    if (WL.EnvProfile.isEnabled(WL.EPField.USES_CORDOVA)) {
+      // Phonegap bug - native code returns button number instead of
+      // button index
+      //returned index from Cordova is one-based indexing 1,2,3..so
+      result--;
 
-        if (handler) {
-            handler();
-        }
-    };
-
-    var __validateButtonsObject = function(buttons, callerName) {
-        if (!WL.Validators.isValidationEnabled) {
-            return;
-        }
-        if ((!buttons) || (buttons.constructor !== Array) || (buttons.length == 0)) {
-            WL.Validators.logAndThrow("Invalid argument value '" + buttons
-                    + "', expected an array with button descriptors.", callerName);
-        }
-        for ( var i = 0; i < buttons.length; i++) {
-            if (!buttons[i].text || typeof buttons[i].text !== 'string') {
-                WL.Validators.logAndThrow("Invalid argument value '" + buttons
-                        + "', button descriptor must contain text as string.", callerName);
-            }
-            if (buttons[i].handler && typeof buttons[i].handler !== 'function') {
-                WL.Validators.logAndThrow("Invalid argument value '" + buttons
-                        + "', button descriptor handler must be a function.", callerName);
-            }
-        }
-    };
-
-    /**
-     * 
-     * 
-     * @param title
-     *            The title of the dialog window
-     * @param text
-     *            The text in the dialog window
-     * @param buttons
-     *            An array of button descriptors and event handler functions.
-     *            Example: [{text: "OK", handler: function() { ... }}, {text:
-     *            "Cancel", handler: function() { ... }}]
-     * @param option
-     *            Optional. When native dialog is not available for the current
-     *            environment. An object of the following form: { title: string,
-     *            text: string }
-     */
-    this.show = function(title, text, buttons, options) {
-        var wlDialogContainer = WLJSX.$('WLdialogContainer');
-        if (!title && !text && wlDialogContainer) {
-            WLJSX.css(wlDialogContainer, {
-                display : 'block'
-            });
-            return;
-        }
-        if (WL.SimpleDialog.__buttons != null) {
-            WL.Logger.error("WL.SimpleDialog.show() cannot be invoked while dialog is open");
-            return;
-        }
-
-        WL.Validators.validateArguments([ 'string', 'string', __validateButtonsObject,
-                WL.Validators.validateObjectOrNull ], arguments, 'WL.SimpleDialog.show');
-
-        WL.SimpleDialog.__buttons = buttons;
-        if (WL.EnvProfile.isEnabled(WL.EPField.USES_CORDOVA)) {
-            var buttonsArray = [];
-            for ( var i = 0; i < buttons.length; i++) {
-            	buttonsArray[i] = buttons[i].text;
-            }
-                 
-            // Check if we should use a modal dialog in Android
-            var isAndroidModalDialog = isShowModalDialogInAndroid(title, buttons);
-            
-            // Use a custom plugin for Android modal Dialogue
-            if (isAndroidModalDialog) {
-            	cordova.exec(function (result) { WL.SimpleDialog.__callback(result); }, 
-            			function (err) { WL.Logger.error("WL.SimpleDialog.show() error in invoking callback."); }, 
-            			"WLCustomDialog", "confirm", [text, title, buttonsArray]);
-            } else {
-            	
-            	if (WL.StaticAppProps.ENVIRONMENT == WL.Environment.WINDOWS_PHONE_8) {
-            		cordova.exec(function (result) { WL.SimpleDialog.__callback(result); }, 
-            				function (err) { WL.Logger.error("WL.SimpleDialog.show() error in invoking callback."); }, 
-            				"WLCustomDialog", "showDialog", [text, title, buttonsArray]);
-            	} else {
-            		// use cordova to show the dialogue 
-                	navigator.notification.confirm(text, WL.SimpleDialog.__callback, title, buttonsArray);
-                }
-            }
-        } else if (WL.StaticAppProps.ENVIRONMENT == WL.Environment.BLACKBERRY) {
-            var buttonTitlesArray = new Array();
-            for ( var i = 0; i < buttons.length; i++) {
-                buttonTitlesArray.push(buttons[i].text);
-            }
-            var result = blackberry.ui.dialog.customAsk(title + "\n\n" + text, buttonTitlesArray, 0, true);
-            this.__callback(result);
-        } else if (WL.StaticAppProps.ENVIRONMENT == WL.Environment.WINDOWS8) {
-            var messageDialog = new Windows.UI.Popups.MessageDialog(text, title);
-            for (var i = 0; i< buttons.length; i += 1) {
-            	if (i < 3) { // WINDOWS8 can only show 3 buttons
-            		messageDialog.commands.append(new Windows.UI.Popups.UICommand(buttons[i].text, buttons[i].handler));
-            	}
-            }
-            messageDialog.showAsync().done(
-            		function () { WL.SimpleDialog.__callback(buttons.length); },
-                    function () { WL.SimpleDialog.__callback(buttons.length); });
-        } else {
-            var dialogOptions = options || {};
-
-            this.__dialog = new WL.Dialog("body", dialogOptions);
-
-            var message = '<p>' + text + '</p>';
-            for ( var i = 0; i < buttons.length; i++) {
-                message += '<button type="button" class="dialogButton" tabIndex="' + i + '">' + buttons[i].text
-                        + '</button>';
-            }
-
-            this.__dialog.setTitle(title);
-            this.__dialog.setText(message);
-            this.__dialog.show();
-            var dialogButtons = WLJSX.$$('.dialogButton');
-            for ( var i = 0; i < dialogButtons.length; i++) {
-                WLJSX.bind(dialogButtons[i], 'click', function(event) {
-                    WL.SimpleDialog.__callback(WLJSX.eventTarget(event).tabIndex);
-                    return false;
-                });
-            }
-        }
-    };
-    
-    // decide whether the dialog in android should be a modal one 
-    // this funciton contains framework logic that should be refactored out of simpleDialog.show()!!!!
-    function isShowModalDialogInAndroid(title, buttons)
-    {
-    	if (WL.StaticAppProps.ENVIRONMENT != WL.Env.ANDROID) {
-
-    		// this hack is for Android only ...
-    		return false;
-    	}
-    	
-    	// modal dialog in direct update 
-        var isAndroidDirectUpdateModal = (title == WL.ClientMessages.directUpdateNotificationTitle);
-        // if there is a single button which isn't close in remote disable, we should have a modal dialog
-        var isAndroidRemoteDisableModal = (!WL.Client.isShowCloseButtonOnRemoteDisable() && buttons.length == 1 && buttons[0].text.indexOf(WL.ClientMessages.close) == -1);
-
-        var isModal =  (isAndroidDirectUpdateModal || isAndroidRemoteDisableModal);
-        
-        return isModal;
+    /*jshint noempty:false*/
+    } else if (WL.StaticAppProps.ENVIRONMENT === WL.Environment.BLACKBERRY) {
+      // empty
+    } else if (WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWS8 || WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWSPHONEUNIVERSAL  ) {
+      // empty
+    } else {
+      WL.SimpleDialog.__dialog.hide();
+      WL.SimpleDialog.__dialog = null;
     }
-};
-__WL.prototype.SimpleDialog = new __WLSimpleDialog;
-WL.SimpleDialog = new __WLSimpleDialog;
 
+    // in case of invalid result value just clean up the array of buttons (otherwise next show will fail)
+    if (result < 0 || result >= WL.SimpleDialog.__buttons.length) {
+      WL.SimpleDialog.__buttons = null;
+      WL.SimpleDialog.__dialog = null;
+      return;
+    }
+
+    var handler = WL.SimpleDialog.__buttons[result].handler;
+
+    WL.SimpleDialog.__buttons = null;
+
+    if (handler) {
+      handler();
+    }
+  };
+
+  var __validateButtonsObject = function(buttons, callerName) {
+    if (!WL.Validators.isValidationEnabled) {
+      return;
+    }
+    if ((!buttons) || (buttons.constructor !== Array) || (buttons.length === 0)) {
+      WL.Validators.logAndThrow('Invalid argument value \'' + buttons + '\', expected an array with button descriptors.', callerName);
+    }
+    for (var i = 0; i < buttons.length; i++) {
+      if (!buttons[i].text || typeof buttons[i].text !== 'string') {
+        WL.Validators.logAndThrow('Invalid argument value \'' + buttons + '\', button descriptor must contain text as string.', callerName);
+      }
+      if (buttons[i].handler && typeof buttons[i].handler !== 'function') {
+        WL.Validators.logAndThrow('Invalid argument value \'' + buttons + '\', button descriptor handler must be a function.', callerName);
+      }
+    }
+  };
+
+  /**
+   *
+   *
+   * @param title
+   *            The title of the dialog window
+   * @param text
+   *            The text in the dialog window
+   * @param buttons
+   *            An array of button descriptors and event handler functions.
+   *            Example: [{text: "OK", handler: function() { ... }}, {text:
+   *            "Cancel", handler: function() { ... }}]
+   * @param option
+   *            Optional. When native dialog is not available for the current
+   *            environment. An object of the following form: { title: string,
+   *            text: string }
+   */
+   /*jshint maxparams:4*/
+  this.show = function(title, text, buttons, options) {
+    var wlDialogContainer = WLJSX.$('WLdialogContainer');
+    if (!title && !text && wlDialogContainer) {
+      WLJSX.css(wlDialogContainer, {
+        display: 'block'
+      });
+      return;
+    }
+    if (WL.SimpleDialog.__buttons !== null) {
+      WL.Logger.error('WL.SimpleDialog.show() cannot be invoked while dialog is open');
+      return;
+    }
+
+    WL.Validators.validateArguments(['string', 'string', __validateButtonsObject,
+      WL.Validators.validateObjectOrNull
+    ], arguments, 'WL.SimpleDialog.show');
+
+    WL.SimpleDialog.__buttons = buttons;
+    if (WL.EnvProfile.isEnabled(WL.EPField.USES_CORDOVA)) {
+      var buttonsArray = [];
+      for (var i = 0; i < buttons.length; i++) {
+        buttonsArray[i] = buttons[i].text;
+      }
+
+      // Check if we should use a modal dialog in Android
+      var isAndroidModalDialog = isShowModalDialogInAndroid(title, buttons);
+
+      // Use a custom plugin for Android modal Dialogue
+      if (isAndroidModalDialog) {
+        cordova.exec(function(result) {
+            WL.SimpleDialog.__callback(result);
+          },
+          function() {
+            WL.Logger.error('WL.SimpleDialog.show() error in invoking callback.');
+          },
+          'WLCustomDialog', 'confirm', [text, title, buttonsArray]);
+      } else {
+
+        if (WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWS_PHONE_8) {
+          cordova.exec(function(result) {
+              WL.SimpleDialog.__callback(result);
+            },
+            function() {
+              WL.Logger.error('WL.SimpleDialog.show() error in invoking callback.');
+            },
+            'WLCustomDialog', 'showDialog', [text, title, buttonsArray]);
+        } else {
+          // use cordova to show the dialogue 
+          navigator.notification.confirm(text, WL.SimpleDialog.__callback, title, buttonsArray);
+        }
+      }
+    } else if (WL.StaticAppProps.ENVIRONMENT === WL.Environment.BLACKBERRY) {
+      var buttonTitlesArray = [];
+      for (var j = 0; j < buttons.length; j++) {
+        buttonTitlesArray.push(buttons[j].text);
+      }
+      var result = blackberry.ui.dialog.customAsk(title + '\n\n' + text, buttonTitlesArray, 0, true);
+      this.__callback(result);
+    } else if (WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWS8 || WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWSPHONEUNIVERSAL ) {
+      var messageDialog = new Windows.UI.Popups.MessageDialog(text, title);
+      for (var k = 0; k < buttons.length; k += 1) {
+        if (k < 3) { // WINDOWS8 can only show 3 buttons
+          messageDialog.commands.append(new Windows.UI.Popups.UICommand(buttons[k].text, buttons[k].handler));
+        }
+      }
+      messageDialog.showAsync().done(function () { WL.SimpleDialog.__callback(buttons.length); },
+              function () { WL.SimpleDialog.__callback(buttons.length); });
+    } else {
+      var dialogOptions = options || {};
+
+      this.__dialog = new WL.Dialog('body', dialogOptions);
+
+      var message = '<p>' + text + '</p>';
+      for (var l = 0; l < buttons.length; l++) {
+        message += '<button type="button" class="dialogButton" tabIndex="' + l + '">' + buttons[l].text + '</button>';
+      }
+
+      this.__dialog.setTitle(title);
+      this.__dialog.setText(message);
+      this.__dialog.show();
+      var dialogButtons = WLJSX.$$('.dialogButton');
+      var clickListener = function(event) {
+          WL.SimpleDialog.__callback(WLJSX.eventTarget(event).tabIndex);
+          return false;
+      };
+      for (var m = 0; m < dialogButtons.length; m++) {
+        WLJSX.bind(dialogButtons[m], 'click', clickListener);
+      }
+    }
+  };
+
+  // decide whether the dialog in android should be a modal one 
+  // this funciton contains framework logic that should be refactored out of simpleDialog.show()!!!!
+  function isShowModalDialogInAndroid(title, buttons) {
+    if (WL.StaticAppProps.ENVIRONMENT !== WL.Env.ANDROID) {
+
+      // this hack is for Android only ...
+      return false;
+    }
+
+    // modal dialog in direct update 
+    var isAndroidDirectUpdateModal = (title === WL.ClientMessages.directUpdateNotificationTitle);
+    // if there is a single button which isn't close in remote disable, we should have a modal dialog
+    var isAndroidRemoteDisableModal = (!WL.Client.isShowCloseButtonOnRemoteDisable() && buttons.length === 1 && buttons[0].text.indexOf(WL.ClientMessages.close) === -1);
+
+    var isModal = (isAndroidDirectUpdateModal || isAndroidRemoteDisableModal);
+
+    return isModal;
+  }
+};
+/*jshint newcap:false*/
+__WL.prototype.SimpleDialog = new __WLSimpleDialog();
+WL.SimpleDialog = new __WLSimpleDialog();
 
 /**
  * ================================================================= 
@@ -2799,30 +2958,33 @@ WL.SimpleDialog = new __WLSimpleDialog;
  * @ilog.undocumented.constructor
  * @displayname WL.App
  */
+/*jshint undef:false*/
 __WLApp = function() {
 
-    /**
+  /*jshint strict:false*/
+
+  /**
      * Opens the specified URL according to the specified target and options
      * (specs). The behavior of this method depends on the app environment, as
      * follows:
      *  <table class="userTable" cellspacing="0">
-  		<thead>
-			<tr>
-				<th>Environment</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="attributes">Adobe AIR</td>
-				<td class="nameDescription">Opens a new browser window at the specified URL. The target and options parameters are ignored.</td>
-			</tr>
-			<tr>
-				<td class="attributes">TO BE COMPLETED</td>
-				<td class="nameDescription">TO BE COMPLETED.</td>
-			</tr>
-		</tbody>
-		</table>
+      <thead>
+      <tr>
+        <th>Environment</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="attributes">Adobe AIR</td>
+        <td class="nameDescription">Opens a new browser window at the specified URL. The target and options parameters are ignored.</td>
+      </tr>
+      <tr>
+        <td class="attributes">TO BE COMPLETED</td>
+        <td class="nameDescription">TO BE COMPLETED.</td>
+      </tr>
+    </tbody>
+    </table>
      * 
      * @param url
      *            Mandatory. The URL of the web page to be opened.
@@ -2834,276 +2996,275 @@ __WLApp = function() {
      * @param options
      *            Optional. Parameters hash.
      *            If no value is specified, the following options are used:
-	 * 			  status=1, toolbar=1, location=1, menubar=1, directories=1, resizable=1, scrollbars=1
+   *        status=1, toolbar=1, location=1, menubar=1, directories=1, resizable=1, scrollbars=1
      * @return A reference to the newly opened window, or NULL if no window was opened.
      */
-    this.openURL = function(url, target, options) {
-        WL.Validators.validateArguments([ 'string', WL.Validators.validateStringOrNull,
-                WL.Validators.validateStringOrNull ], arguments, 'WL.App.openURL');
+  this.openURL = function(url, target, options) {
+    WL.Validators.validateArguments(['string', WL.Validators.validateStringOrNull,
+      WL.Validators.validateStringOrNull
+    ], arguments, 'WL.App.openURL');
 
-        var wnd = null;
-        if (WLJSX.Object.isUndefined(options) || options === null) {
-            options = "status=1,toolbar=1,location=1,menubar=1,directories=1,resizable=1,scrollbars=1";
+    var wnd = null;
+    if (WLJSX.Object.isUndefined(options) || options === null) {
+      options = 'status=1,toolbar=1,location=1,menubar=1,directories=1,resizable=1,scrollbars=1';
+    }
+    if (WLJSX.Object.isUndefined(target) || target === null) {
+      target = '_self';
+    }
+    var absoluteURL = WL.Utils.createAPIRequestURL(url);
+    switch (WL.StaticAppProps.ENVIRONMENT) {
+      case WL.Env.IPAD:
+      case WL.Env.IPHONE:
+        window.open(absoluteURL, '_system');
+        break;
+      case WL.Env.WINDOWS8:
+      case WL.Env.WINDOWSPHONEUNIVERSAL:
+        Windows.System.Launcher.launchUriAsync(new Windows.Foundation.Uri(absoluteURL));
+        break;
+      case WL.Env.ADOBE_AIR:
+        var urlReq = new window.runtime.flash.net.URLRequest(absoluteURL);
+        wnd = window.runtime.flash.net.navigateToURL(urlReq);
+        break;
+      case WL.Env.BLACKBERRY:
+        var args = new blackberry.invoke.BrowserArguments(absoluteURL);
+        blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+        break;
+      case WL.Env.BLACKBERRY10:
+        blackberry.invoke.invoke({
+          target: 'sys.browser',
+          uri: absoluteURL
+        }, function() {}, function() {
+          WL.Logger.error('Failed to open URL ' + absoluteURL);
+        });
+        break;
+      default:
+        if (target === '_self') {
+          document.location.href = absoluteURL;
+        } else {
+          wnd = window.open(absoluteURL, target, options);
         }
-        if (WLJSX.Object.isUndefined(target) || target === null) {
-            target = '_self';
-        }
-        var absoluteURL = WL.Utils.createAPIRequestURL(url);
-        switch (WL.StaticAppProps.ENVIRONMENT) {
-        case WL.Env.IPAD:
-        case WL.Env.IPHONE:
-        	window.open(absoluteURL, '_system'); 
-            break;
-        case WL.Env.WINDOWS8:
-        	Windows.System.Launcher.launchUriAsync(new Windows.Foundation.Uri(absoluteURL));
-            break;
-        case WL.Env.ADOBE_AIR:
-            var urlReq = new window.runtime.flash.net.URLRequest(absoluteURL);
-            wnd = window.runtime.flash.net.navigateToURL(urlReq);
-            break; 
-        case WL.Env.BLACKBERRY:
-            var args = new blackberry.invoke.BrowserArguments(absoluteURL);
-            blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
-            break;
-        case WL.Env.BLACKBERRY10:
-            blackberry.invoke.invoke({
-                target: "sys.browser",
-                uri: absoluteURL
-            }, function(){}, function(){
-            	WL.Logger.error("Failed to open URL " + absoluteURL);
-            });
-            break;
-        default:
-            if (target === "_self") {
-                document.location.href = absoluteURL;
-            } else {
-                wnd = window.open(absoluteURL, target, options);
-            }
-            break;
-        }
-        WL.Logger.debug("openURL url: " + absoluteURL);
+        break;
+    }
+    WL.Logger.debug('openURL url: ' + absoluteURL);
 
-        return wnd;
-    };
+    return wnd;
+  };
 
-    /**
-     * Returns the locale code (or device language on BlackBerry).
-     * Returns the locale code according to user device settings, for example: en_US.
-     * @note {Note} On BlackBerry 6 and 7, this method returns the device language (for example, en), not the device locale.
-     */
-	this.getDeviceLocale = function(callback) {
-		locale = WL.Client.getDeviceLocale();
-		//if locale is not confiured, take it regulary from navigator, if there is Cordova it would already be set using cordova
-		if (typeof locale === 'undefined' || locale == null) {
-			if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8) { 
-				// On Win 8, navigator.userLanguage doesn't return the language preference, it returns regional format
-				// Therefore, use the Windows API to get the correct language preference. 
-				return Windows.System.UserProfile.GlobalizationPreferences.languages[0];
-			}
-			return (navigator.language) ? navigator.language : navigator.userLanguage;
-		}
-		return locale;
-    };
+  /**
+   * Returns the locale code (or device language on BlackBerry).
+   * Returns the locale code according to user device settings, for example: en_US.
+   * @note {Note} On BlackBerry 6 and 7, this method returns the device language (for example, en), not the device locale.
+   */
+  this.getDeviceLocale = function() {
+    locale = WL.Client.getDeviceLocale();
+    //if locale is not confiured, take it regulary from navigator, if there is Cordova it would already be set using cordova
+    if (typeof locale === 'undefined' || locale === null) {
+      if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL  ) {
+        // On Win 8, navigator.userLanguage doesn't return the language preference, it returns regional format
+        // Therefore, use the Windows API to get the correct language preference. 
+        return Windows.System.UserProfile.GlobalizationPreferences.languages[0];
+      }
+      return (navigator.language) ? navigator.language : navigator.userLanguage;
+    }
+    return locale;
+  };
 
-    /**
-     * Returns the language code.
-     * Returns the language code according to user device settings, for example: en.
-     */
-    this.getDeviceLanguage = function() {
-        return this.getDeviceLocale().substring(0, 2);
-    };
-    
-    /**
+  /**
+   * Returns the language code.
+   * Returns the language code according to user device settings, for example: en.
+   */
+  this.getDeviceLanguage = function() {
+    return this.getDeviceLocale().substring(0, 2);
+  };
+
+  /**
      * Returns a pattern string to format and parse numbers according to the client's user preferences.
      * Returns the pattern to the successCallback with a properties object as a parameter,that contains :
-		pattern,symbol,fraction,rounding,positive etc
+    pattern,symbol,fraction,rounding,positive etc
      */
-    
-    this.getLocalePattern = function(callback){    	
-    	pattern = WL.Client.getLocalePattern();    	
-    	return pattern;
+
+  this.getLocalePattern = function() {
+    pattern = WL.Client.getLocalePattern();
+    return pattern;
+  };
+
+  /**
+   * Returns the decimal separator.
+   * Returns the decimal separator accoriding to the region/locale preferences. eg : French uses "," but English uses "."
+   */
+  this.getDecimalSeparator = function() {
+    var localepattern = this.getLocalePattern();
+    if (typeof localepattern === 'undefined' || localepattern === null) {
+      return '.';
     }
-    
-    /**
-     * Returns the decimal separator.
-     * Returns the decimal separator accoriding to the region/locale preferences. eg : French uses "," but English uses "."
-     */
-    this.getDecimalSeparator = function() {    	
-    	var localepattern=this.getLocalePattern();
-    	if (typeof localepattern === 'undefined' || localepattern == null) {
-    		return ".";
-    	}
-    	return localepattern.decimal;
+    return localepattern.decimal;
+  };
+
+  /**
+   * Upgrade the inner application. This feature is currently applicable only
+   * for Android and iOS platforms
+   * @ignore
+   */
+  this.__update = function() {
+    return;
+  };
+
+  /**
+   * Extracts a string that contains an error message.
+   * Extracts a string that contains the error message within the specified exception object.
+   * Use for exceptions that are thrown by the IBM® MobileFirst Platform® client runtime.
+   * @param {Function} callback Mandatory. The function that is called when Back is pressed.
+   * @example {}
+   * WL.App.overrideBackButton(backFunc);
+   * function backFunc(){
+   *    alert('you hit the back key!');
+   * }
+   */
+  this.getErrorMessage = function(e) {
+    var message;
+    if (e === null) {
+      message = null;
+    } else if (WLJSX.Object.isString(e)) {
+      message = e;
+    } else if (WLJSX.Object.isArray(e)) {
+      message = e.join(',');
+    } else if (e.description || e.message) {
+      // the exception message
+      message = e.description ? e.description : e.message;
+
+      // add file name and line number
+      if (e.fileName) {
+        message += ' [' + e.fileName + ': line ' + e.lineNumber + ']';
+      } else if (e.sourceURL) {
+        message += ' [' + e.sourceURL + ': line ' + e.line + ']';
+      }
+    } else {
+      message = e.toString();
     }
+    return message;
+  };
 
-    /**
-     * Upgrade the inner application. This feature is currently applicable only
-     * for Android and iOS platforms
-     * @ignore
-     */
-    this.__update = function() {
-        return;
-    };
-    
-    /**
-     * Extracts a string that contains an error message.
-     * Extracts a string that contains the error message within the specified exception object. 
-     * Use for exceptions that are thrown by the IBM® MobileFirst Platform® client runtime.
-     * @param {Function} callback Mandatory. The function that is called when Back is pressed.
-     * @example {}
-     * WL.App.overrideBackButton(backFunc);
-	 * function backFunc(){
-	 *    alert('you hit the back key!');
-	 * }
-     */
-    this.getErrorMessage = function(e) {
-        var message;
-        if (e === null) {
-            message = null;
-        } else if (WLJSX.Object.isString(e)) {
-            message = e;
-        } else if (WLJSX.Object.isArray(e)) {
-            message = e.join(",");
-        } else if (e.description || e.message) {
-            // the exception message
-            message = e.description ? e.description : e.message;
+  // Back Button support (Work on Android && Windows Phone)
+  /**
+   * Overrides the default behavior of the Back button on Android,
+   * Windows Phone 7.5 (deprecated in IBM Worklight V6.0.0), and Windows Phone 8.
+   *
+   * Overrides the default behavior of the Back button on Android,
+   * Windows Phone 7.5, and Windows Phone 8 devices, calling the callback function whenever Back is pressed.
+   * @param exception Mandatory. The exception object from which the error string is extracted.
+   */
+  this.overrideBackButton = function() {};
 
-            // add file name and line number
-            if (e.fileName) {
-                message += " [" + e.fileName + ": line " + e.lineNumber + "]";
-            } else if (e.sourceURL) {
-                message += " [" + e.sourceURL + ": line " + e.line + "]";
-            }
-        } else {
-            message = e.toString();
-        }
-        return message;
-    };
+  /**
+   * Resets the original Back button behavior.
+   *
+   * Resets the original Back button behavior after it was changed by the overrideBackButton method.
+   * @note {Note} This method applies to Android, Windows Phone 7.5 (deprecated in IBM Worklight V6.0.0), and Windows Phone 8 only.
+   */
+  this.resetBackButton = function() {};
 
-    // Back Button support (Work on Android && Windows Phone)
-    /**
-     * Overrides the default behavior of the Back button on Android, 
-     * Windows Phone 7.5 (deprecated in IBM Worklight V6.0.0), and Windows Phone 8.
-     * 
-     * Overrides the default behavior of the Back button on Android, 
-     * Windows Phone 7.5, and Windows Phone 8 devices, calling the callback function whenever Back is pressed.
-     * @param exception Mandatory. The exception object from which the error string is extracted.
-     */
-    this.overrideBackButton = function(callback) {
-    };
+  /**
+   * Copies the specified string to the clipboard.
+   *
+   * This method is applicable to iOS and Android.
+   * @param {String} string Mandatory. The text to be copied to the clipboard
+   * @param callback Optional. For Android environments only. The callback function that is called after the data is copied to the clipboard.
+   */
+  this.copyToClipboard = function() {};
 
-    /**
-     * Resets the original Back button behavior.
-     * 
-     * Resets the original Back button behavior after it was changed by the overrideBackButton method.
-     * @note {Note} This method applies to Android, Windows Phone 7.5 (deprecated in IBM Worklight V6.0.0), and Windows Phone 8 only.
-     */
-    this.resetBackButton = function() {
-    };
+  // ////////////////////////////////////////
+  // Read/Write User Pref on Local Storage
+  // ////////////////////////////////////////
 
-    /**
-     * Copies the specified string to the clipboard.
-     * 
-     * This method is applicable to iOS and Android.
-     * @param {String} string Mandatory. The text to be copied to the clipboard
-     * @param callback Optional. For Android environments only. The callback function that is called after the data is copied to the clipboard.
-     */
-    this.copyToClipboard = function(text) {
-    };
+  this.readUserPref = function() {
+    var msg = 'WL.App.readUserPref(..) is supported only on Android and iOS environments';
+    var ex = new Error(msg);
+    WL.Logger.error(msg, ex);
+    throw ex;
+  };
 
-    // ////////////////////////////////////////
-    // Read/Write User Pref on Local Storage
-    // ////////////////////////////////////////
+  this.writeUserPref = function() {
+    var msg = 'WL.App.writeUserPref(..) is supported only on Android and iOS environments';
+    var ex = new Error(msg);
+    WL.Logger.error(msg, ex);
+    throw ex;
+  };
 
-    this.readUserPref = function(key, successCallback, failCallback) {
-        var msg = "WL.App.readUserPref(..) is supported only on Android and iOS environments";
-        var ex = new Error(msg);
-        WL.Logger.error(msg, ex);
-        throw ex;
-    };
+  this.showSplashScreen = function() {
+    // Do nothing. the real implementation is environment specific.
+    WL.Logger.debug('Splash screen (show) is only available on iOS, Android and WP environments.');
+  };
 
-    this.writeUserPref = function(key, value) {
-        var msg = "WL.App.writeUserPref(..) is supported only on Android and iOS environments";
-        var ex = new Error(msg);
-        WL.Logger.error(msg, ex);
-        throw ex;
-    };
-    
-    this.showSplashScreen = function() {
-    	// Do nothing. the real implementation is environment specific.
-    	WL.Logger.debug("Splash screen (show) is only available on iOS, Android and WP environments.");
-    }
-    
-    this.setServerUrl = function(url, successCallback, failCallback){
-    	// Do nothing. the real implementation is environment specific.
-    	WL.Logger.debug("WL.App.setServerUrl(..) is only available on iOS, Android and WP environments.");
-    	failCallback("WL.App.setServerUrl(..) is only available on iOS, Android and WP environments.");
-    }
-    
-    this.getServerUrl = function(successCallback, failCallback) {
-    	//get the server url in the old way from app property rather than from cordova
-    	successCallback(WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_ROOT_URL));
-    }
-    
-    this.hideSplashScreen = function() {
-    	// Do nothing, as this is called from the template application, and shouldn't fail whatsoever.
-    	WL.Logger.debug("Splash screen (hide) is only available on iOS, Android and WP environments.");
-    }
-    
-    /**
-     * Sends an action and optional data object to native action receivers. 
-     * Sends an action and optional data object to native action receivers. 
-     * @note {Note} If there are no native action receivers registered, the action 
-     * is queued until a native action receiver is registered. 
-     * @param {String} action Custom string that represents an action. All receivers registered 
-     * with the specified action receive the message.
-     * @param data Optional parameter: custom JSON object containing key-value pairs.
-     * @example {}
-     * WL.App.sendActionToNative("doSomething");
-     * WL.App.sendActionToNative("doSomething", { customData: 12345} );
-     */
-    this.sendActionToNative = function(action, data) {
-    	// Do nothing. the real implementation is environment specific.
-    	WL.Logger.debug("WL.App.sendActionToNative(...) is supported only for Android, iOS and WP environments.");
-    }
+  this.setServerUrl = function(url, successCallback, failCallback) {
+    // Do nothing. the real implementation is environment specific.
+    WL.Logger.debug('WL.App.setServerUrl(..) is only available on iOS, Android and WP environments.');
+    failCallback('WL.App.setServerUrl(..) is only available on iOS, Android and WP environments.');
+  };
 
-    /**
-     * Registers an action receiver. 
-     * @note {Note} In JavaScript code, a receiver must be implemented as a callback that can
-     * receive an object.
-     * @param {String} id. A string parameter used to uniquely identify receiver function, to be able 
-     * to remove it at later stages.
-     * @param {Function} callback Mandatory. The JavaScript function that is called by the 
-     * Worklight framework when an action is sent from native code to JavaScript code.
-     * @example {}
-     * WL.App.addActionReceiver("MyReceiver", function (receivedActon){
-     *	// process receivedAction
-     * });
-     */
-    this.addActionReceiver = function (id, callback) {
-    	// Do nothing. the real implementation is environment specific.
-    	WL.Logger.debug("WL.App.addActionReceiver(...) is supported only for iOS, Android and WP environments.");
-    }
+  this.getServerUrl = function(successCallback) {
+    //get the server url in the old way from app property rather than from cordova
+    successCallback(WL.Client.getAppProperty(WL.AppProp.WORKLIGHT_ROOT_URL));
+  };
 
-    /**
-     * Removes a previously added receiver. 
-     * Removes a previously added receiver. After this API is called, the receiver identified 
-     * by receiverId no longer receives actions.
-     * @param {String} id. A string parameter used to uniquely identify a previously 
-     * registered receiver function.
-     * @example {}
-     * WL.App.removeActionReceiver("MyReceiver");
-     */
-    this.removeActionReceiver = function (id) {
-    	// Do nothing. the real implementation is environment specific.
-    	WL.Logger.debug("WL.App.removeActionReceiver(...) is supported only for iOS, Android and WP environments.");
-    }
+  this.hideSplashScreen = function() {
+    // Do nothing, as this is called from the template application, and shouldn't fail whatsoever.
+    WL.Logger.debug('Splash screen (hide) is only available on iOS, Android and WP environments.');
+  };
+
+  /**
+   * Sends an action and optional data object to native action receivers.
+   * Sends an action and optional data object to native action receivers.
+   * @note {Note} If there are no native action receivers registered, the action
+   * is queued until a native action receiver is registered.
+   * @param {String} action Custom string that represents an action. All receivers registered
+   * with the specified action receive the message.
+   * @param data Optional parameter: custom JSON object containing key-value pairs.
+   * @example {}
+   * WL.App.sendActionToNative("doSomething");
+   * WL.App.sendActionToNative("doSomething", { customData: 12345} );
+   */
+  this.sendActionToNative = function() {
+    // Do nothing. the real implementation is environment specific.
+    WL.Logger.debug('WL.App.sendActionToNative(...) is supported only for Android, iOS and WP environments.');
+  };
+
+  /**
+   * Registers an action receiver.
+   * @note {Note} In JavaScript code, a receiver must be implemented as a callback that can
+   * receive an object.
+   * @param {String} id. A string parameter used to uniquely identify receiver function, to be able
+   * to remove it at later stages.
+   * @param {Function} callback Mandatory. The JavaScript function that is called by the
+   * Worklight framework when an action is sent from native code to JavaScript code.
+   * @example {}
+   * WL.App.addActionReceiver('MyReceiver', function (receivedActon){
+   *  // process receivedAction
+   * });
+   */
+  this.addActionReceiver = function() {
+    // Do nothing. the real implementation is environment specific.
+    WL.Logger.debug('WL.App.addActionReceiver(...) is supported only for iOS, Android and WP environments.');
+  };
+
+  /**
+   * Removes a previously added receiver.
+   * Removes a previously added receiver. After this API is called, the receiver identified
+   * by receiverId no longer receives actions.
+   * @param {String} id. A string parameter used to uniquely identify a previously
+   * registered receiver function.
+   * @example {}
+   * WL.App.removeActionReceiver("MyReceiver");
+   */
+  this.removeActionReceiver = function() {
+    // Do nothing. the real implementation is environment specific.
+    WL.Logger.debug('WL.App.removeActionReceiver(...) is supported only for iOS, Android and WP environments.');
+  };
 
 };
 
-__WL.prototype.App = new __WLApp;
-WL.App = new __WLApp;
-
+/*jshint newcap:false*/
+__WL.prototype.App = new __WLApp();
+WL.App = new __WLApp();
 
 /**
  * ================================================================= 
@@ -3118,18 +3279,23 @@ WL.App = new __WLApp;
  * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  */
 
+/*globals WLJSX, WL, WLAuthorizationManager, WL_*/
+
 // Overwriting the prototype.js isSameOrigin method -
 // Updated the original method by wrapping the return statement with try/catch
 // because it does not work properly in desktop applications such as Vista
 // (document.domain is undefined).
 WLJSX.Ajax.Request.prototype.isSameOrigin = function() {
+
+  /*jshint strict:false*/
+
   var m = this.url.match(/^\s*https?:\/\/[^\/]*/);
   try {
     var url = location.protocol + '//' + document.domain;
     if (location.port) {
       url += ':' + location.port;
     }
-    return (!m || (m[0] == url));
+    return (!m || (m[0] === url));
   } catch (e) {
     return true;
   }
@@ -3137,74 +3303,88 @@ WLJSX.Ajax.Request.prototype.isSameOrigin = function() {
 
 
 WL.Response = WLJSX.Class.create({
-  	invocationContext: null,
-  	status: -1,
-  	errorCode: null,
-  	errorMsg: null,
-	responseText : '',
-	responseJSON : '',
-  	initialize: function(transport, invocationContext) {
-    	if (transport !== null && typeof transport.status != "undefined") {
-    		this.status = (transport.status || 200);
-			this.responseHeaders = {};
-			
-			try {
-				this.responseText = WLJSX.String.interpret(transport.responseText);
-			} catch (e) {
-				
-			}
-			
-  	      	try {
-  	        	this.responseJSON = WLJSX.String.evalJSON(transport.responseText, true);
-  	      	} catch (e) {
-  	          
-  	      	}
-			
-			if (typeof(transport.responseJSON) !== 'undefined' && transport.responseJSON !== null) {
-      			this.errorCode = transport.responseJSON.errorCode;
-      			this.errorMsg = transport.responseJSON.errorMsg;
-			}
-			
-			if (typeof (transport.getAllResponseHeaders) === 'function') {
-				var responseHeadersString = transport.getAllResponseHeaders();
-				if (responseHeadersString !== null && typeof(responseHeadersString) !== 'undefined') {
-					var delimiter = responseHeadersString.indexOf("\r") > -1 ? "\r\n" : "\n";
-					var allHeaders = responseHeadersString.split(delimiter);
-		
-					for (var i = 0; i < allHeaders.length; i++) {
-						var pair = allHeaders[i];
-						var index = pair.indexOf(": ");
-						if (index > 0) {
-							var key = pair.substring(0, index);
-							var value = pair.substring(index + 2);
-							this.responseHeaders[key] = value; 
-						}
-					}
-				}
-			}
-    	}
-    	this.invocationContext = invocationContext;
-  	},
-	
-	getHeaderNames: function() {
-		var headerNames = [];
-		for (var headerName in this.responseHeaders){
-			headerNames.push(headerName);
-		}
-		return headerNames;
-	},
+  invocationContext: null,
+  status: -1,
+  errorCode: null,
+  errorMsg: null,
+  responseText: '',
+  responseJSON: '',
+  initialize: function(transport, invocationContext) {
 
-	getAllHeaders: function() {
-		return this.responseHeaders;
-	},
+    /*jshint strict:false*/
 
-	getHeader: function(name) {
-		if (name === null || typeof(name) === 'undefined'){
-			return null;
-		}			
-		
-		return this.responseHeaders[name];
-	}
+    if (transport !== null && typeof transport.status !== 'undefined') {
+      this.status = (transport.status || 200);
+      this.responseHeaders = {};
+
+      try {
+        this.responseText = WLJSX.String.interpret(transport.responseText);
+      } catch (e) {
+
+      }
+
+      try {
+        this.responseJSON = WLJSX.String.evalJSON(transport.responseText, true);
+      } catch (e) {
+
+      }
+
+      if (typeof(transport.responseJSON) !== 'undefined' && transport.responseJSON !== null) {
+        this.errorCode = transport.responseJSON.errorCode;
+        this.errorMsg = transport.responseJSON.errorMsg;
+      }
+
+      if (typeof(transport.getAllResponseHeaders) === 'function') {
+        var responseHeadersString = transport.getAllResponseHeaders();
+        if (responseHeadersString !== null && typeof(responseHeadersString) !== 'undefined') {
+          var delimiter = responseHeadersString.indexOf('\r') > -1 ? '\r\n' : '\n';
+          var allHeaders = responseHeadersString.split(delimiter);
+
+          /*jshint maxdepth:4*/
+          for (var i = 0; i < allHeaders.length; i++) {
+            var pair = allHeaders[i];
+            var index = pair.indexOf(': ');
+            /*jshint maxdepth:5*/
+            if (index > 0) {
+              var key = pair.substring(0, index);
+              var value = pair.substring(index + 2);
+              this.responseHeaders[key] = value;
+            }
+          }
+        }
+      }
+    }
+    this.invocationContext = invocationContext;
+  },
+
+  getHeaderNames: function() {
+
+    /*jshint strict:false*/
+
+    var headerNames = [];
+    for (var headerName in this.responseHeaders) {
+      if (true) {  // thanks jshint
+        headerNames.push(headerName);
+      }
+    }
+    return headerNames;
+  },
+
+  getAllHeaders: function() {
+
+    /*jshint strict:false*/
+
+    return this.responseHeaders;
+  },
+
+  getHeader: function(name) {
+    /*jshint strict:false*/
+    if (name === null || typeof(name) === 'undefined') {
+      return null;
+    }
+
+    return this.responseHeaders[name];
+  }
 });
 
 WL.FailResponse = WLJSX.Class.create({
@@ -3213,12 +3393,13 @@ WL.FailResponse = WLJSX.Class.create({
   errorCode: null,
   errorMsg: null,
   initialize: function(transport, invocationContext) {
-    if (transport !== null && typeof transport.status != "undefined") {
-      	this.status = (transport.status || 200);
-	  	if (transport.responseJSON !== null && typeof(transport.responseJSON) !== 'undefined') {
-      		this.errorCode = transport.responseJSON.errorCode;
-      		this.errorMsg = transport.responseJSON.errorMsg;
-		}
+    /*jshint strict:false*/
+    if (transport !== null && typeof transport.status !== 'undefined') {
+      this.status = (transport.status || 200);
+      if (transport.responseJSON !== null && typeof(transport.responseJSON) !== 'undefined') {
+        this.errorCode = transport.responseJSON.errorCode;
+        this.errorMsg = transport.responseJSON.errorMsg;
+      }
     }
     this.invocationContext = invocationContext;
   }
@@ -3246,6 +3427,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   MAX_TOTAL_HEADER_SIZE: 3000,
 
   initialize: function(url, options) {
+    /*jshint strict:false*/
     this.options = WLJSX.Object.clone(WLJSX.Ajax.WLRequest.options);
 
     WLJSX.Object.extend(this.options, options || {});
@@ -3282,21 +3464,21 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
     // if the
     // request has no body (even if
     // it's declared as a POST request).
-    if (WLJSX.Object.isUndefined(this.options.parameters) || this.options.parameters === null || this.options.parameters === "") {
+    if (WLJSX.Object.isUndefined(this.options.parameters) || this.options.parameters === null || this.options.parameters === '') {
       this.options.parameters = {};
     }
 
     // call piggybackers to modify options  
     for (var i = 0; i < WLJSX.Ajax.WlRequestPiggyBackers.length; i++) {
       var piggybacker = WLJSX.Ajax.WlRequestPiggyBackers[i];
-      if (typeof(piggybacker.processOptions) == "function") {
+      if (typeof(piggybacker.processOptions) === 'function') {
         piggybacker.processOptions(this.options, url);
       }
     }
 
     // Add a parameter to notify that this is an Ajax request - for
     // Air.
-    this.options.parameters.isAjaxRequest = "true";
+    this.options.parameters.isAjaxRequest = 'true';
     this.wlAnswers = {};
     this.sendRequest();
   },
@@ -3306,12 +3488,13 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
    * a message which headers are too big.
    */
   createRequestHeaders: function() {
+    /*jshint strict:false*/
     var requestHeaders = {};
     requestHeaders = WL.CookieManager.createCookieHeaders();
-    requestHeaders["x-wl-app-version"] = WL.StaticAppProps.APP_VERSION;
+    requestHeaders['x-wl-app-version'] = WL.StaticAppProps.APP_VERSION;
 
-    var platformVersionParameter = (WL.StaticAppProps.WORKLIGHT_PLATFORM_VERSION) ? WL.StaticAppProps.WORKLIGHT_PLATFORM_VERSION : "";
-    var nativeVersionParameter = (WL.StaticAppProps.WORKLIGHT_NATIVE_VERSION) ? WL.StaticAppProps.WORKLIGHT_NATIVE_VERSION : "";
+    var platformVersionParameter = (WL.StaticAppProps.WORKLIGHT_PLATFORM_VERSION) ? WL.StaticAppProps.WORKLIGHT_PLATFORM_VERSION : '';
+    var nativeVersionParameter = (WL.StaticAppProps.WORKLIGHT_NATIVE_VERSION) ? WL.StaticAppProps.WORKLIGHT_NATIVE_VERSION : '';
 
     var headerJSON = {
       applicationDetails: {
@@ -3321,7 +3504,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
     };
 
     // Add x-wl-app-details header in case relevant, currently used for direct update (environments???)
-    if (typeof(WL.__DirectUpdateManager) !== "undefined" && typeof(JSON) !== "undefined" &&
+    if (typeof(WL.__DirectUpdateManager) !== 'undefined' && typeof(JSON) !== 'undefined' &&
       WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_DIRECT_UPDATE_FROM_SERVER)) {
       headerJSON = WL.__DirectUpdateManager.generateAppDetails(headerJSON);
     }
@@ -3329,30 +3512,31 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
     WL.Logger.trace('Application details header: ' + JSON.stringify(headerJSON));
     //console.log('Application details header: ' + JSON.stringify(headerJSON));
 
-    requestHeaders["x-wl-app-details"] = JSON.stringify(headerJSON);
+    requestHeaders['x-wl-app-details'] = JSON.stringify(headerJSON);
 
     // add Authorization header from wlAnswres
-    if (typeof this.wlAnswers != "undefined") {
+    if (typeof this.wlAnswers !== 'undefined') {
       var authJson = {};
       var shouldSendAuthHeader = false;
       for (var realm in this.wlAnswers) {
         if (Object.prototype.hasOwnProperty.call(this.wlAnswers, realm)) {
-          answer = "";
+          var answer = '';
+          /*jshint maxdepth:4*/
           try {
             answer = JSON.parse(this.wlAnswers[realm]);
           } catch (e) {
             answer = this.wlAnswers[realm];
           }
           // Validate we are working with standrad JSON
-          if (typeof answer == "string" && typeof JSON == "undefined") {
-            authJson[realm] = answer.indexOf("\"") == 0 ? answer : "\"" + answer + "\"";
+          if (typeof answer === 'string' && typeof JSON === 'undefined') {
+            authJson[realm] = answer.indexOf('"') === 0 ? answer : '"' + answer + '"';
           } else {
             authJson[realm] = answer;
           }
           shouldSendAuthHeader = true;
         }
       }
-      if (shouldSendAuthHeader == true) {
+      if (shouldSendAuthHeader === true) {
         requestHeaders.Authorization = WLJSX.Object.toJSON(authJson);
       }
     }
@@ -3362,7 +3546,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
     this.__addGlobalHeaders(requestHeaders);
 
     var optionalHeaders = this.options.optionalHeaders;
-    if (typeof optionalHeaders != 'undefined' && optionalHeaders != null) {
+    if (typeof optionalHeaders !== 'undefined' && optionalHeaders !== null) {
       for (var headerName in optionalHeaders) {
         if (Object.prototype.hasOwnProperty.call(optionalHeaders, headerName)) {
           requestHeaders[headerName] = optionalHeaders[headerName];
@@ -3376,9 +3560,10 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   // automaticResend is to be used when comming from submitAnswer or removeExpectedAnswer, we need to know if we should handle the
   // request differently (add it to the challangeHandler wiating list).
   sendRequest: function(requestHeaders) {
+    /*jshint strict:false*/
     var shouldPostAnswers = false;
 
-    WL.Logger.debug("Request [" + this.url + "]");
+    WL.Logger.debug('Request [' + this.url + ']');
     // Update the random before every request to prevent caching.
     this.options.parameters.x = Math.random();
 
@@ -3405,6 +3590,9 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
 
       postAnswersOptions.postBody = this.options.requestHeaders.Authorization;
       postAnswersOptions.requestHeaders.Authorization = 'wl-authorization-in-body';
+      // Get HTTP request cannot hold a body
+      postAnswersOptions.method = 'post';
+      
       this.wlAnswers = {};
       shouldPostAnswers = true;
     }
@@ -3417,46 +3605,49 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
     if (this.options.timeout > 0) {
       this.timeoutTimer = window.setTimeout(this.handleTimeout.bind(this), this.options.timeout);
     }
-    
+
     var thisRequest = this;
     var isAuthRequest = this.options.isAuthorizationRequest || false;
     if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_OAUTH) && typeof(WLAuthorizationManager) !== 'undefined' && !isAuthRequest) {
-	    
-        if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 && this.url.indexOf('/v1/clients/instance') > -1) {
-        	__sendRequest(shouldPostAnswers);
-        } else {
-	        WLAuthorizationManager.__addHeadersToWLRequest(this.options.requestHeaders)
-	        .then(
-		    	function() {
-		    		// the above call to __addHeadersToWLRequest could trigger addition of global headers
-		    		// so do another round, but it will happen only in web environment without native xhr
-		    		thisRequest.__addGlobalHeaders(thisRequest.options.requestHeaders);
-            		__sendRequest(shouldPostAnswers);
-	            },
-		    	function(error) {
-	            	thisRequest.onWlFailure(error);
-		    	}
-			);
-        }
+
+      if ( ( WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL) && this.url.indexOf('/v1/clients/instance') > -1) {
+        __sendRequest(shouldPostAnswers);
+      } else {
+        WLAuthorizationManager.__addHeadersToWLRequest(this.options.requestHeaders)
+          .then(
+            function() {
+              // the above call to __addHeadersToWLRequest could trigger addition of global headers
+              // so do another round, but it will happen only in web environment without native xhr
+              thisRequest.__addGlobalHeaders(thisRequest.options.requestHeaders);
+              __sendRequest(shouldPostAnswers);
+            },
+            function(error) {
+              thisRequest.onWlFailure(error);
+            }
+          );
+      }
     } else {
-    	__sendRequest(shouldPostAnswers);		
+      __sendRequest(shouldPostAnswers);
     }
     /*jshint latedef: false */
     function __sendRequest(shouldPostAnswers) {
-    	if (shouldPostAnswers) {
-          var authenticateNewUrl = WL.Utils.createAPIRequestURL('authenticate');
-		     new WLJSX.Ajax.Request(authenticateNewUrl, postAnswersOptions);
-		} else {
-		     new WLJSX.Ajax.Request(thisRequest.url, thisRequest.options);
-		}
+      if (shouldPostAnswers) {
+        var authenticateNewUrl = WL.Utils.createAPIRequestURL('authenticate');
+        /*jshint -W031*/
+        new WLJSX.Ajax.Request(authenticateNewUrl, postAnswersOptions);
+      } else {
+        new WLJSX.Ajax.Request(thisRequest.url, thisRequest.options);
+      }
     }
-    
+
   },
-  
+
   __addGlobalHeaders: function(requestHeaders) {
+    /*jshint strict:false*/
     if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_NATIVE_XHR) || WL.Client.__state().enableFIPS) {
-      if ((typeof WL.Client.__globalHeaders != "undefined") && (WL.Client.__globalHeaders != null)) {
+      if ((typeof WL.Client.__globalHeaders !== 'undefined') && (WL.Client.__globalHeaders !== null)) {
         for (var headerName in WL.Client.__globalHeaders) {
+          /*jshint maxdepth:4*/
           if (Object.prototype.hasOwnProperty.call(WL.Client.__globalHeaders, headerName)) {
             requestHeaders[headerName] = WL.Client.__globalHeaders[headerName];
           }
@@ -3466,6 +3657,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   },
 
   onSuccessParent: function(transport, par) {
+    /*jshint strict:false*/
     if (this.isTimeout) {
       return;
     }
@@ -3475,32 +3667,31 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
     if (!containsChallenges) {
       // Handle notification subscription for push (if needed)
       if (transport.responseJSON && transport.responseJSON.notificationSubscriptionState && WL.Client.Push.__isDeviceSupportPush()) {
-    	  var notificationSubscriptionState = transport.responseJSON.notificationSubscriptionState;
-	  	  WL.Client.Push.__clearSubscribedEventSources();
-		  WL.Client.Push.__clearSubscribedTags();
-	
-		  var deviceToken = notificationSubscriptionState.token;
-		  if (!notificationSubscriptionState.eventSources || notificationSubscriptionState.eventSources.length <= 0) {
-		    WL.Logger.debug("Send new server notification token id.");
-		  } else {
-		    var eventSources = notificationSubscriptionState.eventSources;
-		    WL.Client.Push.__updateSubscribedEventSources(eventSources);
-		  }
-	
-		  if (notificationSubscriptionState.tags && notificationSubscriptionState.tags.length > 0) {
-		    var tags = notificationSubscriptionState.tags;
-		    WL.Client.Push.__updateSubscribedTags(tags);
-		  }
-	
-		  WL.Client.Push.__updateToken(notificationSubscriptionState);
+        var notificationSubscriptionState = transport.responseJSON.notificationSubscriptionState;
+        WL.Client.Push.__clearSubscribedEventSources();
+        WL.Client.Push.__clearSubscribedTags();
+
+        if (!notificationSubscriptionState.eventSources || notificationSubscriptionState.eventSources.length <= 0) {
+          WL.Logger.debug('Send new server notification token id.');
+        } else {
+          var eventSources = notificationSubscriptionState.eventSources;
+          WL.Client.Push.__updateSubscribedEventSources(eventSources);
+        }
+
+        if (notificationSubscriptionState.tags && notificationSubscriptionState.tags.length > 0) {
+          var tags = notificationSubscriptionState.tags;
+          WL.Client.Push.__updateSubscribedTags(tags);
+        }
+
+        WL.Client.Push.__updateToken(notificationSubscriptionState);
       }
 
       // Handle notification subscription for sms push (if needed)
       if (transport.responseJSON && transport.responseJSON.smsNotificationSubscriptionState && WL.Client.Push.isPushSMSSupported()) {
-    	  var notificationSubscriptionState = transport.responseJSON.smsNotificationSubscriptionState;
-	  	  WL.Client.Push.__clearSubscribedSMSEventSources();
-		  var eventSources = notificationSubscriptionState.eventSources;
-		  WL.Client.Push.__updateSubscribedSMSEventSources(eventSources);
+        var notificationSubscriptionStateTemp = transport.responseJSON.smsNotificationSubscriptionState;
+        WL.Client.Push.__clearSubscribedSMSEventSources();
+        var eventSourcesTemp = notificationSubscriptionStateTemp.eventSources;
+        WL.Client.Push.__updateSubscribedSMSEventSources(eventSourcesTemp);
       }
     }
 
@@ -3512,6 +3703,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
    * because this is not a resend but a special request, and the user should not be informed about it.
    */
   onPostAnswersSuccess: function(transport) {
+    /*jshint strict:false*/
     this.onSuccessParent(transport, this.postAnswerRealm);
     this.postAnswerRealm = '';
   },
@@ -3525,6 +3717,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
    * @param responseToPostAnswers
    */
   onWlSuccess: function(transport) {
+    /*jshint strict:false*/
     if (this.isTimeout) {
       return;
     }
@@ -3536,14 +3729,15 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   },
 
   onSuccess: function(transport) {
-    WLJSX.Ajax.WLRequest.setConnected(true);
+    /*jshint strict:false*/
+	WLJSX.Ajax.WLRequest.setConnected(true);
     if (transport.getAllHeaders() !== null) {
       // Handle Cookies:
-      var headers = transport.getAllHeaders().split("\n");
-      WL.CookieManager.handleResponseHeaders(headers);   
+      var headers = transport.getAllHeaders().split('\n');
+      WL.CookieManager.handleResponseHeaders(headers);
     }
 
-    WL.Logger.debug("response [" + this.url + "] success: " + transport.responseText);
+    WL.Logger.debug('response [' + this.url + '] success: ' + transport.responseText);
 
     //Check for pendings push notification in case user was not loggedin
     if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_PUSH) && WL.Client.Push.__hasPendings()) {
@@ -3552,13 +3746,13 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
 
     for (var i = 0; i < WLJSX.Ajax.WlRequestPiggyBackers.length; i++) {
       var piggybacker = WLJSX.Ajax.WlRequestPiggyBackers[i];
-      if (typeof(piggybacker.onSuccess) == "function") {
+      if (typeof(piggybacker.onSuccess) === 'function') {
         piggybacker.onSuccess(transport, this.options);
       }
     }
 
 
-    if (typeof(this.callerOptions.onSuccess) == "function") {
+    if (typeof(this.callerOptions.onSuccess) === 'function') {
       this.callerOptions.onSuccess(transport);
     }
   },
@@ -3567,10 +3761,11 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
    * Custom failure handelr for PostAnswer Request, it will remove the original request from waiting list, and not send the onFailure to the application code,
    * because this is not a resend but a special request, and the user should not be informed about it.
    *
-   * When a message arrives from a postAnswerRequert ("authenticate") and it is a 401,403, we need to remove it from the waitinglist so there wont be any resend on it,
+   * When a message arrives from a postAnswerRequert ('authenticate') and it is a 401,403, we need to remove it from the waitinglist so there wont be any resend on it,
    * because if has accepts in it, it will trigger the resend.
    */
   onPostAnswersFailure: function(transport) {
+    /*jshint strict:false*/
     if (this.isTimeout) {
       return;
     }
@@ -3581,17 +3776,18 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   },
 
   onWlFailure: function(transport) {
+    /*jshint strict:false*/
     if (this.isTimeout) {
       return;
     }
     this.cancelTimeout();
     if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_COOKIES)) {
       if (transport && transport.getAllHeaders && transport.getAllHeaders() !== null) {
-    	  var allHeaders = transport.getAllHeaders();
-    	  if (WL_.isString(allHeaders)) {
-  	        var headers = allHeaders.split("\n");
-  	        WL.CookieManager.handleResponseHeaders(headers);
-      	  }
+        var allHeaders = transport.getAllHeaders();
+        if (WL_.isString(allHeaders)) {
+          var headers = allHeaders.split('\n');
+          WL.CookieManager.handleResponseHeaders(headers);
+        }
       }
     }
     var containsChallenges = WL.Client.checkResponseForChallenges(this, transport);
@@ -3601,14 +3797,15 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   },
 
   onFailure: function(transport) {
+    /*jshint strict:false*/
     // sometimes onFailure is called with a dummy transport object
     // for example when an authentication timeout occurs.
     if (transport && transport.getAllHeaders && transport.getAllHeaders() !== null) {
-    	var allHeaders = transport.getAllHeaders();
-    	if (WL_.isString(allHeaders)) {
-	        var headers = allHeaders.split("\n");
-	        WL.CookieManager.handleResponseHeaders(headers);
-    	}
+      var allHeaders = transport.getAllHeaders();
+      if (WL_.isString(allHeaders)) {
+        var headers = allHeaders.split('\n');
+        WL.CookieManager.handleResponseHeaders(headers);
+      }
     }
 
     if (transport.responseJSON === null) {
@@ -3622,7 +3819,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
       }
     }
 
-    if (transport.responseJSON.errorCode != WL.ErrorCode.REQUEST_TIMEOUT && transport.responseJSON.errorCode != WL.ErrorCode.UNRESPONSIVE_HOST) {
+    if (transport.responseJSON.errorCode !== WL.ErrorCode.REQUEST_TIMEOUT && transport.responseJSON.errorCode !== WL.ErrorCode.UNRESPONSIVE_HOST) {
       WLJSX.Ajax.WLRequest.setConnected(true);
     }
 
@@ -3636,26 +3833,28 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
       WLJSX.Ajax.WLRequest.options.onAuthentication(this, transport);
       return;
     }
-    WL.Logger.error("[" + this.url + "] failure. state: " + transport.status + ", response: " + transport.responseJSON.errorMsg);
+    WL.Logger.error('[' + this.url + '] failure. state: ' + transport.status + ', response: ' + transport.responseJSON.errorMsg);
 
     for (var i = 0; i < WLJSX.Ajax.WlRequestPiggyBackers.length; i++) {
       var piggybacker = WLJSX.Ajax.WlRequestPiggyBackers[i];
-      if (typeof(piggybacker.onFailure) == "function") {
+      if (typeof(piggybacker.onFailure) === 'function') {
         piggybacker.onFailure(transport, this.options);
       }
     }
 
 
-    if (typeof(this.callerOptions.onFailure) == "function") {
+    if (typeof(this.callerOptions.onFailure) === 'function') {
       this.callerOptions.onFailure(transport);
     }
   },
 
   getCallbackForErrorCode: function(errorCode) {
+    /*jshint strict:false*/
     return this.options['on' + errorCode];
   },
 
   onException: function(request, ex) {
+    /*jshint strict:false*/
     if (this.isTimeout) {
       return;
     }
@@ -3665,15 +3864,17 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
       this.options.onAuthException(request, ex);
     }
     
-    WL.Logger.error("[" + this.url + "] exception.", ex);
+    WL.Logger.error('[' + this.url + '] exception.', ex);
     // Workaround for prototype's known behavior of swallowing
     // exceptions.
+    /*jshint -W068*/
     (function() {
       throw ex;
     }).defer();
   },
 
   onUnresponsiveHost: function() {
+    /*jshint strict:false*/
     if (this.isTimeout) {
       return;
     }
@@ -3683,9 +3884,9 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
 
     if (WL.Client.getEnvironment() === WL.Env.ANDROID) {
       WL.Logger
-        .error("[" + this.url + "] Host is not responsive. Try to manually access the URL through the android emulator browser to verify connectivity.");
+        .error('[' + this.url + '] Host is not responsive. Try to manually access the URL through the android emulator browser to verify connectivity.');
     } else {
-      WL.Logger.error("[" + this.url + "] Host is not responsive.");
+      WL.Logger.error('[' + this.url + '] Host is not responsive.');
     }
     var transport = {};
     transport.responseJSON = {
@@ -3693,13 +3894,14 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
       errorMsg: WL.ClientMessages.unresponsiveHost
     };
 
-    if (typeof(this.callerOptions.onFailure) == "function") {
+    if (typeof(this.callerOptions.onFailure) === 'function') {
       this.callerOptions.onFailure(transport);
     }
   },
 
   handleTimeout: function() {
-    WL.Logger.error("Request timeout for [" + this.url + "]");
+    /*jshint strict:false*/
+    WL.Logger.error('Request timeout for [' + this.url + ']');
     this.cancelTimeout(); // cancel all other timers (if there are
     // any)
     this.isTimeout = true;
@@ -3724,12 +3926,13 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
           WL.ClientMessages.handleTimeOut,
           this.url)
     };
-    if (typeof(this.callerOptions.onFailure) == "function") {
+    if (typeof(this.callerOptions.onFailure) === 'function') {
       this.callerOptions.onFailure(transport);
     }
   },
 
   cancelTimeout: function() {
+    /*jshint strict:false*/
     if (this.timeoutTimer !== null) {
       window.clearTimeout(this.timeoutTimer);
       this.timeoutTimer = null;
@@ -3741,17 +3944,19 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   // overwritten
   // and respond to the connected state
   setConnected: function(isConnected) {
-    WL.Logger.debug("Application is now " + (isConnected ? " online." : "offline."));
+    /*jshint strict:false*/
+    WL.Logger.debug('Application is now ' + (isConnected ? ' online.' : 'offline.'));
   },
 
   checkIfCanResend: function() {
-    if (typeof this.wlAnswers === "undefined") {
+    /*jshint strict:false*/
+    if (typeof this.wlAnswers === 'undefined') {
       return true;
     }
 
     for (var realm in this.wlAnswers) {
       if (Object.prototype.hasOwnProperty.call(this.wlAnswers, realm)) {
-        if (this.wlAnswers[realm] == null) {
+        if (this.wlAnswers[realm] === null) {
           return false;
         }
       }
@@ -3762,6 +3967,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
 
   // initialize the wlAnswer table with realm = null values
   setExpectedAnswers: function(realms) {
+    /*jshint strict:false*/
     for (var realm in realms) {
       if (Object.prototype.hasOwnProperty.call(realms, realm)) {
         this.wlAnswers[realm] = null;
@@ -3770,6 +3976,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   },
 
   submitAnswer: function(realm, answer) {
+    /*jshint strict:false*/
     this.wlAnswers[realm] = answer;
     if (this.checkIfCanResend()) {
       this.handleResendOrSendPostAnswers(realm);
@@ -3777,6 +3984,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
   },
 
   removeExpectedAnswer: function(realm) {
+    /*jshint strict:false*/
     delete this.wlAnswers[realm];
     if (this.checkIfCanResend()) {
       this.handleResendOrSendPostAnswers(realm);
@@ -3790,6 +3998,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
    *
    */
   handleResendOrSendPostAnswers: function(realm) {
+    /*jshint strict:false*/
     var headers = this.createRequestHeaders();
 
     var moveToWaitingList = false;
@@ -3804,7 +4013,7 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
     if (moveToWaitingList) {
       //iterate over all the challageHandlers
       this.postAnswerRealm = realm;
-      handler = WL.Client.__chMap[realm];
+      var handler = WL.Client.__chMap[realm];
       if (typeof(handler) !== 'undefined') {
         handler.moveToWaitingList(this);
       }
@@ -3818,51 +4027,55 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
 
 // always add this piggybacker
 WLJSX.Ajax.WlRequestPiggyBackers.push({
-  
-    name: 'ConfigProfile Piggybacker', // for display/debug purposes
-  
-    processOptions: function(options, url) {
 
-      function endsWith(str, suffix) {
-        return str.indexOf(suffix, str.length - suffix.length) !== -1;
-      }
+  name: 'ConfigProfile Piggybacker', // for display/debug purposes
 
-      if (endsWith(url, 'init') || endsWith(url, 'query') || endsWith(url, 'configprofile') || endsWith(url, 'loguploader')) {
-        var piggybackerHeaders = WL.WebLogger._getHeaders();
-        var optionalHeaders = options.optionalHeaders || {};
+  processOptions: function(options, url) {
+    /*jshint strict:false*/
 
-        // we can't assume we have jQuery.extend available to us,
-        // so we do it ourselves:
-        for (var property in piggybackerHeaders) {
-          if (piggybackerHeaders.hasOwnProperty(property)) {
-            optionalHeaders[property] = piggybackerHeaders[property];
-          }
-        }
-
-        options.optionalHeaders = optionalHeaders;
-      }
-    },
-
-    onSuccess: function(data) {
-      // process piggybacked response, if any, and remove it
-      function startsWith(str, prefix) {
-        return str && str.lastIndexOf(prefix, 0) === 0
-      };
-
-      var responseText = '';
-      if (data.responseJSON) {
-        if (data.responseJSON.piggyback) {
-          if (data.responseJSON.piggyback.configprofile) {
-            responseText = JSON.stringify(data.responseJSON.piggyback.configprofile);
-          }
-          delete data.responseJSON.piggyback;
-          if (startsWith(data.responseText, '/')) {  // response came from init or invokeProcedure
-            data.responseText = '/*-secure-' + JSON.stringify(data.responseJSON) + '*/';
-          }
-        }
-        WL.WebLogger._processUpdateConfig({responseText: responseText});
-      }
+    function endsWith(str, suffix) {
+      return str.indexOf(suffix, str.length - suffix.length) !== -1;
     }
+
+    if (endsWith(url, 'init') || endsWith(url, 'query') || endsWith(url, 'configprofile') || endsWith(url, 'loguploader')) {
+      var piggybackerHeaders = WL.WebLogger._getHeaders();
+      var optionalHeaders = options.optionalHeaders || {};
+
+      // we can't assume we have jQuery.extend available to us,
+      // so we do it ourselves:
+      for (var property in piggybackerHeaders) {
+        if (piggybackerHeaders.hasOwnProperty(property)) {
+          optionalHeaders[property] = piggybackerHeaders[property];
+        }
+      }
+
+      options.optionalHeaders = optionalHeaders;
+    }
+  },
+
+  onSuccess: function(data) {
+    /*jshint strict:false*/
+    // process piggybacked response, if any, and remove it
+    function startsWith(str, prefix) {
+      return str && str.lastIndexOf(prefix, 0) === 0;
+    }
+
+    var responseText = '';
+    if (data.responseJSON) {
+      if (data.responseJSON.piggyback) {
+        if (data.responseJSON.piggyback.configprofile) {
+          responseText = JSON.stringify(data.responseJSON.piggyback.configprofile);
+        }
+        delete data.responseJSON.piggyback;
+        if (startsWith(data.responseText, '/')) { // response came from init or invokeProcedure
+          data.responseText = '/*-secure-' + JSON.stringify(data.responseJSON) + '*/';
+        }
+      }
+      WL.WebLogger._processUpdateConfig({
+        responseText: responseText
+      });
+    }
+  }
 
 });
 
@@ -3879,9 +4092,6 @@ WLJSX.Ajax.WLRequest.options = {
   isAuthResponse: null
 };
 
-
-
-
 /**
  * ================================================================= 
  * Source file taken from :: wlcookiemanager.js
@@ -3889,495 +4099,502 @@ WLJSX.Ajax.WLRequest.options = {
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
 
+/*globals WL, WLJSX, __WL, air, device*/
 
 /**
  * Cookie manager singleton
  */
-WL.CookieManager = function() {
-    var COOKIE_JSESSION_ID = "JSESSIONID";
-    var COOKIE_WLSESSION_ID = "WLSESSIONID";
+WL.CookieManager = (function() {
 
-    // WARN: This constant is also accessed in the iOS native code
-    // (WLCookieExtractor.m)
-    var PERSISTED_COOKIES_NAME = "cookies";
+  /*jshint strict:false, quotmark:double*/
 
-    var cookies = null;
-    var cookiePersister = null;
-    var gadgetName = null;
-    var gadgetEnvironment = null;
-    var gadgetIID = null;
+  var COOKIE_JSESSION_ID = "JSESSIONID";
+  var COOKIE_WLSESSION_ID = "WLSESSIONID";
 
-    var CookiePersister = WLJSX.Class.create({
-        init : function() {
-        },
-        storeCookies : function() {
-        },
-        readCookies : function() {
-        }, // throws exception on failure.
-        clearCookies : function() {
-        }
-    });
+  // WARN: This constant is also accessed in the iOS native code
+  // (WLCookieExtractor.m)
+  var PERSISTED_COOKIES_NAME = "cookies";
 
-    // Air
-    // Adobe Air has a local SQLite DB which is used to persist the cookies.
-    // All cookies are saved as a JSON object in the cookies table, under the
-    // name "cookies".
-    //
-    var AirCookiePersister = WLJSX.Class.create(CookiePersister, {
-        conn : null,
+  var cookies = null;
+  var cookiePersister = null;
+  var gadgetName = null;
+  var gadgetEnvironment = null;
+  var gadgetIID = null;
 
-        init : function() {
-            this.conn = new air.SQLConnection();
-            // The database file is in the application storage
-            // directory
-            var folder = air.File.applicationStorageDirectory;
-            var dbFile = folder.resolvePath("worklight.db");
+  var CookiePersister = WLJSX.Class.create({
+    init: function() {},
+    storeCookies: function() {},
+    readCookies: function() {}, // throws exception on failure.
+    clearCookies: function() {}
+  });
 
-            try {
-                this.conn.open(dbFile);
-            } catch (e) {
-                WL.Logger.error("Error opening cookies DB: " + e.message + ", Details: " + e.details);
-                return;
-            }
+  // Air
+  // Adobe Air has a local SQLite DB which is used to persist the cookies.
+  // All cookies are saved as a JSON object in the cookies table, under the
+  // name "cookies".
+  //
+  var AirCookiePersister = WLJSX.Class.create(CookiePersister, {
+    conn: null,
 
-            var createStmt = new air.SQLStatement();
-            createStmt.sqlConnection = this.conn;
-            createStmt.text = "CREATE TABLE IF NOT EXISTS cookies (name VARCHAR(255) PRIMARY KEY, value VARCHAR(255))";
+    init: function() {
+      this.conn = new air.SQLConnection();
+      // The database file is in the application storage
+      // directory
+      var folder = air.File.applicationStorageDirectory;
+      var dbFile = folder.resolvePath("worklight.db");
 
-            try {
-                createStmt.execute();
-            } catch (e) {
-                WL.Logger.error("Error creating cookies DB tables: " + e.message + ", Details: " + e.details);
-            }
-        },
+      try {
+        this.conn.open(dbFile);
+      } catch (e) {
+        WL.Logger.error("Error opening cookies DB: " + e.message + ", Details: " + e.details);
+        return;
+      }
 
-        storeCookies : function() {
-            try {
-                var JSONCookies = WLJSX.Object.toJSON(cookies);
-                WL.Logger.debug("Storing cookies: " + JSONCookies);
+      var createStmt = new air.SQLStatement();
+      createStmt.sqlConnection = this.conn;
+      createStmt.text = "CREATE TABLE IF NOT EXISTS cookies (name VARCHAR(255) PRIMARY KEY, value VARCHAR(255))";
 
-                // first cookie - need to use an "insert" sql
-                // command
-                if (this.getCookieValue(PERSISTED_COOKIES_NAME) === null) {
-                    var insertStmt = new air.SQLStatement();
-                    insertStmt.sqlConnection = this.conn;
-                    insertStmt.text = "INSERT INTO cookies (name, value) VALUES(\"" + PERSISTED_COOKIES_NAME + "\", \""
-                            + JSONCookies + "\")";
-                    insertStmt.execute();
-                } else {
-                    // cookies were persisted already - need to
-                    // use an "update"
-                    // sql command
-                    var updateStmt = new air.SQLStatement();
-                    updateStmt.sqlConnection = this.conn;
-                    updateStmt.text = "UPDATE cookies SET name=\"" + PERSISTED_COOKIES_NAME + "\", value=\""
-                            + JSONCookies + "\" WHERE name=\"" + PERSISTED_COOKIES_NAME + "\"";
-                    updateStmt.execute();
-                }
-            } catch (e) {
-                WL.Logger.error("Error storing cookies: " + e.message + ", Details: " + e.details);
-            }
-        },
+      try {
+        createStmt.execute();
+      } catch (e) {
+        WL.Logger.error("Error creating cookies DB tables: " + e.message + ", Details: " + e.details);
+      }
+    },
 
-        readCookies : function() {
-            var JSONCookies = this.getCookieValue(PERSISTED_COOKIES_NAME);
-            if (JSONCookies) {
-                WL.Logger.debug("Read cookies: " + JSONCookies);
-                var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
-                for ( var key in cookiesObj) {
-                    cookies[key] = cookiesObj[key];
-                }
-            }
-        },
+    storeCookies: function() {
+      try {
+        var JSONCookies = WLJSX.Object.toJSON(cookies);
+        WL.Logger.debug("Storing cookies: " + JSONCookies);
 
-        clearCookies : function() {
-            try {
-                var deleteStmt = new air.SQLStatement();
-                deleteStmt.sqlConnection = this.conn;
-                deleteStmt.text = "DELETE FROM cookies";
-                deleteStmt.execute();
-            } catch (e) {
-                WL.Logger.error("Error clearing cookies: " + e.message);
-            }
-        },
-
-        getCookieValue : function(cookieName) {
-            try {
-                var cookieValue = null;
-                var selectStmt = new air.SQLStatement();
-                selectStmt.sqlConnection = this.conn;
-                selectStmt.text = "SELECT * FROM cookies WHERE name=\"" + cookieName + "\"";
-                selectStmt.execute();
-
-                var result = selectStmt.getResult();
-                if (result.data !== null) {
-                    var numResults = result.data.length;
-                    for ( var i = 0; i < numResults; i++) {
-                        cookieValue = result.data[i].value;
-                    }
-                }
-                return cookieValue;
-            } catch (e) {
-                WL.Logger.error("Error getting cookie: " + cookieName + ", error: " + e.message);
-            }
-        }
-    });
-
-    //
-    // Blackberry Persister
-    //
-    var BlackberryCookiePersister = WLJSX.Class.create(CookiePersister, {
-        storeCookies : function() {
-            try {
-                var JSONCookies = WLJSX.Object.toJSON(cookies);
-                WL.Logger.debug("Storing cookies: (" + JSONCookies + ")");
-                __WL.blackBerryPersister.store(PERSISTED_COOKIES_NAME, JSONCookies);
-            } catch (e) {
-                WL.Logger.error("Error storing cookie: " + e.message);
-            }
-        },
-
-        readCookies : function() {
-            try {
-                var JSONCookies = __WL.blackBerryPersister.read(PERSISTED_COOKIES_NAME);
-                WL.Logger.debug("Read cookies: " + JSONCookies);
-                if (JSONCookies != null) {
-                    var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
-                    for ( var key in cookiesObj) {
-                        cookies[key] = cookiesObj[key];
-                    }
-                }
-            } catch (e) {
-                WL.Logger.error("Error reading cookies: " + e.message);
-            }
-        },
-
-        clearCookies : function() {
-            try {
-                var JSONCookies = WLJSX.Object.toJSON(cookies);
-                __WL.blackBerryPersister.remove(PERSISTED_COOKIES_NAME);
-                WL.Logger.debug("Delete cookies: " + JSONCookies);
-            } catch (e) {
-                WL.Logger.error("Error deleting cookies: " + e.message);
-            }
-        }
-    });
-
-    //
-    // Windows Phone Persister
-    //
-    var WPCookiePersister = WLJSX.Class.create(CookiePersister, {
-        storeCookies : function() {
-            try {
-                var JSONCookies = WLJSX.Object.toJSON(cookies);
-                window.localStorage.setItem(PERSISTED_COOKIES_NAME, JSONCookies);
-                WL.Logger.debug("Storing cookies: (" + JSONCookies + ")");
-                this.readCookies();
-            } catch (e) {
-                WL.Logger.error("Error storing cookie: " + e.message);
-            }
-        },
-
-        readCookies : function() {
-            try {
-            	JSONCookies = window.localStorage.getItem(PERSISTED_COOKIES_NAME);
-				
-				if (JSONCookies != null) {
-					var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
-					for (var key in cookiesObj){
-						cookies[key] = cookiesObj[key];
-					}
-				}
-            } catch (e) {
-                WL.Logger.error("Error reading cookies: " + e.message);
-            }
-        },
-
-        clearCookies : function() {
-            try {
-            	window.localStorage.removeItem(PERSISTED_COOKIES_NAME);
-                WL.Logger.debug("Delete cookies: " + JSONCookies);
-            } catch (e) {
-                WL.Logger.error("Error deleting cookies: " + e.message);
-            }
-        }
-    });
-
-    var LocalStorageCookiePersister = WLJSX.Class.create(CookiePersister, {
-        storeCookies : function() {
-            try {
-                var JSONCookies = WLJSX.Object.toJSON(cookies);
-                WL.Logger.debug("Storing cookies: (" + JSONCookies + ")");
-                __WL.LocalStorage.setValue(PERSISTED_COOKIES_NAME, JSONCookies);
-            } catch (e) {
-                WL.Logger.error("Error storing cookie: " + e.message);
-            }
-        },
-
-        readCookies : function() {
-            try {
-                var JSONCookies = __WL.LocalStorage.getValue(PERSISTED_COOKIES_NAME);
-                if (JSONCookies == '') {
-                    return;
-                }
-                WL.Logger.debug("Read cookies: " + JSONCookies);
-                if (JSONCookies != null) {
-                    var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
-                    for ( var key in cookiesObj) {
-                        cookies[key] = cookiesObj[key];
-                    }
-                }
-            } catch (e) {
-                WL.Logger.error("Error reading cookies: " + e.message);
-            }
-        },
-
-        clearCookies : function() {
-            try {
-                var JSONCookies = WLJSX.Object.toJSON(cookies);
-                __WL.LocalStorage.clear(KEY_COOKIES);
-                WL.Logger.debug("Delete cookies: " + JSONCookies);
-            } catch (e) {
-                WL.Logger.error("Error deleting cookies: " + e.message);
-            }
-        }
-    });
-
-    // 
-    // Android
-    //
-    var AndroidCookiePersister = LocalStorageCookiePersister;
-
-    //
-    // iPhone
-    //	
-    var IPhoneCookiePersister = LocalStorageCookiePersister;
-
-    // Private methods of the cookie manager:
-
-    // Create the cookie persister according to the environment
-    var createCookiePersister = function() {
-        switch (gadgetEnvironment) {
-        case WL.Env.ADOBE_AIR:
-            cookiePersister = new AirCookiePersister();
-            break;
-        case WL.Env.IPHONE:
-            cookiePersister = new IPhoneCookiePersister();
-            break;
-        case WL.Env.IPAD:
-            cookiePersister = new IPhoneCookiePersister();
-            break;
-        case WL.Env.BLACKBERRY:
-            // check if localStorage (HTML5 feature) supported
-            cookiePersister = (typeof localStorage != "undefined") ? new LocalStorageCookiePersister
-                    : new BlackberryCookiePersister();
-            break;
-        case WL.Env.ANDROID:
-            cookiePersister = new AndroidCookiePersister();
-            break;
-        case WL.Env.WINDOWS_PHONE_8:
-            cookiePersister = new WPCookiePersister();
-            break;
-        default:
-            cookiePersister = null;
-            break;
-        }
-    };
-
-    var parseCookiesFromHeader = function(header) {
-        var resultCookies = [];
-        var headerValue = header.substr(header.indexOf(":") + 1);
-
-        var cookieParts = headerValue.split(",");
-        for ( var i = 0; i < cookieParts.length; i++) {
-            var cookiePart = cookieParts[i];
-            // WL.Logger.debug("CookiePart: " + cookiePart);
-            var cookieSubparts = cookiePart.split("=");
-            if (cookieSubparts.length < 2) {
-                WL.Logger.error("invalid cookie header: " + header);
-            } else {
-                var cookie = {
-                    name : WLJSX.String.strip(cookieSubparts[0]),
-                    value : WLJSX.String.strip(cookieSubparts[1].split(';')[0])
-                };
-                resultCookies.push(cookie);
-            }
-        }
-        return resultCookies;
-    };
-
-    var getCookie = function(cookieName) {
-        var cookieValue = "";
-        if (isCookieManagementRequired()) {
-            cookieValue = cookies[cookieName];
+        // first cookie - need to use an "insert" sql
+        // command
+        if (this.getCookieValue(PERSISTED_COOKIES_NAME) === null) {
+          var insertStmt = new air.SQLStatement();
+          insertStmt.sqlConnection = this.conn;
+          insertStmt.text = "INSERT INTO cookies (name, value) VALUES(\"" + PERSISTED_COOKIES_NAME + "\", \"" + JSONCookies + "\")";
+          insertStmt.execute();
         } else {
-            if (document.cookie.length > 0) {
-                var cookieStart = document.cookie.indexOf(cookieName + "=");
-                if (cookieStart !== -1) {
-                    cookieStart = cookieStart + cookieName.length + 1;
-                    var cookieEnd = document.cookie.indexOf(";", cookieStart);
-                    if (cookieEnd === -1) {
-                        cookieEnd = document.cookie.length;
-                    }
-                    cookieValue = decodeURI(document.cookie.substring(cookieStart, cookieEnd));
-                }
-            }
+          // cookies were persisted already - need to
+          // use an "update"
+          // sql command
+          var updateStmt = new air.SQLStatement();
+          updateStmt.sqlConnection = this.conn;
+          updateStmt.text = "UPDATE cookies SET name=\"" + PERSISTED_COOKIES_NAME + "\", value=\"" + JSONCookies + "\" WHERE name=\"" + PERSISTED_COOKIES_NAME + "\"";
+          updateStmt.execute();
         }
-        if (typeof cookieValue === 'undefined') {
-            cookieValue = null;
+      } catch (e) {
+        WL.Logger.error("Error storing cookies: " + e.message + ", Details: " + e.details);
+      }
+    },
+
+    readCookies: function() {
+      var JSONCookies = this.getCookieValue(PERSISTED_COOKIES_NAME);
+      if (JSONCookies) {
+        WL.Logger.debug("Read cookies: " + JSONCookies);
+        var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
+        /*jshint forin:false*/
+        for (var key in cookiesObj) {
+          cookies[key] = cookiesObj[key];
         }
-        // WL.Logger.debug("getCookieValue: " + cookieName + "=" + cookieValue);
-        return {
-            name : cookieName,
-            value : cookieValue
+      }
+    },
+
+    clearCookies: function() {
+      try {
+        var deleteStmt = new air.SQLStatement();
+        deleteStmt.sqlConnection = this.conn;
+        deleteStmt.text = "DELETE FROM cookies";
+        deleteStmt.execute();
+      } catch (e) {
+        WL.Logger.error("Error clearing cookies: " + e.message);
+      }
+    },
+
+    getCookieValue: function(cookieName) {
+      try {
+        var cookieValue = null;
+        var selectStmt = new air.SQLStatement();
+        selectStmt.sqlConnection = this.conn;
+        selectStmt.text = "SELECT * FROM cookies WHERE name=\"" + cookieName + "\"";
+        selectStmt.execute();
+
+        var result = selectStmt.getResult();
+        if (result.data !== null) {
+          var numResults = result.data.length;
+          for (var i = 0; i < numResults; i++) {
+            cookieValue = result.data[i].value;
+          }
+        }
+        return cookieValue;
+      } catch (e) {
+        WL.Logger.error("Error getting cookie: " + cookieName + ", error: " + e.message);
+      }
+    }
+  });
+
+  //
+  // Blackberry Persister
+  //
+  var BlackberryCookiePersister = WLJSX.Class.create(CookiePersister, {
+    storeCookies: function() {
+      try {
+        var JSONCookies = WLJSX.Object.toJSON(cookies);
+        WL.Logger.debug("Storing cookies: (" + JSONCookies + ")");
+        __WL.blackBerryPersister.store(PERSISTED_COOKIES_NAME, JSONCookies);
+      } catch (e) {
+        WL.Logger.error("Error storing cookie: " + e.message);
+      }
+    },
+
+    readCookies: function() {
+      try {
+        var JSONCookies = __WL.blackBerryPersister.read(PERSISTED_COOKIES_NAME);
+        WL.Logger.debug("Read cookies: " + JSONCookies);
+        if (JSONCookies !== null) {
+          var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
+          /*jshint forin:false*/
+          for (var key in cookiesObj) {
+            cookies[key] = cookiesObj[key];
+          }
+        }
+      } catch (e) {
+        WL.Logger.error("Error reading cookies: " + e.message);
+      }
+    },
+
+    clearCookies: function() {
+      try {
+        var JSONCookies = WLJSX.Object.toJSON(cookies);
+        __WL.blackBerryPersister.remove(PERSISTED_COOKIES_NAME);
+        WL.Logger.debug("Delete cookies: " + JSONCookies);
+      } catch (e) {
+        WL.Logger.error("Error deleting cookies: " + e.message);
+      }
+    }
+  });
+
+  //
+  // Windows Phone Persister
+  //
+  var WPCookiePersister = WLJSX.Class.create(CookiePersister, {
+    storeCookies: function() {
+      try {
+        var JSONCookies = WLJSX.Object.toJSON(cookies);
+        window.localStorage.setItem(PERSISTED_COOKIES_NAME, JSONCookies);
+        WL.Logger.debug("Storing cookies: (" + JSONCookies + ")");
+        this.readCookies();
+      } catch (e) {
+        WL.Logger.error("Error storing cookie: " + e.message);
+      }
+    },
+
+    readCookies: function() {
+      try {
+        var JSONCookies = window.localStorage.getItem(PERSISTED_COOKIES_NAME);
+
+        if (JSONCookies !== null) {
+          var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
+          /*jshint forin:false*/
+          for (var key in cookiesObj) {
+            cookies[key] = cookiesObj[key];
+          }
+        }
+      } catch (e) {
+        WL.Logger.error("Error reading cookies: " + e.message);
+      }
+    },
+
+    clearCookies: function() {
+      try {
+        var JSONCookies = window.localStorage.getItem(PERSISTED_COOKIES_NAME);
+        window.localStorage.removeItem(PERSISTED_COOKIES_NAME);
+        WL.Logger.debug("Delete cookies: " + JSONCookies);
+      } catch (e) {
+        WL.Logger.error("Error deleting cookies: " + e.message);
+      }
+    }
+  });
+
+  var LocalStorageCookiePersister = WLJSX.Class.create(CookiePersister, {
+    storeCookies: function() {
+      try {
+        var JSONCookies = WLJSX.Object.toJSON(cookies);
+        WL.Logger.debug("Storing cookies: (" + JSONCookies + ")");
+        __WL.LocalStorage.setValue(PERSISTED_COOKIES_NAME, JSONCookies);
+      } catch (e) {
+        WL.Logger.error("Error storing cookie: " + e.message);
+      }
+    },
+
+    readCookies: function() {
+      try {
+        var JSONCookies = __WL.LocalStorage.getValue(PERSISTED_COOKIES_NAME);
+        if (JSONCookies === "") {
+          return;
+        }
+        WL.Logger.debug("Read cookies: " + JSONCookies);
+        if (JSONCookies !== null) {
+          var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
+          /*jshint forin:false*/
+          for (var key in cookiesObj) {
+            cookies[key] = cookiesObj[key];
+          }
+        }
+      } catch (e) {
+        WL.Logger.error("Error reading cookies: " + e.message);
+      }
+    },
+
+    clearCookies: function() {
+      try {
+        var JSONCookies = WLJSX.Object.toJSON(cookies);
+        __WL.LocalStorage.clear(PERSISTED_COOKIES_NAME);
+        WL.Logger.debug("Delete cookies: " + JSONCookies);
+      } catch (e) {
+        WL.Logger.error("Error deleting cookies: " + e.message);
+      }
+    }
+  });
+
+  // 
+  // Android
+  //
+  var AndroidCookiePersister = LocalStorageCookiePersister;
+
+  //
+  // iPhone
+  //  
+  var IPhoneCookiePersister = LocalStorageCookiePersister;
+
+  // Private methods of the cookie manager:
+
+  // Create the cookie persister according to the environment
+  var createCookiePersister = function() {
+    switch (gadgetEnvironment) {
+      case WL.Env.ADOBE_AIR:
+        cookiePersister = new AirCookiePersister();
+        break;
+      case WL.Env.IPHONE:
+        cookiePersister = new IPhoneCookiePersister();
+        break;
+      case WL.Env.IPAD:
+        cookiePersister = new IPhoneCookiePersister();
+        break;
+      case WL.Env.BLACKBERRY:
+        // check if localStorage (HTML5 feature) supported
+        cookiePersister = (typeof localStorage !== "undefined") ? new LocalStorageCookiePersister() : new BlackberryCookiePersister();
+        break;
+      case WL.Env.ANDROID:
+        cookiePersister = new AndroidCookiePersister();
+        break;
+      case WL.Env.WINDOWS_PHONE_8:
+        cookiePersister = new WPCookiePersister();
+        break;
+      default:
+        cookiePersister = null;
+        break;
+    }
+  };
+
+  var parseCookiesFromHeader = function(header) {
+    var resultCookies = [];
+    var headerValue = header.substr(header.indexOf(":") + 1);
+
+    var cookieParts = headerValue.split(",");
+    for (var i = 0; i < cookieParts.length; i++) {
+      var cookiePart = cookieParts[i];
+      // WL.Logger.debug("CookiePart: " + cookiePart);
+      var cookieSubparts = cookiePart.split("=");
+      if (cookieSubparts.length < 2) {
+        WL.Logger.error("invalid cookie header: " + header);
+      } else {
+        var cookie = {
+          name: WLJSX.String.strip(cookieSubparts[0]),
+          value: WLJSX.String.strip(cookieSubparts[1].split(";")[0])
         };
-    };
+        resultCookies.push(cookie);
+      }
+    }
+    return resultCookies;
+  };
 
-    var isCookieManagementRequired = function() {
-        return !WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_COOKIES);
-    };
-
-    // Public API methods
+  var getCookie = function(cookieName) {
+    var cookieValue = "";
+    if (isCookieManagementRequired()) {
+      cookieValue = cookies[cookieName];
+    } else {
+      if (document.cookie.length > 0) {
+        var cookieStart = document.cookie.indexOf(cookieName + "=");
+        if (cookieStart !== -1) {
+          cookieStart = cookieStart + cookieName.length + 1;
+          var cookieEnd = document.cookie.indexOf(";", cookieStart);
+          /*jshint maxdepth:4*/
+          if (cookieEnd === -1) {
+            cookieEnd = document.cookie.length;
+          }
+          cookieValue = decodeURI(document.cookie.substring(cookieStart, cookieEnd));
+        }
+      }
+    }
+    if (typeof cookieValue === "undefined") {
+      cookieValue = null;
+    }
+    // WL.Logger.debug("getCookieValue: " + cookieName + "=" + cookieValue);
     return {
-        init : function(gadgetDisplayName, gadgetEnv, gadgetInstanceID) {
-            gadgetName = gadgetDisplayName;
-            gadgetEnvironment = gadgetEnv;
-            gadgetIID = gadgetInstanceID;
+      name: cookieName,
+      value: cookieValue
+    };
+  };
 
-            cookies = {};
-            createCookiePersister();
+  var isCookieManagementRequired = function() {
+    return !WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_COOKIES);
+  };
+
+  // Public API methods
+  return {
+    init: function(gadgetDisplayName, gadgetEnv, gadgetInstanceID) {
+      gadgetName = gadgetDisplayName;
+      gadgetEnvironment = gadgetEnv;
+      gadgetIID = gadgetInstanceID;
+
+      cookies = {};
+      createCookiePersister();
+
+      if (cookiePersister !== null) {
+        cookiePersister.init();
+        try {
+          cookiePersister.readCookies();
+        } catch (e) {
+          WL.Logger.error("error read cookies: " + e.message);
+          cookiePersister.clearCookies();
+        }
+        WL.Logger.debug("CookieMgr read cookies: " + WLJSX.Object.toJSON(cookies));
+      }
+    },
+
+    // Called by WP7 native code after call readCookies
+    updateCookies: function(JSONCookies) {
+      try {
+        var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
+        /*jshint forin:false*/
+        for (var key in cookiesObj) {
+          cookies[key] = cookiesObj[key];
+        }
+      } catch (e) {
+        WL.Logger.error("Problems to update cookies " + e + " " + JSONCookies);
+      }
+    },
+
+    clearCookies: function() {
+      cookies = {};
+      if (cookiePersister !== null) {
+        cookiePersister.clearCookies();
+      }
+    },
+
+    createCookieHeaders: function() {
+      var headers = {};
+      if (isCookieManagementRequired()) {
+        var cookieHeaderValue = "";
+        /*jshint forin:false*/
+        for (var key in cookies) {
+          cookieHeaderValue += key + "=" + cookies[key] + ";";
+        }
+
+        if (cookieHeaderValue !== "") {
+          headers.Cookie = cookieHeaderValue;
+        }
+      }
+
+      if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_DEVICE_AUTH) && typeof device !== "undefined" && device !== null && typeof device.uuid !== "undefined") {
+        var deviceId = {};
+        if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL  ) {
+          //Device uuid changes and system generates different uuid's for different apps. 
+          //For device SSO to work it should be same across apps and adapterid remains same for a device.
+          deviceId.id = WL.Device.getHardwareIdentifier();
+        } else if (WL.Client.getEnvironment() === WL.Environment.WINDOWS_PHONE_8) {
+          //Device uuid changes and system generates different uuid's for different apps.
+          //For device SSO to work it should be same across apps and PublisherHostId is same if publisherid matches with apps
+          deviceId.id = WL.PublisherHostID;
+        } else {
+          deviceId.id = device.uuid;
+        }
+        deviceId.os = device.version;
+        deviceId.model = device.model;
+        deviceId.environment = WL.Client.getEnvironment();
+        headers.deviceId = WLJSX.Object.toJSON(deviceId);
+      }
+      return headers;
+    },
+
+    handleResponseHeaders: function(headers) {
+      if (!isCookieManagementRequired()) {
+        return;
+      }
+      var sessionCookies = {};
+      for (var i = 0; i < headers.length; i++) {
+        var header = headers[i];
+        if (header.toLowerCase().indexOf("set-cookie") > -1) {
+          var parsedCookies = parseCookiesFromHeader(header);
+          for (var j = 0; j < parsedCookies.length; j++) {
+            var cookie = parsedCookies[j];
+            // Persist only the non session cookies
+            /*jshint maxdepth:4, eqeqeq:false*/
+            if (cookie.name != COOKIE_JSESSION_ID && cookie.name != COOKIE_WLSESSION_ID) {
+              cookies[cookie.name] = cookie.value;
+            } else {
+              sessionCookies[cookie.name] = cookie.value;
+            }
 
             if (cookiePersister !== null) {
-                cookiePersister.init();
-                try {
-                    cookiePersister.readCookies();
-                } catch (e) {
-                    WL.Logger.error("error read cookies: " + e.message);
-                    cookiePersister.clearCookies();
-                }
-                WL.Logger.debug("CookieMgr read cookies: " + WLJSX.Object.toJSON(cookies));
-            }
-        },
-
-        // Called by WP7 native code after call readCookies
-        updateCookies : function(JSONCookies) {
-            try {
-                var cookiesObj = WLJSX.String.evalJSON(JSONCookies);
-                for ( var key in cookiesObj) {
-                    cookies[key] = cookiesObj[key];
-                }
-            } catch (e) {
-                WL.Logger.error("Problems to update cookies " + e + " " + JSONCookies);
-            }
-        },
-
-        clearCookies : function() {
-            cookies = {};
-            if (cookiePersister !== null) {
-                cookiePersister.clearCookies();
-            }
-        },
-
-        createCookieHeaders : function() {
-            var headers = {};
-            if (isCookieManagementRequired()) {
-                var cookieHeaderValue = '';
-                for ( var key in cookies) {
-                    cookieHeaderValue += key + "=" + cookies[key] + ";";
-                }
-
-                if (cookieHeaderValue != '') {
-                    headers.Cookie = cookieHeaderValue;
-                }
-            }
-
-            if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_DEVICE_AUTH) && typeof device != "undefined"
-                    && device != null && typeof device.uuid != "undefined") {
-            	var deviceId = {};
-                if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8) {			
-					//Device uuid changes and system generates different uuid's for different apps. 
-	        		//For device SSO to work it should be same across apps and adapterid remains same for a device.
-                	deviceId.id = WL.Device.getHardwareIdentifier();
-                } else if (WL.Client.getEnvironment() === WL.Environment.WINDOWS_PHONE_8) {
-					//Device uuid changes and system generates different uuid's for different apps.
-                	//For device SSO to work it should be same across apps and PublisherHostId is same if publisherid matches with apps
-                	deviceId.id = WL.PublisherHostID;
-                } else {
-                	deviceId.id = device.uuid;
-                }
-                deviceId.os = device.version;
-                deviceId.model = device.model;
-                deviceId.environment = WL.Client.getEnvironment();
-                headers.deviceId = WLJSX.Object.toJSON(deviceId);
-            }
-            return headers;
-        },
-
-        handleResponseHeaders : function(headers) {
-            if (!isCookieManagementRequired()) {
-                return;
-            }
-            var sessionCookies = {};
-            for ( var i = 0; i < headers.length; i++) {
-                var header = headers[i];
-                if (header.toLowerCase().indexOf("set-cookie") > -1) {
-                    var parsedCookies = parseCookiesFromHeader(header);
-                    for ( var j = 0; j < parsedCookies.length; j++) {
-                        var cookie = parsedCookies[j];
-                        // Persist only the non session cookies
-                        if (cookie.name != COOKIE_JSESSION_ID && cookie.name != COOKIE_WLSESSION_ID) {
-                            cookies[cookie.name] = cookie.value;
-                        } else {
-                            sessionCookies[cookie.name] = cookie.value;
-                        }
-
-                        if (cookiePersister !== null) {
-                            if (cookies != null && WLJSX.Object.objectSize(cookies) > 0) {
-                                // in case there is two requests immediate after
-                                // login we need
-                                // to ensure session cookies is not persist
-                                delete cookies[COOKIE_WLSESSION_ID];
-                                delete cookies[COOKIE_JSESSION_ID];
-                                cookiePersister.storeCookies();
-                            }
-                        }
-                    }
-                }
-            }
-
-            // Add the session cookies into the memory cookies
-           if (isCookieManagementRequired()) {
-              for (var key in sessionCookies){
-                 cookies[key] = sessionCookies[key];
+              /*jshint maxdepth:5*/
+              if (cookies !== null && WLJSX.Object.objectSize(cookies) > 0) {
+                // in case there is two requests immediate after
+                // login we need
+                // to ensure session cookies is not persist
+                delete cookies[COOKIE_WLSESSION_ID];
+                delete cookies[COOKIE_JSESSION_ID];
+                cookiePersister.storeCookies();
               }
             }
-             
-        },
-
-        getJSessionID : function() {
-            var jsessionidCookie = getCookie(COOKIE_JSESSION_ID);
-            return (jsessionidCookie === null) ? null : jsessionidCookie.value;
-        },
-
-        areCookiesEnabled : function() {
-            var enabled = true;
-            if (WL.EnvProfile.isEnabled(WL.EPField.WEB)) {
-                var date = new Date();
-                date.setTime(date.getTime() + (24 * 60 * 60 * 1000));
-                document.cookie = "testcookie=oreo; expires=" + date.toGMTString() + "; path=/";
-                var cookie = getCookie('testcookie');
-                enabled = (cookie.value === 'oreo');
-            }
-            return enabled;
+          }
         }
-    };
-}();
+      }
+
+      // Add the session cookies into the memory cookies
+      if (isCookieManagementRequired()) {
+        /*jshint forin:false*/
+        for (var key in sessionCookies) {
+          cookies[key] = sessionCookies[key];
+        }
+      }
+
+    },
+
+    getJSessionID: function() {
+      var jsessionidCookie = getCookie(COOKIE_JSESSION_ID);
+      return (jsessionidCookie === null) ? null : jsessionidCookie.value;
+    },
+
+    areCookiesEnabled: function() {
+      var enabled = true;
+      if (WL.EnvProfile.isEnabled(WL.EPField.WEB)) {
+        var date = new Date();
+        date.setTime(date.getTime() + (24 * 60 * 60 * 1000));
+        document.cookie = "testcookie=oreo; expires=" + date.toGMTString() + "; path=/";
+        var cookie = getCookie("testcookie");
+        enabled = (cookie.value === "oreo");
+      }
+      return enabled;
+    }
+  };
+}());
 /* End CookieManager */
 
 /**
@@ -4387,175 +4604,177 @@ WL.CookieManager = function() {
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
 
+/*globals WL, __WL, WLJSX*/
 
+/*jshint strict:false*/
 
 /**
  * EnvironmentProfile
  */
-WL.EnvProfile = function() {
-    var profile = null;
+WL.EnvProfile = (function() {
 
-    return {
-        initialize : function(env) {
-            if (typeof WL[env + "ProfileData"] !== 'undefined') {
-                profile = WL[env + "ProfileData"];
-            } else {
-                profile = WL.DefaultProfileData;
-            }
-        },
+  var profile = null;
 
-        getValue : function(field) {
-            return profile[field];
-        },
+  return {
+    initialize: function(env) {
+      if (typeof WL[env + 'ProfileData'] !== 'undefined') {
+        profile = WL[env + 'ProfileData'];
+      } else {
+        profile = WL.DefaultProfileData;
+      }
+    },
 
-        isEnabled : function(field) {
-            return !!(field in profile && profile[field]);
-        },
-        
-        disable : function(field) {
-            if (field in profile) {
-                profile[field] = false;
-            }
-        }
-    };
-}();
+    getValue: function(field) {
+      return profile[field];
+    },
+
+    isEnabled: function(field) {
+      return !!(field in profile && profile[field]);
+    },
+
+    disable: function(field) {
+      if (field in profile) {
+        profile[field] = false;
+      }
+    }
+  };
+})();
 
 __WL.MultiEventListener = WLJSX.Class.create({
-    isEventComplete : false,
-    onEventsComplete : null,
-    events : null,
+  isEventComplete: false,
+  onEventsComplete: null,
+  events: null,
 
-    initialize : function() {
-        this.events = new Object();
-    },
+  initialize: function() {
+    this.events = {};
+  },
 
-    __onEvent : function(e) {
-        this.events[e.type] = true;
-        for (x in this.events) {
-            if (!this.events[x]) {
-                return;
-            }
-        }
-        this.onEventsComplete();
-    },
-
-    registerEvent : function(e) {
-        document.addEventListener(e, this.__onEvent.bind(this), false);
-        this.events[e] = false;
+  __onEvent: function(e) {
+    this.events[e.type] = true;
+    for (var x in this.events) {
+      if (!this.events[x]) {
+        return;
+      }
     }
+    this.onEventsComplete();
+  },
+
+  registerEvent: function(e) {
+    document.addEventListener(e, this.__onEvent.bind(this), false);
+    this.events[e] = false;
+  }
 });
 
 __WL.InternalEvents = {
-    REACHABILITY_TEST_FAILURE : "WL:REACHABILITY_TEST_FAILURE",
-    REACHABILITY_TEST_SUCCESS : "WL:REACHABILITY_TEST_SUCCESS"
+  REACHABILITY_TEST_FAILURE: 'WL:REACHABILITY_TEST_FAILURE',
+  REACHABILITY_TEST_SUCCESS: 'WL:REACHABILITY_TEST_SUCCESS'
 };
 
 var __WLEvents = {
-    WORKLIGHT_IS_CONNECTED : "WL:WORKLIGHT_IS_CONNECTED",
-    WORKLIGHT_IS_DISCONNECTED : "WL:WORKLIGHT_IS_DISCONNECTED"
+  WORKLIGHT_IS_CONNECTED: 'WL:WORKLIGHT_IS_CONNECTED',
+  WORKLIGHT_IS_DISCONNECTED: 'WL:WORKLIGHT_IS_DISCONNECTED'
 };
 
 __WL.prototype.Events = __WLEvents;
 WL.Events = __WLEvents;
 
+/*jshint undef:false*/
 __WLLocalStorage = function() {
-    var isSupportLocalStorage = (typeof localStorage != "undefined");
-    var HTML5_NOT_SUPPORT_MSG = ". HTML5 localStorage not supported on current browser.";
+  var isSupportLocalStorage = (typeof localStorage !== 'undefined');
+  var HTML5_NOT_SUPPORT_MSG = '. HTML5 localStorage not supported on current browser.';
 
-    if (typeof document.addEventListener != 'undefined') {
-	    document.addEventListener('deviceready', deviceReadyCallback, false);
-    } else {
-    	document.attachEvent('ondeviceready', deviceReadyCallback);
+  function deviceReadyCallback() {
+    isSupportLocalStorage = (typeof localStorage !== 'undefined');
+    preventClearSpecialValues();
+  }
+
+  if (typeof document.addEventListener !== 'undefined') {
+    document.addEventListener('deviceready', deviceReadyCallback, false);
+  } else {
+    document.attachEvent('ondeviceready', deviceReadyCallback);
+  }
+
+  function preventClearSpecialValues() {
+    // prevent from clear MobileFirst Platform special values
+    if (typeof Storage !== 'undefined' && isSupportLocalStorage) {
+      Storage.prototype.clear = function() {
+        for (var item in localStorage) {
+          if (item !== 'cookies' && item !== 'userName') {
+            localStorage.removeItem(item);
+          }
+        }
+      };
     }
-    
-    function preventClearSpecialValues () {
-    	// prevent from clear MobileFirst Platform special values
-        if (typeof Storage != "undefined" && isSupportLocalStorage) {
-            Storage.prototype.clear = function() {
-                for (item in localStorage) {
-                    if (item != "cookies" && item != "userName") {
-                        localStorage.removeItem(item);
-                    }
-                }
-            };
-        }
-    };
-    
-    function deviceReadyCallback() {
-    	isSupportLocalStorage = (typeof localStorage != "undefined");
-        preventClearSpecialValues();
-    };
-    
+  }
 
-    this.getValue = function(key) {
-        var value = null;
-        if (isSupportLocalStorage) {
-            value = localStorage.getItem(key);
-        } else {
-            WL.Logger.debug("Can't retrive value for key " + key + HTML5_NOT_SUPPORT_MSG);
-        }
-        return value;
+  this.getValue = function(key) {
+      var value = null;
+      if (isSupportLocalStorage) {
+        value = localStorage.getItem(key);
+      } else {
+        WL.Logger.debug('Can\'t retrive value for key ' + key + HTML5_NOT_SUPPORT_MSG);
+      }
+      return value;
     },
 
     this.setValue = function(key, value) {
-        if (isSupportLocalStorage) {
-            localStorage.setItem(key, value);
-        } else {
-            WL.Logger.debug("Can't set value " + value + " for key" + key + HTML5_NOT_SUPPORT_MSG);
-        }
+      if (isSupportLocalStorage) {
+        localStorage.setItem(key, value);
+      } else {
+        WL.Logger.debug('Can\'t set value ' + value + ' for key' + key + HTML5_NOT_SUPPORT_MSG);
+      }
     },
 
     this.clear = function(key) {
-        if (isSupportLocalStorage) {
-            localStorage.removeItem(key);
-        } else {
-            WL.Logger.debug("Can't clear key " + key + HTML5_NOT_SUPPORT_MSG);
-        }
+      if (isSupportLocalStorage) {
+        localStorage.removeItem(key);
+      } else {
+        WL.Logger.debug('Can\'t clear key ' + key + HTML5_NOT_SUPPORT_MSG);
+      }
     },
 
     this.clearAll = function() {
-        if (isSupportLocalStorage) {
-            localStorage.clear();
-        } else {
-            WL.Logger.debug("Can't clear storage" + HTML5_NOT_SUPPORT_MSG);
-        }
+      if (isSupportLocalStorage) {
+        localStorage.clear();
+      } else {
+        WL.Logger.debug('Can\'t clear storage ' + HTML5_NOT_SUPPORT_MSG);
+      }
     };
 };
 
-__WL.LocalStorage = new __WLLocalStorage;
+/*jshint newcap:false*/
+__WL.LocalStorage = new __WLLocalStorage();
 
 __WLToast = function() {
-    // Support toast message (for Android devices)
-    this.show = function(message) {
-    };
+  // Support toast message (for Android devices)
+  this.show = function() {};
 };
-__WL.prototype.Toast = new __WLToast;
-WL.Toast = new __WLToast;
+__WL.prototype.Toast = new __WLToast();
+WL.Toast = new __WLToast();
 
 __WLDevice = function() {
-    /**
-     * Supported environments: Android, iOS
-     * 
-     * @param callback -
-     *            the callback function
-     * @return network info from device in JSON format The returned object
-     *         consist from the following properties: isNetworkConnected,
-     *         isAirplaneMode, isRoaming, networkConnectionType, wifiName,
-     *         telephonyNetworkType, carrierName, ipAddress,
-     */
-    this.getNetworkInfo = function(callback) {
-        callback({});
-    };
+  /**
+   * Supported environments: Android, iOS
+   *
+   * @param callback -
+   *            the callback function
+   * @return network info from device in JSON format The returned object
+   *         consist from the following properties: isNetworkConnected,
+   *         isAirplaneMode, isRoaming, networkConnectionType, wifiName,
+   *         telephonyNetworkType, carrierName, ipAddress,
+   */
+  this.getNetworkInfo = function(callback) {
+    callback({});
+  };
 };
-__WL.prototype.Device = new __WLDevice;
-WL.Device = new __WLDevice;
-
+__WL.prototype.Device = new __WLDevice();
+WL.Device = new __WLDevice();
 
 /**
  * ================================================================= 
@@ -5076,7 +5295,11 @@ WL.Logger = (function (jQuery) {
   };
 
   var __log = function (args, priority) {
-
+  
+  //trace is not supported in windows due to IE 
+  if(WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWS8 || WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWS_PHONE_8){
+  	console.trace = console.debug;
+  }
     var str = '',
     pkg = state.pkg;
 
@@ -5568,6 +5791,11 @@ WL.WebLogger = (function(jQuery) {
     console.debug = console.debug || console.info;
     console.trace = console.trace || console.debug;  // try to keep the verbosity down a bit
     
+    //trace is not supported in windows due to IE 
+    if(WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWS8 || WL.StaticAppProps.ENVIRONMENT === WL.Environment.WINDOWS_PHONE_8){
+    	console.trace = console.debug;
+    }
+    
     var __usingLocalConfiguration = function(){
 	  	var configurationString = localStorage.getItem(KEY_REMOTE_STORAGE_CONFIG);
 	  	
@@ -5945,7 +6173,7 @@ WL.Analytics = (function (jQuery, global) {
 
 	//Constants
 	_PKG_NAME = 'wl.analytics',
-
+	
 	// Private variables
 	pendingTrackingIDs = {},
 
@@ -5987,9 +6215,9 @@ WL.Analytics = (function (jQuery, global) {
 		var dfd = $.Deferred();
 
 		if(typeof name === 'undefined'){
-			name = "";
+			name = '';
 		}
-
+			
 		if (typeof msg === 'object') {
 			WL.Logger.metadata(msg).ctx({pkg: _PKG_NAME}).analytics(name || '');
 		} else {
@@ -6043,15 +6271,15 @@ WL.Analytics = (function (jQuery, global) {
 		// returns a promise
 		return WL.Logger._sendAnalytics();
 	},
-
+	
 	/**
-    	Get tracking id for sending requests
+    Get tracking id for sending requests
 	 */
 	__getTrackingId = function () {
 		if(__checkNativeEnvironment()){
 			return null;
 		}
-
+		
 		function s4() {
 			return Math.floor((1 + Math.random()) * 0x10000)
 			.toString(16)
@@ -6064,29 +6292,27 @@ WL.Analytics = (function (jQuery, global) {
   __setTrackingId = function (id) {
     pendingTrackingIDs[id] = 1;
   },
-
-	/**
+	
+  /**
 		Log outbound network request
-	 */
-	__logOutboundRequest = function (path, trackingId) {
-
+	*/
+	__logOutboundRequest = function (request) {
+		
 		if(!__checkNativeEnvironment()){
 			try{
-				pendingTrackingIDs[trackingId] = 1;
-
-				var startTime = new Date().getTime();
-
-				var url = __getFullURL(global, path);
-
+				pendingTrackingIDs[request.trackingId] = 1;
+				var outboundTimestamp = new Date().getTime();
+				var url = __getFullURL(global, request.url);
+	
 				var metadata = {
 					'$path': url, //$path for legacy reasons
-					'$category' : "network",
-					'$trackingid' : trackingId,
-					'$type' : "request",
-					'$time' : startTime
-				}
-
-				WL.Logger.metadata(metadata).analytics('logOutboundRequest');
+					'$category' : 'network',
+					'$trackingid' : request.trackingId,
+					'$outboundTimestamp' : outboundTimestamp
+				};
+				
+				request.networkMetadata = metadata;
+				WL.Logger.analytics('logOutboundRequest');
 			}catch(e){
 				// Do nothing
 			}
@@ -6095,32 +6321,37 @@ WL.Analytics = (function (jQuery, global) {
 
 	/**
 	Log inbound network response
-	 */
+	*/
 	__logInboundResponse = function (request, response) {
+		
 		if(!__checkNativeEnvironment()){
 			try{
 				var trackingId = request.trackingId;
-
+				
 				if(pendingTrackingIDs.hasOwnProperty(trackingId)){
 					delete pendingTrackingIDs[trackingId];
-
-					var endTime = new Date().getTime();
-
+					
+					var inboundTimestamp = new Date().getTime();
 					var numBytes = 0;
 					var responseText = response.responseJSON;
+					
+					/*jshint maxdepth:4*/
 					if(responseText){
 						numBytes = JSON.stringify(responseText).length;
 					}
-
-					// TODO BYTES
-					var metadata = {
-						'$category' : 'network',
-						'$trackingid' : trackingId,
-						'$type' : 'response',
-						'$time' : endTime,
-						'$bytes': numBytes
+					
+					var metadata = request.networkMetadata;
+					
+					if(metadata !== null){
+						var outboundTimestamp = metadata['$outboundTimestamp'];
+						var roundTripTime = inboundTimestamp - outboundTimestamp;
+							
+						metadata['$inboundTimestamp'] = inboundTimestamp;
+						metadata['$bytesReceived'] = numBytes;
+						metadata['$roundTripTime'] = roundTripTime;
+						metadata['$responseCode'] = response.status;
 					}
-
+		
 					WL.Logger.metadata(metadata).analytics('logInboundResponse');
 				}
 			}catch(e){
@@ -6128,7 +6359,7 @@ WL.Analytics = (function (jQuery, global) {
 			}
 		}
 	},
-
+	
 	__getFullURL = function (global, path) {
 
 		if (typeof path === 'string' &&
@@ -6177,14 +6408,14 @@ WL.Analytics = (function (jQuery, global) {
 		log: _log,
 		state: _state,
 		send: _send,
-
+		
 		_logOutboundRequest: __logOutboundRequest,
 		_logInboundResponse: __logInboundResponse,
 		_getTrackingId: __getTrackingId,
 
-    	// for unit test only:
-    	_setTrackingId: __setTrackingId,
-    	_getFullURL: __getFullURL
+    // for unit test only:
+    _setTrackingId: __setTrackingId,
+    _getFullURL: __getFullURL
 	};
 
 }(WLJQ, window)); //WL.Analytics
@@ -6198,13 +6429,13 @@ WL.Analytics = (function (jQuery, global) {
 
 /*
 * Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+* 5725-I43 (C) Copyright IBM Corp. 2006, 2015. All Rights Reserved.
 * US Government Users Restricted Rights - Use, duplication or
 * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 */
 
 
-/*
+/**
  * Validators are responsible for validating method arguments in development mode.
  */
 WL.Validators = {
@@ -6255,7 +6486,7 @@ WL.Validators = {
 	}
     },
 
-    /*
+    /**
      * Validates each argument in the array with the matching validator. @Param array - a JavaScript array.
      * @Param validators - an array of validators - a validator can be a function or a simple JavaScript type
      * (string).
@@ -6269,7 +6500,7 @@ WL.Validators = {
 	}
     },
 
-    /*
+    /**
      * Validates a single argument. @Param arg - an argument of any type. @Param validator - a function or a
      * simple JavaScript type (string).
      */
@@ -6294,7 +6525,7 @@ WL.Validators = {
 	}
     },
 
-    /*
+    /**
      * Validates that each option attribute in the given options has a valid name and type. @Param options -
      * the options to validate. @Param validOptions - the valid options hash with their validators:
      * validOptions = { onSuccess : 'function', timeout : function(value){...} }
@@ -6305,7 +6536,7 @@ WL.Validators = {
 
     },
 
-    /*
+    /**
      * Validates that option attribute in the given options have a valid name and type - only if they are
      * explicitly defined in validOptions. If an option attribute does not exist in validOptions, it is simply
      * ignored @Param options - the options to validate. @Param validOptions - the valid options hash with
@@ -6316,7 +6547,7 @@ WL.Validators = {
 	this.validateObjectProperties(validOptions, options, false, callerName);
     },
 
-    /*
+    /**
      * Validates that each option attribute in the given options has a valid name and type. @Param options -
      * the options to validate. @Param validOptions - the valid options hash with their validators:
      * validOptions = { onSuccess : 'function', timeout : function(value){...} } @Param strict - a boolean
@@ -6345,7 +6576,7 @@ WL.Validators = {
 	}
     },
 
-    /*
+    /**
      * Validates that each option attribute in the given options is from the one of the validators type.
      * @Param options - the options to validate. @Param validatos - the valid types (in string format):
      * validators = ['string','null','undefined',someFunction,'boolean'...]
@@ -6906,6 +7137,7 @@ __WLClient = function() {
 	var __pattern;
 	var __androidScreenSize = {};
 	var __androidSDKVersion;
+	var __appUserId; //Application UserId used by push service as of 7.1
 
 	var initOptions = {
 		onSuccess : function() {},
@@ -7103,7 +7335,8 @@ __WLClient = function() {
 		isInitialized = true;
 
 		//add onpause event - flushing the content of events buffer to the server before going ot background
-		if (WL.EnvProfile.isEnabled(WL.EPField.USES_CORDOVA) && WL.StaticAppProps.ENVIRONMENT!=WL.Environment.BLACKBERRY10) {
+		if (WL.EnvProfile.isEnabled(WL.EPField.USES_CORDOVA) && WL.StaticAppProps.ENVIRONMENT!=WL.Environment.BLACKBERRY10 && WL.StaticAppProps.ENVIRONMENT!=WL.Environment.WINDOWS8
+				&& WL.StaticAppProps.ENVIRONMENT != WL.Environment.WINDOWSPHONEUNIVERSAL ) {
 			document.addEventListener("pause", WL.Client.flushBufferFromAsync, false);
 			
 			// stop heart beat on pause
@@ -7367,6 +7600,13 @@ __WLClient = function() {
 		});
 	};
 	
+	//
+	// Returns the application userId used by Push Service as of 7.1
+	//
+	this.__getAppUserId = function() {
+		return __appUserId;
+	}
+	
     this.__getAndroidSDKVersion = function() {
 		return __androidSDKVersion;
 	}
@@ -7608,7 +7848,7 @@ __WLClient = function() {
         } else if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_NATIVE_XHR)){
         	window.WLJSX.Ajax.getTransport = function() {
                 var xhr = new WLNativeXHR();
-                if (WL.Client.getEnvironment() == WL.Env.WINDOWS8) {
+                if (WL.Client.getEnvironment() == WL.Env.WINDOWS8 || WL.Client.getEnvironment() == WL.Environment.WINDOWSPHONEUNIVERSAL ) {
 	           	    xhr.__send = function (callback, params) {
 	           	        var headers = params.headers;
 	           	        headers["User-Agent"] = navigator.userAgent;
@@ -7761,7 +8001,6 @@ __WLClient = function() {
 		}, options, "WL.Client.init");
 
 		contentPort = WLJSX.$$$('body');
-
 		// initialize runtime enviroment fields
 		WL.EnvProfile.initialize(getEnv());
 
@@ -7769,6 +8008,11 @@ __WLClient = function() {
 			WL.Utils.addBlackDiv();
 		}
 		( typeof (contentPort.show) === 'function') ? contentPort.show() : WLJSX.show(contentPort);
+		
+		if (WL.Client.getEnvironment() == WL.Env.WINDOWS8 || WL.Client.getEnvironment() == WL.Env.WINDOWSPHONEUNIVERSAL) {
+		    busyIndicator = new WL.BusyIndicator(null, { text: '' });
+		    WL.Client.__showBusy();
+		}
 
 		// If not declared explicitly, default value of connectOnStartup is false.
 		if ( typeof options.connectOnStartup === 'undefined' || options.connectOnStartup === null) {
@@ -7905,7 +8149,7 @@ __WLClient = function() {
 					if ( typeof (WL.DeviceAuth.__getDeviceUUID) !== 'undefined') {
 						WL.DeviceAuth.__getDeviceUUID(deviceIDSuccessCallback, deviceIDFailureCallback);
 					} else {
-						if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8) {  
+						if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL ) {  
 			            	//Device uuid changes and system generates different uuid's for different apps. 
 			        		//For device SSO to work it should be same across apps and adapterid remains same for a device.
 			            	deviceID = WL.Device.getHardwareIdentifier();
@@ -8107,6 +8351,12 @@ __WLClient = function() {
 				if (WL.Client.getEnvironment() === WL.Env.WINDOWS_PHONE_8) {
 					// Windows Phone 7 / 8 does not support custom events
 					WLJSX.bind(document, 'deviceready', cordovaInit.bind(this));
+				} else if (WL.Client.getEnvironment() === WL.Env.WINDOWSPHONEUNIVERSAL || WL.Client.getEnvironment() === WL.Env.WINDOWS8) {
+                    document.addEventListener('deviceready', function () {
+                        WL.App.__webResourceChecksumCheck(function () {
+                            setTimeout(cordovaInit, 0);
+                        });
+                    }, false);                    
 				} else {
 					// use setTimeout to ensure all Cordova function (especially
 					// navigator.network and
@@ -8151,9 +8401,10 @@ __WLClient = function() {
 		WL.Validators.validateOptions({
 			onSuccess : 'function',
 			onFailure : 'function',
-			timeout : 'number'
+			timeout : 'number',
+			appUserId : 'string'
 		}, options, 'WL.Client.connect');
-
+		
 		if (isConnecting) {
 			WL.Logger.error("Cannot invoke WL.Client.connect while it is already executing.");
 			if (options && options.onFailure) {
@@ -8165,6 +8416,7 @@ __WLClient = function() {
 		}
 
 		options = extendWithDefaultOptions(options);
+		__appUserId = options.appUserId;
 
 		var timeout = getAppProp(WL.AppProp.WLCLIENT_TIMEOUT_IN_MILLIS);
 		if (!WLJSX.Object.isUndefined(options.timeout)) {
@@ -8317,9 +8569,9 @@ __WLClient = function() {
 
 		function onLogoutSuccess(transport) {
 			if ( typeof userInfo[realm] === "undefined") {
-				WL.Logger.error('onLogoutSuccess: realm: ' + realm + ' is undefined');
+				WL.Logger.error('onLogoutSuccess: realm: ' + realm + ' is undefined.');
             } else {
-			(userInfo[realm])[WL.UserInfo.IS_USER_AUTHENTICATED] = false;
+            	(userInfo[realm])[WL.UserInfo.IS_USER_AUTHENTICATED] = false;
             }
 			if (getAppProp(WL.AppProp.LOGIN_REALM) === realm && heartBeatPeriodicalExecuter) {
 				// stop sending heart beats
@@ -8337,26 +8589,68 @@ __WLClient = function() {
 			options.onSuccess(logoutResponse);
 		}
 
-		function onLogoutFail(transport) {
-			options.onFailure(new WL.FailResponse(transport, options.invocationContext));
+		function onLogoutFail(response) {
+			var error = new WL.Response({}, initOptions.invocationContext);
+            error.errorCode = WL.ErrorCode.API_INVOCATION_FAILURE;
+            error.errorMessage = response.transport.responseText;
+			options.onFailure(error);
 		}
 
 		if (!realm) {
-			WL.Logger.error("Invalid call for WL.Client.logout. Realm must be specified for unsecured applications.");
+			var errorMessage = "Invalid call for WL.Client.logout. Realm name must be specified.";
+			WL.Logger.error(errorMessage);
+			var error = new WL.Response({}, initOptions.invocationContext);
+			error.errorCode = WL.ErrorCode.API_INVOCATION_FAILURE;
+			error.errorMessage = errorMessage;
+			options.onFailure(error);
 			return;
 		}
+		
+		if (WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_OAUTH) && typeof(WLAuthorizationManager) !== 'undefined') {
+			WLAuthorizationManager.__getClientId().then (
+					function (clientId) {
+						if (typeof(clientId) !== 'undefined' && clientId !== null) {
+							WLAuthorizationManager.__invokeAuthorizationRequestWithScopeForLogout (clientId, "-" + realm).then (
+									function (response) {
+										onLogoutSuccess (response);
+									}, function (error) {
+										onLogoutFail (error);
+									}
+							);
+						} else {
+							var errorMessage = "Cannot logout before client is registered.";
+							WL.Logger.error(errorMessage);
+							var error = new WL.Response({}, initOptions.invocationContext);
+							error.errorCode = WL.ErrorCode.API_INVOCATION_FAILURE;
+							error.errorMessage = errorMessage;
+							options.onFailure(error);
+							return;
+						}
+					}, 
+					function () {
+						var errorMessage = "Failed to get client id";
+						WL.Logger.error(errorMessage);
+						var error = new WL.Response({}, initOptions.invocationContext);
+						error.errorCode = WL.ErrorCode.API_INVOCATION_FAILURE;
+						error.errorMessage = errorMessage;
+						options.onFailure(error);
+						return;
+					}
+				);
+		} else {
+			// Still support BlackBerry and web mobile - old way to logout
+			new WLJSX.Ajax.WLRequest(REQ_PATH_LOGOUT, {
+				parameters : {
+					realm : realm
+				},
+				onSuccess : onLogoutSuccess,
+				onFailure : onLogoutFail
+			});
 
-		new WLJSX.Ajax.WLRequest(REQ_PATH_LOGOUT, {
-			parameters : {
-				realm : realm
-			},
-			onSuccess : onLogoutSuccess,
-			onFailure : onLogoutFail
-		});
-
-		if (!WLJSX.Ajax.WLRequest.setConnected) {
-			WLJSX.Ajax.WLRequest.setConnected = function() {
-			};
+			if (!WLJSX.Ajax.WLRequest.setConnected) {
+				WLJSX.Ajax.WLRequest.setConnected = function() {
+				};
+			}
 		}
 	};
 
@@ -8611,6 +8905,27 @@ __WLClient = function() {
 		return !!parseInt(isAuth || 0, 10);
 	};
 
+	  /**
+	   * Pins the host X509 certificate public key to the client application.
+	   * Secured calls to the pinned remote host will be checked for a public key match.
+	   * Secured calls to other hosts containing other certificates will be rejected.
+	   * Some mobile operating systems might cache the certificate validation check results.
+	   * Your app must call the certificate pinning method before making a secured request.
+	   * Calling this method a second time overrides any previous pinning operation.
+	   * @param certificateFilename -  the name of the certificate file that is located under
+	   * the certificate folder located in the application root 
+	   * @return {Promise} Resolved when the operation is successful and the certificate is pinned. Rejected if certificateFilename is undefined, not found or is not in DER format.
+	   * @methodOf WL.Client#
+	   */
+this.pinTrustedCertificatePublicKey = function(certificateFilename){
+	var dfd = WLJQ.Deferred();
+	cordova.exec(function() {
+              dfd.resolve();
+            }, function(error) {
+              dfd.reject(error);
+            }, "WLCertificatePinningPlugin", "pinTrustedCertificatePublicKey", [certificateFilename]);
+	return dfd.promise();
+} 
 	/**
 	 * Invokes a procedure exposed by a IBM MobileFirst Platform adapter.
 	 *
@@ -8705,6 +9020,9 @@ __WLClient = function() {
 			case WL.Env.WINDOWS_PHONE_8:
 			case WL.Env.MOBILE_WEB:
 			case WL.Env.ADOBE_AIR:
+			case WL.Env.WINDOWS8:
+			case WL.Env.WINDOWSPHONEUNIVERSAL:
+				
 				requestOptions.parameters.compressResponse = invocationData.compressResponse;
 				break;
 			default:
@@ -9057,6 +9375,7 @@ __WLClient = function() {
 		        break;
 
 		    case WL.Env.WINDOWS8:
+		    case WL.Env.WINDOWSPHONEUNIVERSAL:
 		    	//Win8 specific getCookies will be called
 		    default:
 		    	dfd.resolve([]);
@@ -9087,7 +9406,8 @@ __WLClient = function() {
 		    	);
 		        break;
 		        
-		    case WL.Env.WINDOWS8:	
+		    case WL.Env.WINDOWS8:
+		    case WL.Env.WINDOWSPHONEUNIVERSAL:
 		    	//Win8 specific setCookie will be called
 		    default:
 		    	dfd.resolve([]);
@@ -9120,6 +9440,7 @@ __WLClient = function() {
 		        break;
 
 		    case WL.Env.WINDOWS8:	
+		    case WL.Env.WINDOWSPHONEUNIVERSAL:
 		    	//Win8 specific deleteCookie will be called
 		    default:
 		    	dfd.resolve();
@@ -9524,7 +9845,7 @@ __WLClient = function() {
 				throw new RuntimeException(error);
 			}
 			
-			if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8) {  
+			if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL) {  
             	//Device uuid changes and system generates different uuid's for different apps. 
         		//For device SSO to work it should be same across apps and adapterid remains same for a device.
             	deviceID = WL.Device.getHardwareIdentifier();
@@ -9535,7 +9856,7 @@ __WLClient = function() {
 				if ( typeof (WL.DeviceAuth.__getDeviceUUID) !== 'undefined') {
 					WL.DeviceAuth.__getDeviceUUID(deviceIDSuccessCallback, deviceIDFailureCallback);
 				} else {
-					if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8) {  
+					if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL) {  
 		            	//Device uuid changes and system generates different uuid's for different apps. 
 		        		//For device SSO to work it should be same across apps and adapterid remains same for a device.
 		            	deviceID = WL.Device.getHardwareIdentifier();
@@ -10363,8 +10684,8 @@ wl_remoteDisableChallengeHandler.handleFailure = function(err) {
  */
 
 /*Wrapped by closure compiler to prevent namespace
-									pollution*/
-									(function(){/*
+                  pollution*/
+                  (function(){/*
 
  Licensed Materials - Property of IBM
  5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
@@ -10929,9 +11250,14 @@ WebBasedPBKDF2.prototype.deriveKey=function(a,c,b,e,f,l){var k=null;try{k=sjcl.m
  * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  */
 
+ /*globals WL_*/
+
 var WL = WL || {};
 
 WL.JSONStore = (function(_) {
+
+  /*jshint strict:false*/
+
   var publicAPI = [
     'init',
     'get',
@@ -11032,560 +11358,592 @@ WL.FIPSHttp = (function (_) {
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*globals WL, WL_, WLJQ, WLAuthorizationManager*/
 
 function WLResourceRequest(_url, _method, _timeout) {
-    var url = (_url === null || typeof(_url) === 'undefined') ? logAndThrowError('Request URL must be specified.', 'WLResourceRequest') : _url.trim();
-    var method = (typeof(_method) === 'undefined' || !isValidRequestMethod(_method)) ? logAndThrowError('Request method is invalid or not specified.', 'WLResourceRequest') : _method;
-    var timeout = _timeout;
-    var queryParameters = {};
-    var headers = {};
+  /*jshint strict:false*/
 
-    /**
-     * Returns request URL. The URL must have been passed to constructor.
-     */
-    this.getUrl = function() {
-        return url;
-    };
-    
-    /**
-     * Returns current request method. A valid request method must have been passed to constructor.
-     */
-    this.getMethod = function() {
-        return method;
-    };
-    
-    /**
-     * Returns query parameters as a JSON object with key-value pairs.
-     */
-	this.getQueryParameters = function() {
-		return queryParameters;
-	};
-	
-	/**
-	 * Sets query parameters.
-	 * @param {parameters} A JSON object with key-value pairs.
-	 */
-	this.setQueryParameters = function(parameters){
-		if (typeof(parameters) === 'undefined' || parameters === null) {
-			queryParameters = {};
-		} else {
-			queryParameters = parameters;
-		}
-	}; 
-	
-	/**
-	 * Sets a new query parameter. If a parameter with the same name already exists, it will be replaced.
-	 * @param {name} Parameter name
-	 * @param {value} Parameter value. Should be string, number or boolean.
-	 */
-	this.setQueryParameter = function(name, value){
-		if (typeof(name) !== 'undefined' && name !== null && typeof(value) !== 'undefined' && value !== null) {
-			queryParameters[name] = value;
-		}
-	}; 
-	
-	// receives string, returns array of header values (even if only 1). if name==undefined returns all headers
-	/**
-	 * Returns array of header values.
-	 * @param {name} Header name. If header name is specified, this function returns an array of header values 
-	 * stored with this header, or undefined, if specified header name is not found. If <i>name</i> is null, or undefined,
-	 * this function returns all headers.
-	 */
-	this.getHeaders = function(name) {
-		if (name === null || typeof(name) === 'undefined') {
-			return headers;
-		}
-		
-		var headerValue = headers[name];
-		
-		if (typeof(headerValue) === 'undefined') {
-			// try case insensitive search
-			headerValue = __getFirstHeaderByNameNoCase(name).value;
-		}
-		
-		if (headerValue !== null) {
-			if (WL_.isArray(headerValue)) {
-				return headerValue;
-			} else {
-				return [headerValue];
-			}
-		}
-		
-	}; 
-	
-	/**
-	 * Returns array of header names. It can be empty if no headers has been added.
-	 */
-	this.getHeaderNames = function() {
-		var headerNames = [];
-		for (var headerName in headers){
-			headerNames.push(headerName);
-		}
-		return headerNames; 
-	}; 
-	
-	// receives string, returns string. if multiple headers with same name - return first one
-	/**
-	 * Returns a first header value stored with the specified header name. The value is returned as a string. 
-	 * Can be undefined if a header with specified name does not exist.
-	 * @param {name} Header name.
-	 */
-	this.getHeader = function(name) {
-		if (name === null || typeof(name) === 'undefined') {
-			logAndThrowError('Header name should be defined.', 'WLResourceRequest.getHeader');
-		}
-		
-		var headerValue = headers[name];
-		if (typeof(headerValue) === 'undefined') {
-			// try case insensitive search
-			headerValue = __getFirstHeaderByNameNoCase(name).value;
-		}
-		
-		if (WL_.isArray(headerValue)) {
-			return headerValue[0];
-		}
-		return headerValue;
-	}; 
-	
-	//receives JSON object similar to what getHeaders returns
-	/**
-	 * Sets request headers. The existing headers are replaced. 
-	 * @param {requestHeaders} JSON object with request headers. Each header value should be either string, or array of strings. This function will
-	 * throw error if one of specified header values is not valid.
-	 */
-	this.setHeaders = function(requestHeaders) {
-		if (requestHeaders === null || typeof(requestHeaders) === 'undefined') {
-			headers = {};
-			return;
-		}
-		
-		// verify that each key contains array of values or simple object
-		for (var headerName in requestHeaders) {
-			headerValue = requestHeaders[headerName];
-			
-			if (WL_.isArray(headerValue)) {
-				if (headerValue.length > 0 && !isArrayOfSimpleTypes(headerValue)) {
-					// complex type detected within array of values - throw error
-					logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.setHeaders');
-				}
-			} else if (!isSimpleType(headerValue)) {
-				logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.setHeaders');
-			}
-		}
-		
-		headers = {};	
-		for (var key in requestHeaders) {
-			headerValue = requestHeaders[key];
-			if (WL_.isArray(headerValue)) {
-				for (var item in headerValue) {
-					this.addHeader(key, headerValue[item]);
-				}
-			} else {
-				this.addHeader(key, headerValue);
-			}
-		}
-	}; 
-	
-	/**
-	 * Sets a new header or replaces an existing header with the same name.
-	 * @param {name} Header name
-	 * @param {value} Header value. The value must be of simple type (string, boolean or value).
-	 */
-	this.setHeader = function(name, value) {
-		if (!isSimpleType(value)) {
-			// complex type detected instead of string - throw error
-			logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.setHeader'); 
-		}
-		
-		for (var headerName in headers) {
-			if (headerName.toLowerCase() === name.toLowerCase()) {
-				delete headers[headerName];
-			}
-		}
-		
-		headers[name] = value;
-	}; 
-	
-	/**
-	 * Adds a new header. If a header with the same name already exists, the header value will be added to the existing header. The name is 
-	 * case insensitive.
-	 * @param {name} Header name
-	 * @param {value} Header value. The value must be of simple type (string, number or boolean).
-	 */
-	this.addHeader = function(name, value) {
-		if (typeof(value) === 'undefined' || value === null) {
-			logAndThrowError('Header value should not be null or undefined.', 'WLResourceRequest.addHeader');
-		}
-		if (!isSimpleType(value)) {
-			// complex type detected instead of string - throw error 
-			logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.addHeader');
-		}
-		
-		var header = __getFirstHeaderByNameNoCase(name);
-		var existingHeaderName = header.name;
-		var existingHeaderValue = header.value;
-		if (existingHeaderValue === null) {
-			headers[name] = value;
-		} else {
-			if (WL_.isArray(existingHeaderValue)) {
-				for (var idx in existingHeaderValue) {
-					if (existingHeaderValue[idx].toString() === value.toString()) {
-						return;
-					}
-				}
-				existingHeaderValue.push(value);
-			} else {
-				var array = [];
-				array.push(existingHeaderValue);
-				array.push(value);
-				headers[existingHeaderName] = array;
-			}
-		}
-	}; 
-	
-	function __getFirstHeaderByNameNoCase(name) {
-		for (var headerName in headers) {
-			if (headerName.toLowerCase() === name.toLowerCase()) {
-				return {name : headerName, value : headers[headerName]};
-			}
-		}
-		
-		return {name : null, value : null};
-	}
+  function logAndThrowError(msg, callerName) {
+    if (WL.Logger) {
+      if (callerName) {
+        msg = 'Invalid invocation of method ' + callerName + '; ' + msg;
+      }
+      WL.Logger.error(msg);
+    }
 
-	/**
-	 * Returns request time out in milliseconds. 
-	 */
-	this.getTimeout = function() {
-		return timeout;
-	}; 
-	
-	/**
-	 * Sets request timeout. If timeout is not specified, then a default timeout will be used.
-	 * @param {requestTimeout} Request timeout in milliseconds.
-	 */
-	this.setTimeout = function(requestTimeout) {
-		timeout = requestTimeout;
-	}; 
-	
-	/**
-	 * Sends the request to a server.
-	 * @param {content} Body content. It can be of simple type (like string), or object.
-	 * @returns Returns promise. Sample usage: <br>
-	 * var request = WLResourceRequest(url, method, timeout);<br>
-	 * request.send(content).then(<br>
-	 * 	function(response) {// success flow}, <br>
-	 * 	function(error) {// fail flow} <br>
-	 * );
-	 */
-    this.send = function(content) {
-		var contentString = "";
-		if (typeof(content) !== 'undefined' && content !== null) {
-			contentString = isSimpleType(content) ? content.toString() : JSON.stringify(content);
-		}
-		return sendRequestAsync(contentString, 0);
+    throw new Error(msg);
+  }
+
+  function isValidRequestMethod(method) {
+    return (method === WLResourceRequest.GET || method === WLResourceRequest.POST || method === WLResourceRequest.PUT ||
+      method === WLResourceRequest.DELETE || method === WLResourceRequest.HEAD || method === WLResourceRequest.OPTIONS ||
+      method === WLResourceRequest.TRACE);
+  }
+  
+  var url = (_url === null || typeof(_url) === 'undefined') ? logAndThrowError('Request URL must be specified.', 'WLResourceRequest') : _url.trim();
+  var method = (typeof(_method) === 'undefined' || !isValidRequestMethod(_method)) ? logAndThrowError('Request method is invalid or not specified.', 'WLResourceRequest') : _method;
+  var timeout = _timeout;
+  var queryParameters = {};
+  var headers = {};
+
+  /**
+   * Returns request URL. The URL must have been passed to constructor.
+   */
+  this.getUrl = function() {
+    return url;
+  };
+
+  /**
+   * Returns current request method. A valid request method must have been passed to constructor.
+   */
+  this.getMethod = function() {
+    return method;
+  };
+
+  /**
+   * Returns query parameters as a JSON object with key-value pairs.
+   */
+  this.getQueryParameters = function() {
+    return queryParameters;
+  };
+
+  /**
+   * Sets query parameters.
+   * @param {parameters} A JSON object with key-value pairs.
+   */
+  this.setQueryParameters = function(parameters) {
+    if (typeof(parameters) === 'undefined' || parameters === null) {
+      queryParameters = {};
+    } else {
+      queryParameters = parameters;
+    }
+  };
+
+  /**
+   * Sets a new query parameter. If a parameter with the same name already exists, it will be replaced.
+   * @param {name} Parameter name
+   * @param {value} Parameter value. Should be string, number or boolean.
+   */
+  this.setQueryParameter = function(name, value) {
+    if (typeof(name) !== 'undefined' && name !== null && typeof(value) !== 'undefined' && value !== null) {
+      queryParameters[name] = value;
+    }
+  };
+
+  // receives string, returns array of header values (even if only 1). if name==undefined returns all headers
+  /**
+   * Returns array of header values.
+   * @param {name} Header name. If header name is specified, this function returns an array of header values
+   * stored with this header, or undefined, if specified header name is not found. If <i>name</i> is null, or undefined,
+   * this function returns all headers.
+   */
+  this.getHeaders = function(name) {
+    if (name === null || typeof(name) === 'undefined') {
+      return headers;
+    }
+
+    var headerValue = headers[name];
+
+    if (typeof(headerValue) === 'undefined') {
+      // try case insensitive search
+      headerValue = __getFirstHeaderByNameNoCase(name).value;
+    }
+
+    if (headerValue !== null) {
+      if (WL_.isArray(headerValue)) {
+        return headerValue;
+      } else {
+        return [headerValue];
+      }
+    }
+
+  };
+
+  /**
+   * Returns array of header names. It can be empty if no headers has been added.
+   */
+  this.getHeaderNames = function() {
+    var headerNames = [];
+    for (var headerName in headers) {
+      if (true) {  // thanks jshint
+        headerNames.push(headerName);
+      }
+    }
+    return headerNames;
+  };
+
+  // receives string, returns string. if multiple headers with same name - return first one
+  /**
+   * Returns a first header value stored with the specified header name. The value is returned as a string.
+   * Can be undefined if a header with specified name does not exist.
+   * @param {name} Header name.
+   */
+  this.getHeader = function(name) {
+    if (name === null || typeof(name) === 'undefined') {
+      logAndThrowError('Header name should be defined.', 'WLResourceRequest.getHeader');
+    }
+
+    var headerValue = headers[name];
+    if (typeof(headerValue) === 'undefined') {
+      // try case insensitive search
+      headerValue = __getFirstHeaderByNameNoCase(name).value;
+    }
+
+    if (WL_.isArray(headerValue)) {
+      return headerValue[0];
+    }
+    return headerValue;
+  };
+
+  //receives JSON object similar to what getHeaders returns
+  /**
+   * Sets request headers. The existing headers are replaced.
+   * @param {requestHeaders} JSON object with request headers. Each header value should be either string, or array of strings. This function will
+   * throw error if one of specified header values is not valid.
+   */
+  this.setHeaders = function(requestHeaders) {
+    if (requestHeaders === null || typeof(requestHeaders) === 'undefined') {
+      headers = {};
+      return;
+    }
+
+    // verify that each key contains array of values or simple object
+    for (var headerName in requestHeaders) {
+      if (true) {  // thanks jshint
+        var headerValue = requestHeaders[headerName];
+
+        if (WL_.isArray(headerValue)) {
+          /*jshint maxdepth:4*/
+          if (headerValue.length > 0 && !isArrayOfSimpleTypes(headerValue)) {
+            // complex type detected within array of values - throw error
+            logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.setHeaders');
+          }
+        } else if (!isSimpleType(headerValue)) {
+          logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.setHeaders');
+        }
+      }
+    }
+
+    headers = {};
+    for (var key in requestHeaders) {
+      if (true) {  // thanks jshint
+        var headerValueTemp = requestHeaders[key];
+        if (WL_.isArray(headerValueTemp)) {
+          for (var item in headerValueTemp) {
+            /*jshint maxdepth:5*/
+            if (true) {  // thanks jshint
+              this.addHeader(key, headerValueTemp[item]);
+            }
+          }
+        } else {
+          this.addHeader(key, headerValueTemp);
+        }
+      }
+    }
+  };
+
+  /**
+   * Sets a new header or replaces an existing header with the same name.
+   * @param {name} Header name
+   * @param {value} Header value. The value must be of simple type (string, boolean or value).
+   */
+  this.setHeader = function(name, value) {
+    if (!isSimpleType(value)) {
+      // complex type detected instead of string - throw error
+      logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.setHeader');
+    }
+
+    for (var headerName in headers) {
+      if (headerName.toLowerCase() === name.toLowerCase()) {
+        delete headers[headerName];
+      }
+    }
+
+    headers[name] = value;
+  };
+
+  /**
+   * Adds a new header. If a header with the same name already exists, the header value will be added to the existing header. The name is
+   * case insensitive.
+   * @param {name} Header name
+   * @param {value} Header value. The value must be of simple type (string, number or boolean).
+   */
+  this.addHeader = function(name, value) {
+    if (typeof(value) === 'undefined' || value === null) {
+      logAndThrowError('Header value should not be null or undefined.', 'WLResourceRequest.addHeader');
+    }
+    if (!isSimpleType(value)) {
+      // complex type detected instead of string - throw error 
+      logAndThrowError('Header value should be a simple type.', 'WLResourceRequest.addHeader');
+    }
+
+    var header = __getFirstHeaderByNameNoCase(name);
+    var existingHeaderName = header.name;
+    var existingHeaderValue = header.value;
+    if (existingHeaderValue === null) {
+      headers[name] = value;
+    } else {
+      if (WL_.isArray(existingHeaderValue)) {
+        for (var idx in existingHeaderValue) {
+          /*jshint maxdepth:4*/
+          if (existingHeaderValue[idx].toString() === value.toString()) {
+            return;
+          }
+        }
+        existingHeaderValue.push(value);
+      } else {
+        var array = [];
+        array.push(existingHeaderValue);
+        array.push(value);
+        headers[existingHeaderName] = array;
+      }
+    }
+  };
+
+  function __getFirstHeaderByNameNoCase(name) {
+    for (var headerName in headers) {
+      if (headerName.toLowerCase() === name.toLowerCase()) {
+        return {
+          name: headerName,
+          value: headers[headerName]
+        };
+      }
+    }
+
+    return {
+      name: null,
+      value: null
     };
-	
-    /**
-	 * Sends the request to a server.
-	 * @param {json} Body content as JSON object or string as a form data. The content type will be set to 'application/x-www-form-urlencoded'.
-	 * @returns Returns promise. Sample usage: <br>
-	 * var request = WLResourceRequest(url, method, timeout);<br>
-	 * request.send(json).then(<br>
-	 * 	function(response) {// success flow}, <br>
-	 * 	function(error) {// fail flow} <br>
-	 * );
-	 */
-    this.sendFormParameters = function(json) {
-		var contentString = encodeFormParameters(json);
-		this.addHeader('Content-Type', 'application/x-www-form-urlencoded');
-		
-		return sendRequestAsync(contentString, 0);
-	};
-	
-	function encodeFormParameters(json) {
-		if (json === null || typeof(json) === 'undefined') {
-			return '';
-		}
-		
-		if (isSimpleType(json)) {
-			var params = json.split('&');
-			var result = '';
-			for(var i = 0; i < params.length; i++) {
-				var kv = params[i].split('=');
-				if (kv.length === 0) {
-					continue;
-				}
-				
-				if (kv.length === 1) {
-					result += encodeURIComponent(kv[0]);
-				} else {
-					result += encodeURIComponent(kv[0]) + '=' + encodeURIComponent(kv[1]);
-				}
-				
-				if (i < params.length - 1) {
-					result += '&';
-				}
-			}
-			return result;
-		} else {
-			var result = '';
-			for (var key in json) {
-				var value = json[key];
-				if (!isSimpleType(value)) {
-					logAndThrowError('Form value must be a simple type.', 'WLResourceRequest.sendFormParameters');
-				}
-				
-				result += encodeURIComponent(key) + '=' + encodeURIComponent(value);
-				result += '&';
-			}
-			
-			if (result.length > 0 && result[result.length - 1] === '&') {
-				result = result.substring(0, result.length - 1);
-			}
-			
-			return result;
-		}
-	}
-	
-	function sendRequestAsync(contentString, authCounter) {
-        var dfd = WLJQ.Deferred();
-        
-        buildRequestUrl()
-        .then(
-            function(serverUrl) {
-                __send(serverUrl, contentString, authCounter).then(
-                    function(response) {
-                        dfd.resolve(response);
-                    },
-                    function(error) {
-                        dfd.reject(error);
-                    }
-                );
+  }
+
+  /**
+   * Returns request time out in milliseconds.
+   */
+  this.getTimeout = function() {
+    return timeout;
+  };
+
+  /**
+   * Sets request timeout. If timeout is not specified, then a default timeout will be used.
+   * @param {requestTimeout} Request timeout in milliseconds.
+   */
+  this.setTimeout = function(requestTimeout) {
+    timeout = requestTimeout;
+  };
+
+  /**
+   * Sends the request to a server.
+   * @param {content} Body content. It can be of simple type (like string), or object.
+   * @returns Returns promise. Sample usage: <br>
+   * var request = WLResourceRequest(url, method, timeout);<br>
+   * request.send(content).then(<br>
+   *  function(response) {// success flow}, <br>
+   *  function(error) {// fail flow} <br>
+   * );
+   */
+  this.send = function(content) {
+    var contentString = '';
+    if (typeof(content) !== 'undefined' && content !== null) {
+      contentString = isSimpleType(content) ? content.toString() : JSON.stringify(content);
+    }
+    return sendRequestAsync(contentString, 0);
+  };
+
+  /**
+   * Sends the request to a server.
+   * @param {json} Body content as JSON object or string as a form data. The content type will be set to 'application/x-www-form-urlencoded'.
+   * @returns Returns promise. Sample usage: <br>
+   * var request = WLResourceRequest(url, method, timeout);<br>
+   * request.send(json).then(<br>
+   *  function(response) {// success flow}, <br>
+   *  function(error) {// fail flow} <br>
+   * );
+   */
+  this.sendFormParameters = function(json) {
+    var contentString = encodeFormParameters(json);
+    this.addHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    return sendRequestAsync(contentString, 0);
+  };
+
+  function encodeFormParameters(json) {
+    if (json === null || typeof(json) === 'undefined') {
+      return '';
+    }
+
+    var result = '';
+
+    if (isSimpleType(json)) {
+      var params = json.split('&');
+      for (var i = 0; i < params.length; i++) {
+        var kv = params[i].split('=');
+        if (kv.length === 0) {
+          continue;
+        }
+
+        if (kv.length === 1) {
+          result += encodeURIComponent(kv[0]);
+        } else {
+          result += encodeURIComponent(kv[0]) + '=' + encodeURIComponent(kv[1]);
+        }
+
+        if (i < params.length - 1) {
+          result += '&';
+        }
+      }
+      return result;
+    } else {
+      for (var key in json) {
+        if (true) {  // thanks jshint
+          var value = json[key];
+          /*jshint maxdepth:4*/
+          if (!isSimpleType(value)) {
+            logAndThrowError('Form value must be a simple type.', 'WLResourceRequest.sendFormParameters');
+          }
+
+          result += encodeURIComponent(key) + '=' + encodeURIComponent(value);
+          result += '&';
+        }
+      }
+
+      if (result.length > 0 && result[result.length - 1] === '&') {
+        result = result.substring(0, result.length - 1);
+      }
+
+      return result;
+    }
+  }
+
+  function sendRequestAsync(contentString, authCounter) {
+    var dfd = WLJQ.Deferred();
+
+    buildRequestUrl()
+      .then(
+        function(serverUrl) {
+          __send(serverUrl, contentString, authCounter).then(
+            function(response) {
+              dfd.resolve(response);
             },
             function(error) {
-            	dfd.reject(error);
+              dfd.reject(error);
             }
-        );
-        
-        return dfd.promise();
-    }
-	
-	var maxRequestAttempts = 4;
-	function __send(serverUrl, contentString, authCounter) {		
-		var dfd = WLJQ.Deferred();
-		
-		if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_OAUTH)) {
-			var transport = {
-				status : 0,
-    			responseJSON : {
-    				errorCode: WL.ErrorCode.API_INVOCATION_FAILURE,
-    				errorMsg: WL.ClientMessages.unsupportedEnvironment
-    			}
-			};
-			var failResponse = new WL.Response(transport, null);
-			dfd.reject(failResponse);
-			return dfd;
-		}
-		
-		// create WLNativeXHR or XMLHttpRequest
-		var xhr = window.WLJSX.Ajax.getTransport();
- 
-		var queryString = buildQueryString();
-		var finalUrl = queryString === null ? serverUrl : serverUrl + "?" + queryString;
-		
-        xhr.open(method, finalUrl, true);
-		
-		if (typeof(timeout) !== 'undefined') {
-			xhr.timeout = timeout;
-		}
-		
-		addRequestHeaders(xhr);
-		
-		xhr.onreadystatechange = function(e) {
-            if (this.readyState == 4) {
-            	if (this.status === 200) {
-            		dfd.resolve(new WL.Response(this, null));
-            	} else {
-            		var transport = this;
-            		if (this.status === 0) {
-            			var errorCode = this.wlFailureStatus !== 'undefined' ? this.wlFailureStatus : WL.ErrorCode.UNEXPECTED_ERROR;
-            			// handle errors - timeout, unresponsive host and unexpected error
-            			transport.status = 0;
-            			transport.responseJSON = {
-            					errorCode: errorCode,
-            					errorMsg: this.statusText//WL.Utils.formatString(WL.ClientMessages.handleTimeOut, finalUrl)
-            			};
-            		}
-            
-            		var failResponse = new WL.Response(transport, null);
-            
-            		// WL.Response sets status to 200 if transport.status is 0 - set it back to 0.
-            		if (this.status === 0) {
-            			failResponse.status = 0;
-            		}
-            		
-            		if (typeof(WLAuthorizationManager) !== 'undefined' && WLAuthorizationManager.__isOAuthError(transport) && authCounter < maxRequestAttempts) {
-                        var scope = WLAuthorizationManager.__getScopeFromResponse(transport);
-                        // if we got here, the cached auth header was missing or was not good;
-                        // obtain the header again and retry the request
-            			WLAuthorizationManager.obtainAuthorizationHeader(scope).then (
-                            function(authHeader) {
-                            	// The auth header was received successfully, increment number of attempts and continue
-                        		// The request should be constructed again, therefore this call is recursive
-                            	sendRequestAsync(contentString, ++authCounter)
-                            	.then(
-                                    function(response){
-                                        dfd.resolve(response);
-                                    },
-                                    function(error) {
-                                        dfd.reject(error);
-                                    }
-                        		);
-                            },
-                            function(error) {
-                            	// unable to retrieve the authorization header, fail the request; the failure will be propagated up the chain
-                                dfd.reject(error);
-                            }
-                        );
-            		} else {
-            			// it's not OAuth error or number of attempts is exceeded; fail the request with last error, which will be propagated up 
-            			dfd.reject(failResponse);
-            		}
-            	}
-            }
-        };
-        
-        // this is the first try  with cached authorization header, which may be null
-        if (typeof(WLAuthorizationManager) !== 'undefined') {
-	        WLAuthorizationManager.__addHeadersToResourceRequest(xhr)
-	        .always(
-	        	// send the request disregard the ability to obtain the client id and auth header
-	        	sendRequest	
-	        );
-        } else {
-        	sendRequest();
+          );
+        },
+        function(error) {
+          dfd.reject(error);
         }
-        
-	    function sendRequest() {
-	    	xhr.send(method === 'GET' ? null : contentString, true);
-	    }
-        
-		return dfd.promise();
-	}
-	
-	function buildRequestUrl() {
-        var dfd = WLJQ.Deferred();
-        if (url.indexOf('http:') >= 0 || url.indexOf('https:') >= 0) {
-            dfd.resolve(url);
-        } else {       	
-            WL.App.getServerUrl(
-                function(serverUrl) {      
-        			if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8) { 
-    					var index = serverUrl.indexOf("/apps/services");
-    					if(index > -1) {
-    						serverUrl = serverUrl.substr(0, index);
-    					}
-    				}
-                    dfd.resolve(__buildUrl(serverUrl));
-                },
-                function(error) {
-                	dfd.reject(error);
-                }
-            );    	
-        }
-        
-        function __buildUrl(serverUrl) {
-        	if (serverUrl[serverUrl.length - 1] !== '/' && url[0] !== '/') {
-        		serverUrl += '/';
-        	} else if (serverUrl[serverUrl.length - 1] === '/' && url[0] === '/') {
-        		serverUrl = serverUrl.substring(0, serverUrl.length - 1);
-        	}
+      );
 
-            return serverUrl + url;
+    return dfd.promise();
+  }
+
+  var maxRequestAttempts = 4;
+
+  function __send(serverUrl, contentString, authCounter) {
+    var dfd = WLJQ.Deferred();
+
+    if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_OAUTH)) {
+      var transport = {
+        status: 0,
+        responseJSON: {
+          errorCode: WL.ErrorCode.API_INVOCATION_FAILURE,
+          errorMsg: WL.ClientMessages.unsupportedEnvironment
         }
-        
-        return dfd.promise();
+      };
+      var failResponse = new WL.Response(transport, null);
+      dfd.reject(failResponse);
+      return dfd;
     }
-	
-	function addRequestHeaders(xhr) {
-		for (var headerName in headers) {
-			var headerValue = headers[headerName];
-			if (isSimpleType(headerValue)) {
-				xhr.setRequestHeader(headerName, headerValue.toString());
-			} else {
-				var commaSeparatedHeader = headerValue[0];
-				for (var i = 1; i < headerValue.length; i++) {
-					commaSeparatedHeader += ", " + headerValue[i];
-				}
-				xhr.setRequestHeader(headerName, commaSeparatedHeader);
-			}
-		}
-	}
-	
-	function buildQueryString() {
-		if (queryParameters === null || typeof(queryParameters) === 'undefined' || WLJQ.isEmptyObject(queryParameters)) {
-			return null;
-		}
-		
-		var queryString = '';
-		for (var paramKey in queryParameters) {
-			if (queryString.length > 0) {
-				queryString += "&";
-			}
-            var value = queryParameters[paramKey];
-            var paramValue = isSimpleType(value) ? value : JSON.stringify(value);
-			queryString += paramKey + "=" + encodeURIComponent(paramValue);
-		}
-		
-		return queryString;
-	}
-	
-	function isSimpleType(value) {
-		return (WL_.isString(value) || WL_.isNumber(value) || WL_.isBoolean(value));
-	}
-	
-	function isArrayOfSimpleTypes(object) {
-		for (var i = 0; i < object.length; i++) {
-			if (!isSimpleType(object[i])) {
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	function logAndThrowError(msg, callerName) {
-		if (WL.Logger) {
-		    if (callerName) {
-		    	msg = "Invalid invocation of method " + callerName + "; " + msg;
-		    }
-		    WL.Logger.error(msg);
-		}
-		
-		throw new Error(msg);
-	}
-	
-	function isValidRequestMethod(method) {
-		return (method === WLResourceRequest.GET || method === WLResourceRequest.POST || method === WLResourceRequest.PUT ||
-				method === WLResourceRequest.DELETE || method === WLResourceRequest.HEAD || method === WLResourceRequest.OPTIONS || 
-				method === WLResourceRequest.TRACE);
-	}
+
+    // create WLNativeXHR or XMLHttpRequest
+    var xhr = window.WLJSX.Ajax.getTransport();
+
+    var queryString = buildQueryString();
+    var finalUrl = queryString === null ? serverUrl : serverUrl + '?' + queryString;
+
+    xhr.open(method, finalUrl, true);
+
+    if (typeof(timeout) !== 'undefined') {
+      xhr.timeout = timeout;
+    }
+
+    addRequestHeaders(xhr);
+
+    xhr.onreadystatechange = function() {
+      if (this.readyState === 4) {
+// any status in the 2xx range is considered a success
+        if (this.status >= 200 && this.status <= 299) {
+          dfd.resolve(new WL.Response(this, null));
+        } else {
+          var transport = this;
+          if (this.status === 0) {
+            var errorCode = this.wlFailureStatus !== 'undefined' ? this.wlFailureStatus : WL.ErrorCode.UNEXPECTED_ERROR;
+            // handle errors - timeout, unresponsive host and unexpected error
+            transport.status = 0;
+            transport.responseJSON = {
+              errorCode: errorCode,
+              errorMsg: this.statusText //WL.Utils.formatString(WL.ClientMessages.handleTimeOut, finalUrl)
+            };
+          }
+
+          var failResponse = new WL.Response(transport, null);
+
+          // WL.Response sets status to 200 if transport.status is 0 - set it back to 0.
+          if (this.status === 0) {
+            failResponse.status = 0;
+          }
+
+          if (typeof(WLAuthorizationManager) !== 'undefined' && WLAuthorizationManager.__isOAuthError(transport) && authCounter < maxRequestAttempts) {
+            var scope = WLAuthorizationManager.__getScopeFromResponse(transport);
+            // if we got here, the cached auth header was missing or was not good;
+            // obtain the header again and retry the request
+            WLAuthorizationManager.obtainAuthorizationHeader(scope).then(
+              function() {
+                // The auth header was received successfully, increment number of attempts and continue
+                // The request should be constructed again, therefore this call is recursive
+                sendRequestAsync(contentString, ++authCounter)
+                  .then(
+                    function(response) {
+                      dfd.resolve(response);
+                    },
+                    function(error) {
+                      dfd.reject(error);
+                    }
+                  );
+              },
+              function(error) {
+                // unable to retrieve the authorization header, fail the request; the failure will be propagated up the chain
+                dfd.reject(error);
+              }
+            );
+          } else {
+            // it's not OAuth error or number of attempts is exceeded; fail the request with last error, which will be propagated up 
+            dfd.reject(failResponse);
+          }
+        }
+      }
+    };
+
+    // this is the first try  with cached authorization header, which may be null
+    if (typeof(WLAuthorizationManager) !== 'undefined') {
+      WLAuthorizationManager.__addHeadersToResourceRequest(xhr)
+        .always(
+          // send the request disregard the ability to obtain the client id and auth header
+          sendRequest
+        );
+    } else {
+      sendRequest();
+    }
+
+    /*jshint latedef:false*/
+    function sendRequest() {
+      xhr.send(method === 'GET' ? null : contentString, true);
+    }
+
+    return dfd.promise();
+  }
+
+  function buildRequestUrl() {
+    var dfd = WLJQ.Deferred();
+    if (url.indexOf('http:') >= 0 || url.indexOf('https:') >= 0) {
+      dfd.resolve(url);
+    } else {
+      WL.App.getServerUrl(
+        function(serverUrl) {
+          if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONEUNIVERSAL  ) {
+            var index = serverUrl.indexOf('/apps/services');
+            if (index > -1) {
+              serverUrl = serverUrl.substr(0, index);
+            }
+          }
+          dfd.resolve(__buildUrl(serverUrl));
+        },
+        function(error) {
+          dfd.reject(error);
+        }
+      );
+    }
+
+    function __buildUrl(serverUrl) {
+      if (serverUrl[serverUrl.length - 1] !== '/' && url[0] !== '/') {
+        serverUrl += '/';
+      } else if (serverUrl[serverUrl.length - 1] === '/' && url[0] === '/') {
+        serverUrl = serverUrl.substring(0, serverUrl.length - 1);
+      }
+
+      return serverUrl + url;
+    }
+
+    return dfd.promise();
+  }
+
+  function addRequestHeaders(xhr) {
+    for (var headerName in headers) {
+      if (true) {  // thanks jshint
+        var headerValue = headers[headerName];
+        if (isSimpleType(headerValue)) {
+          xhr.setRequestHeader(headerName, headerValue.toString());
+        } else {
+          var commaSeparatedHeader = headerValue[0];
+          /*jshint maxdepth:4*/
+          for (var i = 1; i < headerValue.length; i++) {
+            commaSeparatedHeader += ', ' + headerValue[i];
+          }
+          xhr.setRequestHeader(headerName, commaSeparatedHeader);
+        }
+      }
+    }
+  }
+
+  function buildQueryString() {
+    if (queryParameters === null || typeof(queryParameters) === 'undefined' || WLJQ.isEmptyObject(queryParameters)) {
+      return null;
+    }
+
+    var queryString = '';
+    for (var paramKey in queryParameters) {
+      if (true) {  // thanks jshint
+        if (queryString.length > 0) {
+          queryString += '&';
+        }
+        var value = queryParameters[paramKey];
+        var paramValue = isSimpleType(value) ? value : JSON.stringify(value);
+        queryString += paramKey + '=' + encodeURIComponent(paramValue);
+      }
+    }
+
+    return queryString;
+  }
+
+  function isSimpleType(value) {
+    return (WL_.isString(value) || WL_.isNumber(value) || WL_.isBoolean(value));
+  }
+
+  function isArrayOfSimpleTypes(object) {
+    for (var i = 0; i < object.length; i++) {
+      if (!isSimpleType(object[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }
 
-WLResourceRequest.GET = "GET";
-WLResourceRequest.POST = "POST";
-WLResourceRequest.PUT = "PUT";
-WLResourceRequest.DELETE = "DELETE";
-WLResourceRequest.HEAD = "HEAD";
-WLResourceRequest.OPTIONS = "OPTIONS";
-WLResourceRequest.TRACE = "TRACE";
-WLResourceRequest.CONNECT = "CONNECT";
-
+WLResourceRequest.GET = 'GET';
+WLResourceRequest.POST = 'POST';
+WLResourceRequest.PUT = 'PUT';
+WLResourceRequest.DELETE = 'DELETE';
+WLResourceRequest.HEAD = 'HEAD';
+WLResourceRequest.OPTIONS = 'OPTIONS';
+WLResourceRequest.TRACE = 'TRACE';
+WLResourceRequest.CONNECT = 'CONNECT';
 
 /**
  * ================================================================= 
@@ -17060,11 +17418,20 @@ __WLPush = function() {
         return  androidSDKVersion != undefined && parseInt(androidSDKVersion) >= 8;
     };
 
+    this.__getAppUserId = function() {
+    	var appUserId = WL.Client.__getAppUserId();
+    	return appUserId;
+    }
+    
     this.__updateToken = function(notificationSubscriptionState) {
     	serverToken = notificationSubscriptionState.token;
+    	serverAppUserId = notificationSubscriptionState.userId;
+    	serverLoginUserId = notificationSubscriptionState.login_userId;
     	gcmSenderId = notificationSubscriptionState.credentials;
+    	var appUserId = WL.Client.__getAppUserId();
+    	
         cordova.exec(function(deviceToken) {
-            updateTokenCallback(serverToken, deviceToken);
+            updateTokenCallback(serverToken, deviceToken, serverAppUserId, serverLoginUserId, appUserId);
         }, function(errMsg) {
             WL.Logger.error("Cannot register for Google Cloud Messaging. " + errMsg);
             
@@ -17156,6 +17523,7 @@ __WLPush = function() {
         requestOptions.parameters = {};
         requestOptions.parameters.adapter = registeredEventSource.adapter;
         requestOptions.parameters.eventSource = registeredEventSource.eventSource;
+        requestOptions.parameters.appUserId = WL.Client.__getAppUserId();
         requestOptions.parameters.alias = alias;
         requestOptions.parameters.subscribe = WLJSX.Object.toJSON(options);
         new WLJSX.Ajax.WLRequest("notifications", requestOptions);
@@ -17230,6 +17598,7 @@ __WLPush = function() {
         requestOptions.parameters.alias = alias;
         requestOptions.parameters.adapter = registeredEventSource.adapter;
         requestOptions.parameters.eventSource = registeredEventSource.eventSource;
+        requestOptions.parameters.appUserId = WL.Client.__getAppUserId();
         requestOptions.parameters.unsubscribe = "";
         new WLJSX.Ajax.WLRequest("notifications", requestOptions);
     };
@@ -17524,9 +17893,29 @@ __WLPush = function() {
         return true;
     };
 
-    function updateTokenCallback(serverToken, deviceToken) {
-        if (serverToken != deviceToken) {
-            WL.Logger.debug("Push notification device token has changed, updating server notification token id.");
+    function updateTokenCallback(serverToken, deviceToken, serverAppUserId, serverLoginUserId, appUserId) {
+    	var updateTokenFlowRequired = false;
+    	//Make the logic look like native
+    	//appUserId is set and not equal to serverAppUserId?
+    	if((typeof appUserId !== "undefined") && serverAppUserId !== appUserId) {
+    		updateTokenFlowRequired = true;
+    	}
+    	
+    	//servertoken does not match the new token
+    	if(updateTokenFlowRequired == false && ((typeof serverToken == "undefined") || serverToken != deviceToken)) {
+    		updateTokenFlowRequired = true;
+    	}
+    	//The appUserId is not set and login user has changed 
+    	else if((typeof appUserId === "undefined") && (
+    			((typeof serverAppUserId !== "undefined") && (serverAppUserId != serverLoginUserId)) 
+    			|| 
+    			((typeof serverAppUserId == "undefined") && (typeof serverLoginUserId !== "undefined"))
+    			)) {
+    		updateTokenFlowRequired = true;
+    		
+    	}
+        if (updateTokenFlowRequired) {
+            WL.Logger.debug("Push notification device token or the appUserId has changed, updating server notification token id. appUserId " + appUserId + " deviceToken " + deviceToken + " and serverLoginUserId is " + serverLoginUserId);
             var requestOptions = {
                 onSuccess : function() {
                     isTokeUpdatedOnServer = true;
@@ -17545,6 +17934,10 @@ __WLPush = function() {
             requestOptions.requestHeaders = {}
             requestOptions.parameters = {};
             requestOptions.parameters.updateToken = deviceToken;
+            
+            if(typeof appUserId !== "undefined") {
+            	requestOptions.parameters.appUserId = appUserId;
+            }
             new WLJSX.Ajax.WLRequest("notifications", requestOptions);
         } else {
             isTokeUpdatedOnServer = true;
@@ -17744,122 +18137,130 @@ WL.App.hideSplashScreen = function() {
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
 
-(function(window){
+/*globals WL, cordova*/
 
-	function WLNativeXHR(){
-		var logger = WL.Logger.create({pkg:"WLNativeXHR"});
-		logger.trace("Constructing");
-		
-		// Request methods
-		this.open 					= function(method, url, async, user, password){};
-		this.abort                  = function(){};
-		this.setRequestHeader 		= function(headerName, headerValue){};
-		this.timeout 				= 60000;  // default timeout for hybrid requests is 1 min.
-		this.send 					= function(data){};
-		this.onreadystatechange		= function(){};
-		
-		// Response methods
-		this.status 				= 0;
-		this.statusText 			= "";
-		this.response 				= "";
-		this.responseText 			= "";
-		this.readyState				= 0;
-		this.wlFailureStatus		= "";
-		this.getResponseHeader 		= function(headerName){};
-		this.getAllResponseHeaders 	= function(){};
-		
-		// Internal properties
-		var requestOptions = {
-				url 				: null,
-				method				: null, 
-				async				: true,
-				headers				: {},
-				isResourceRequest	: false
-		};
-		
-		var responseHeaders = {};
-		
-		function onreadystatechangefunc(){
-			logger.trace("onreadystatechangefunc");
-		}
-		
-		this.open = function(method, url, async, user, password){
-			logger.trace("open", "method", method, "url", url);
-			requestOptions.method = method;
-			requestOptions.url = url;
-			requestOptions.async = async;
-		};
-		
-		this.setRequestHeader = function(headerName, headerValue){
-			logger.trace("setRequestHeader", "name", headerName, "value", headerValue);
-			requestOptions.headers[headerName] = headerValue;
-		};
-		
-		this.send = function(body, isResourceRequest){
-			logger.trace("send");
-			requestOptions.body = body || "";
-			requestOptions.timeout = this.timeout;
-			
-			if (requestOptions.method == null && typeof(method) === 'undefined') {
-				requestOptions.method = body == null ? 'get' : 'post';
-			}
-			
-			if (typeof(isResourceRequest) !== 'undefined') {
-				requestOptions.isResourceRequest = isResourceRequest;
-			}
-			
-			var callback = (function(context){
-				return function(responseData){
-					logger.trace("callback", responseData);
-					context.status = responseData.status;
-					context.statusText = responseData.statusText;
-					context.response = responseData.responseText;
-					context.responseText = responseData.responseText;
-					context.readyState = 4; // conforms to XHR protocol; state 4 means that the request has finished
-					responseHeaders = responseData.headers;
-					context.wlFailureStatus = responseData.wlFailureStatus;
-					context.onreadystatechange();
-				};
-			}(this));
-			
-			this.__send(callback, requestOptions);
-		};
-		
-		this.__send = function (callback, requestOptions) {
-		    cordova.exec(callback, callback, "WLNativeXHRPlugin", "send", [requestOptions]);
-		}    
-		
-		this.getResponseHeader = function(headerName){
-			//case insensitive search
-			for (var key in responseHeaders){
-				if (key.toLowerCase() === headerName.toLowerCase()){
-					return responseHeaders[key];
-				}
-			}
-			return null;
-		};
+(function(window) {
 
-		this.getAllResponseHeaders 	= function(){
-			var headersText="";
-			for (var headerName in responseHeaders){
-				var headerValue = responseHeaders[headerName];
-				headersText += headerName + ": " + headerValue + "\n";
-			}
-			return headersText;
-		};
+  /*jshint strict:false*/
 
-	}
-	
-	window.WLNativeXHR = WLNativeXHR;
-	
+  function WLNativeXHR() {
+    var logger = WL.Logger.create({
+      pkg: 'WLNativeXHR'
+    });
+    logger.trace('Constructing');
+
+    // Request methods
+    /*jshint maxparams:5, unused:false*/
+    this.open = function(method, url, async, user, password) {};
+    this.abort = function(){};
+    this.setRequestHeader = function(headerName, headerValue) {};
+    this.timeout = 60000; // default timeout for hybrid requests is 1 min.
+    this.send = function(data) {};
+    this.onreadystatechange = function() {};
+
+    // Response methods
+    this.status = 0;
+    this.statusText = '';
+    this.response = '';
+    this.responseText = '';
+    this.readyState = 0;
+    this.wlFailureStatus = '';
+    this.getResponseHeader = function(headerName) {};
+    this.getAllResponseHeaders = function() {};
+
+    // Internal properties
+    var requestOptions = {
+      url: null,
+      method: null,
+      async: true,
+      headers: {},
+      isResourceRequest: false
+    };
+
+    var responseHeaders = {};
+
+    function onreadystatechangefunc() {
+      logger.trace('onreadystatechangefunc');
+    }
+
+    this.open = function(method, url, async, user, password) {
+      logger.trace('open', 'method', method, 'url', url);
+      requestOptions.method = method;
+      requestOptions.url = url;
+      requestOptions.async = async;
+    };
+
+    this.setRequestHeader = function(headerName, headerValue) {
+      logger.trace('setRequestHeader', 'name', headerName, 'value', headerValue);
+      requestOptions.headers[headerName] = headerValue;
+    };
+
+    this.send = function(body, isResourceRequest) {
+      logger.trace('send');
+      requestOptions.body = body || '';
+      requestOptions.timeout = this.timeout;
+
+      if (requestOptions.method === null && typeof(method) === 'undefined') {
+        requestOptions.method = body === null ? 'get' : 'post';
+      }
+
+      if (typeof(isResourceRequest) !== 'undefined') {
+        requestOptions.isResourceRequest = isResourceRequest;
+      }
+
+      var callback = (function(context) {
+        return function(responseData) {
+          logger.trace('callback', responseData);
+          context.status = responseData.status;
+          context.statusText = responseData.statusText;
+          context.response = responseData.responseText;
+          context.responseText = responseData.responseText;
+          context.readyState = 4; // conforms to XHR protocol; state 4 means that the request has finished
+          responseHeaders = responseData.headers;
+          context.wlFailureStatus = responseData.wlFailureStatus;
+          context.onreadystatechange();
+        };
+      }(this));
+
+      this.__send(callback, requestOptions);
+    };
+
+    this.__send = function(callback, requestOptions) {
+      cordova.exec(callback, callback, 'WLNativeXHRPlugin', 'send', [requestOptions]);
+    };
+
+    this.getResponseHeader = function(headerName) {
+      //case insensitive search
+      for (var key in responseHeaders) {
+        if (key.toLowerCase() === headerName.toLowerCase()) {
+          return responseHeaders[key];
+        }
+      }
+      return null;
+    };
+
+    this.getAllResponseHeaders = function() {
+      var headersText = '';
+      for (var headerName in responseHeaders) {
+        if (true) { // thanks jshint
+          var headerValue = responseHeaders[headerName];
+          headersText += headerName + ': ' + headerValue + '\n';
+        }
+      }
+      return headersText;
+    };
+
+  }
+
+  window.WLNativeXHR = WLNativeXHR;
+
 }(window));
-
 
 /**
  * ================================================================= 
@@ -17868,823 +18269,927 @@ WL.App.hideSplashScreen = function() {
  */
 
 /*
-* Licensed Materials - Property of IBM
-* 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
-* US Government Users Restricted Rights - Use, duplication or
-* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-*/
+ * Licensed Materials - Property of IBM
+ * 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+
+/*globals WL, WL_, WLJQ, WLJSX, cordova, WLAuthorizationManager*/
 
 window.WLAuthorizationManager = (function() {
-	
-	var WL_AUTHORIZATION_HEADER = 'Authorization';
-	var WL_X_SESSION_ID_HEADER = 'X-WL-Session';
-	var WL_X_CLIENT_ID_HEADER = 'X-WL-ClientId';
 
-	var PARAM_RESPONSE_TYPE_KEY = 'response_type';
-	var PARAM_CLIENT_ID_KEY = 'client_id';
-	var PARAM_REDIRECT_URI_KEY = 'redirect_uri';
-	var PARAM_CODE_VALUE = 'code';
-	var PARAM_REDIRECT_URI_VALUE = 'http://mfpredirecturi';
-	var PARAM_SCOPE_KEY = 'scope';
-	
-	var UNAUTHORIZED_CLIENT_ERROR = 'unauthorized_client';
-	var UNKNOWN_CLIENT_ERROR_DESCRIPTION = 'Unknown client';
-	var WL_OAUTH_PREVENT_REDIRECT = 'wl-oauth-prevent-redirect';
+  /*jshint strict:false, maxparams:4*/
 
-	var OAUTH_AUTHORIZATION_PATH = 'authorization';
-	var AUTHORIZATION_MANAGER_PLUGIN_NAME = 'WLAuthorizationManagerPlugin';
+  var WL_AUTHORIZATION_HEADER = 'Authorization';
+  var WL_X_SESSION_ID_HEADER = 'X-WL-Session';
+  var WL_X_CLIENT_ID_HEADER = 'X-WL-ClientId';
+  var WL_X_CLIENT_ID_SIGNED_HEADER = 'X-WL-S-ClientId';
 
-	var __cachedWlSessionId;
+  var PARAM_RESPONSE_TYPE_KEY = 'response_type';
+  var PARAM_CLIENT_ID_KEY = 'client_id';
+  var PARAM_REDIRECT_URI_KEY = 'redirect_uri';
+  var PARAM_CODE_VALUE = 'code';
+  var PARAM_REDIRECT_URI_VALUE = 'http://mfpredirecturi';
+  var PARAM_SCOPE_KEY = 'scope';
 
-	var getCachedAuthorizationHeader = function() {
-        var dfd = WLJQ.Deferred();		
-		cordova.exec(
-			function(data) {
-				dfd.resolve(data);
-			}, 
-			function(error) {
-				WL.Logger.debug('getCachedAuthorizationHeader failed: ' + JSON.stringify(error));
-      			dfd.reject(new WL.Response(error, null));
-			},
-			AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getCachedAuthorizationHeader', []
-		);
-		
-		return dfd.promise();
-    };
-    
-    var isAuthorizationRequired = function(responseStatus, responseAuthenticationHeader) {
-    	if (responseAuthenticationHeader === null || typeof(responseAuthenticationHeader) === 'undefined') {
-            return false;
-        }
-    	
-    	return ((responseStatus === 401 || responseStatus === 403) && responseAuthenticationHeader.indexOf('Bearer') >= 0 &&
-    			responseAuthenticationHeader.indexOf('realm=\"imfAuthentication\"') >= 0);
-    };
-    
-    var getAuthorizationScope = function(responseAuthenticationHeader) {
-    	if (responseAuthenticationHeader !== null && typeof(responseAuthenticationHeader) !== 'undefined') {
-            var headerParts = responseAuthenticationHeader.split(',');
-            for (var i = 0; i < headerParts.length; i++) {
-                var headerElement = headerParts[i];
-                if (headerElement.indexOf('scope=') >= 0) {
-                	var scope = headerElement.split('=')[1].replace(/\"/g, '');
-                    return scope;
-                }
-            }
-        }
-        
-    	return null;
-    };
-    
-    var setAuthorizationPersistencePolicy = function(authorizationPersistencePolicy) {
-    	var dfd = WLJQ.Deferred();
-    	
-    	cordova.exec(
-    		dfd.resolve,
-    		function(error) {
-    			WL.Logger.error('WLAuthorizationManager.setAuthorizationPersistencePolicy failed with error: ' + error);
-    			dfd.reject(error);
-    		},
-    		AUTHORIZATION_MANAGER_PLUGIN_NAME, 'setAuthorizationPersistencePolicy', [authorizationPersistencePolicy]
-    	);
-    	
-    	return dfd.promise();
+  var UNAUTHORIZED_CLIENT_ERROR = 'unauthorized_client';
+  var UNKNOWN_CLIENT_ERROR_DESCRIPTION = 'Unknown client';
+  var WL_OAUTH_PREVENT_REDIRECT = 'wl-oauth-prevent-redirect';
+
+  var OAUTH_AUTHORIZATION_PATH = 'authorization';
+  var AUTHORIZATION_MANAGER_PLUGIN_NAME = 'WLAuthorizationManagerPlugin';
+
+  var __cachedWlSessionId;
+
+  var getCachedAuthorizationHeader = function() {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        WL.Logger.debug('getCachedAuthorizationHeader failed: ' + JSON.stringify(error));
+        dfd.reject(new WL.Response(error, null));
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getCachedAuthorizationHeader', []
+    );
+
+    return dfd.promise();
+  };
+
+  var isAuthorizationRequired = function(responseStatus, responseAuthenticationHeader) {
+    if (responseAuthenticationHeader === null || typeof(responseAuthenticationHeader) === 'undefined') {
+      return false;
     }
-	
-    var obtainAuthHeaderCallbacks = [];
-	var EMPTY_SCOPE = 'imf_empty_scope';
-	/**
-	 * Obtains authorization header for specified scope. 
-	 * @param scope Specifies the scope to obtain an authorization header for. Can be null or undefined.
-	 * @returns A promise object that should be used to receive the authorization header asynchronously. The header is send as a string
-	 * Example:
-	 * WLAuthorizationManager.obtainAuthorizationHeader(scope)
-	 * .then (
-	 * 		function(header) {
-	 * 			// success flow with the header
-	 *  	},
-	 *  	function(error) {
-	 *  		// failure flow
-	 *  	}
-	 * };
-	 */
-	var obtainAuthorizationHeader = function(scope) {
-		var dfd = WLJQ.Deferred();
-		if (typeof(scope) === 'undefined' || scope === null) {
-			scope = EMPTY_SCOPE;
-		}
-		
-		// obtainAuthHeaderCallbacks is an array of this kind objects; "clientId" will be updated in case of "unknown client" error
-		// the "scope" identifies the current "deferred" object
-		var callbackObj = {
-			clientId : null,	
-			scope : scope, 
-			deferred : dfd
-		};
-		
-		obtainAuthHeaderCallbacks.push(callbackObj);
-		
-		// if there is more than one object in the array, put incoming requests to queue
-		if (obtainAuthHeaderCallbacks.length > 1) {
-			return dfd.promise();
-		} 
-		
-		// getClientId returns cached client id from the native
-		try {
-			WLAuthorizationManager.__getClientId()
-			.then(
-				function(clientId) {
-					if (typeof(clientId) !== 'undefined' && clientId !== null) {
-						// client id was cached, now invoke the authorization request
-						__invokeAuthRequestWithScopeAndClientId(clientId, scope);
-					} else {
-						// there was no cached client id, register the client first
-						WLAuthorizationManager.__getClientInstanceId()
-						.then(
-							function(clientId) {
-								__invokeAuthRequestWithScopeAndClientId(clientId, scope);
-							},
-							function(error) {
-								// in case of error call all callbacks for specified scope with returned error
-								processObtainAuthHeaderCallbacks(clientId, scope, error, false);
-							}
-						);
-					}
-				},
-				function(error) {
-					// in case of error call all callbacks for specified scope with returned error
-					processObtainAuthHeaderCallbacks(null, scope, error, false);
-				}
-			);
-		} catch(e) {
-			processObtainAuthHeaderCallbacks(null, scope, JSON.stringify(e), false);
-		}
-		
-		return dfd.promise();
-	}; 
-	
-	// this flag tells whether we have handled the invalid client error to prevent infinite loop
-	var invalidClientReceived = false;
-	function __invokeAuthRequestWithScopeAndClientId(clientId, scope) {
-		// in case of unknown client error do not process the callbacks; call the registration part instead
-		var shouldProcessCallbacksOnError = true;
-		
-		// invoke authorization request with specified clientId and scope
-		invokeAuthorizationRequestWithScope(clientId, scope)
-		.then(
-			function(response) {
-				// authorization request succeeded, notify the callbacks in queue
-				processObtainAuthHeaderCallbacks(clientId, scope, response, true);
-			},
-			function(error) {
-				// authorization request failed
-				if (isUnknownClientError(error) && !invalidClientReceived) {
-					// request failed with unknown client
-					invalidClientReceived = true; // set a flag that prevents infinite loop
-					shouldProcessCallbacksOnError = false; // do not process callbacks, because request will be sent again
-					
-					// call the native to delete the old authentication data
-					WLAuthorizationManager.__deleteAuthData()
-					.then(
-						function() {
-							// register the client again
-							WLAuthorizationManager.__getClientInstanceId()
-							.then(
-								function(newClientId) {
-									// the registration returns the new client id.
-									// update all callbacks in queue with the new client id
-									updateClientIds(newClientId);
-									// resend the request
-									__invokeAuthRequestWithScopeAndClientId(newClientId, scope);
-								}, 
-								function(error) {
-									rejectAllCallbacks(error);
-								}
-							); 
-						}, 
-						function(error) {
-							// unable to delete the old auth data, reject all callbacks and do not re-send the request
-							rejectAllCallbacks(error);
-						}
-					); 
-				}
-				// notify the callers about error if it is not the 'unknown client' error thrown on the first time
-				if (shouldProcessCallbacksOnError) {
-					processObtainAuthHeaderCallbacks(clientId, scope, error, false);
-				}
-			}
-		);
-	}
-	
-	function isUnknownClientError(error) {
-		if (typeof(error) !== 'undefined' && error !== null && typeof(error.status) !== undefined &&
-			error.status === 400 && typeof(error.responseJSON) !== 'undefined' && error.responseJSON !== null && 
-			error.responseJSON.error === UNAUTHORIZED_CLIENT_ERROR && error.responseJSON.error_description == UNKNOWN_CLIENT_ERROR_DESCRIPTION) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	function processObtainAuthHeaderCallbacks(clientId, scope, response, isSuccess) {	
-		var indexesToRemove = [];
-		var objectsToNotify = [];
-		
-		// loop over callbacks in queue and notify those with specified scope; store appropriate indexes for later removal
-		for (var i = 0; i < obtainAuthHeaderCallbacks.length; i++) {
-			var callbackObj = obtainAuthHeaderCallbacks[i];
-			// if next object's scope is contained in resolved scope, the caller can be notified and the scope should be removed from the queue
-			if (scope === EMPTY_SCOPE && callbackObj.scope === EMPTY_SCOPE || scope.indexOf(callbackObj.scope) > -1) {				
-				objectsToNotify.push(callbackObj);
-				indexesToRemove.push(i);
-			}
-		}
-		
-		// remove processed callbacks
-		for (var j = indexesToRemove.length - 1; j >= 0; j--) {
-			obtainAuthHeaderCallbacks.splice(indexesToRemove[j], 1);
-		}
-		
-		// notify objects. This must be done after splice, because it could be that the code being notified
-		// is supposed to send other requests requiring authorization. It means that the callback array
-		// must be cleared before notifications are sent.
-		for (var k = 0; k < objectsToNotify.length; k++) {
-			isSuccess ? objectsToNotify[k].deferred.resolve(response) : objectsToNotify[k].deferred.reject(response);
-		}
-		
-		// if there is at least one object in the queue, send auth request for its scope
-		if (obtainAuthHeaderCallbacks.length > 0) {
-			var realClientId = obtainAuthHeaderCallbacks[0].clientId !== null ? obtainAuthHeaderCallbacks[0].clientId : clientId;
-			__invokeAuthRequestWithScopeAndClientId(realClientId, obtainAuthHeaderCallbacks[0].scope);
-		}
-	}
-	
-	function rejectAllCallbacks(error) {
-		var objectsToNotify = obtainAuthHeaderCallbacks.slice();
-		obtainAuthHeaderCallbacks = [];
-		// this method is called upon unrecoverable error; reject all and clear the queue
-		for (var n = 0; n < objectsToNotify.length; n++) {
-			objectsToNotify[n].deferred.reject(error);
-		}
-	}
-	
-	function updateClientIds(newClientId) {
-		// update all callback objects with the new client id; called after processing of "unknown client', when the new
-		// client id has been received
-		for (var i = 0; i < obtainAuthHeaderCallbacks.length; i++) {
-			obtainAuthHeaderCallbacks[i].clientId = newClientId;
-		}
-	} 
-	
-	/**
-	 * Adds cached authorization header to request. This function is asynchronous, therefore you should
-	 * use the returned promise for completion flow.
-	 * @param request A request object. This object should expose 'setRequestHeader' function.
-	 * @returns promise object. Sample usage:
-	 * var xhr = new XMLHttpRequest();
-	 * WLAuthorizationManager.addCachedAuthorizationHeader(xhr)
-	 * .always(
-	 * 		function(response) {
-	 * 			// success or failure flow
-	 * 		}
-	 * );
-	 */ 
-  var addCachedAuthorizationHeader = function(request) {
-		var dfd = WLJQ.Deferred();
-		
-		if (typeof(request.setRequestHeader) === 'function') {
-			WLAuthorizationManager.getCachedAuthorizationHeader().then(
-				function(authHeader) {
-					try {
-						if (authHeader !== null && typeof(authHeader) !== 'undefined' && WL_.isString(authHeader) && authHeader.length > 0) {
-							request.setRequestHeader(WL_AUTHORIZATION_HEADER, authHeader);
-				        }
-						dfd.resolve(authHeader);
-					} catch (e) {
-						dfd.reject(e);
-					}
-				},
-				function(error) {
-					WL.Logger.error('getCachedAuthorizationHeader failed with error: ' + JSON.stringify(error));
-					dfd.reject(new WL.Response({
-						status: 404,
-						responseJSON: {errorCode: WL.ErrorCode.UNEXPECTED_ERROR, errorMsg: invalidRequestObjectError}
-					}));
-				}
-			);
-		} else {
-			WL.Logger.error(invalidRequestObjectError);
-			dfd.reject(new WL.Response({
-				status: 404,
-				responseJSON: {errorCode: WL.ErrorCode.UNEXPECTED_ERROR, errorMsg: invalidRequestObjectError}
-			}));
-		}
-		
-		return dfd.promise();
-	};
-	
-	var invalidRequestObjectError = 'Invalid request object. The request object must implement \'setRequestHeader\' function.';
-	var __addHeadersToResourceRequest = function(request) {
-		var dfd = WLJQ.Deferred();
-		
-		if (typeof(request.setRequestHeader) !== 'function') {
-			WL.Logger.error(invalidRequestObjectError);
-			dfd.reject(invalidRequestObjectError);
-			return dfd.promise();
-		}
-		
-		WLAuthorizationManager.getCachedAuthorizationHeader()
-        .always(
-			function(authHeader) {
-                if (authHeader !== null && typeof(authHeader) !== 'undefined' && WL_.isString(authHeader) && authHeader.length > 0) {
-                	request.setRequestHeader(WL_AUTHORIZATION_HEADER, authHeader);
-                }
-                dfd.resolve();
-			}
-		);
-		
-		return dfd.promise();
-	};
-	
-	
-	var clientInstanceIdCallbacks = [];
-	
- 	 var __getClientInstanceId = function() {
-		var dfd = WLJQ.Deferred();
-		
-		// put all incoming calls to queue
-		clientInstanceIdCallbacks.push(dfd);
-		
-		if (clientInstanceIdCallbacks.length > 1) {
-			return dfd;
-		}
-		
-		WLAuthorizationManager.__getClientInstanceIdHeader()
-		.then(
-			function(data) { 
-				// notify about success
-				processClientInstanceCallbacks(data, true);
-			},
-			function(error) {
-				// notify about failure
-				WLAuthorizationManager.__deleteAuthData()
-				.always(
-					function() {
-						WLAuthorizationManager.__getClientInstanceIdHeader()
-						.then(
-							function(data) {
-								processClientInstanceCallbacks(data, true);
-							},
-							function(error) {
-								processClientInstanceCallbacks(error, false);
-							}
-						);
-					}
-				);
-			}
-		);
-		
-		return dfd.promise();
-	};
-	
-	var __getClientInstanceIdHeader = function() {
-		var dfd = WLJQ.Deferred();		
-		cordova.exec(
-			function(data) { 
-				dfd.resolve(data);
-			}, 
-			function(error) {
-				dfd.reject(new WL.Response(error, null));
-			},
-			AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getClientInstanceIdHeader', []
-		);
-		return dfd.promise();
-	};
-	
-	function processClientInstanceCallbacks(response, isSuccess) {
-		var objectsToNotify = clientInstanceIdCallbacks.slice();
-		clientInstanceIdCallbacks = [];
-		
-		for (var i = 0; i < objectsToNotify.length; i++) {
-			isSuccess ? objectsToNotify[i].resolve(response) : objectsToNotify[i].reject(response);
-		}
-		
-	}
 
-	/**
-	 * Obtains user identity. The identity is returned via deferred callback.
-	 * @returns Promise object. The methods calls either success or failure callbacks and passes the user identity as string or error.
-	 * Sample usage:<br>
-	 * WLAuthorizationManager.getUserIdentity()
-	 * .then(
-	 * 		function(data) {
-	 * 			// success flow with user identity
-	 * 		},
-	 * 		function(error) {
-	 * 			// failure flow with error
-	 * 		}
-	 * );
-	 */
-  	var getUserIdentity = function() {
-		var dfd = WLJQ.Deferred();	
-		cordova.exec(
-				function(data) { 
-					dfd.resolve(data);
-				}, 
-				function(error) {
-					dfd.reject(error);
-				},
-				AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getUserIdentity', []
-			);
-		return dfd.promise();
-	};
-	
-	/**
-	 * Obtains device identity. The identity is returned via deferred callback.
-	 * @returns Promise object. The methods calls either success or failure callbacks and passes the device identity as string or error.
-	 * Sample usage:<br>
-	 * WLAuthorizationManager.getDeviceIdentity()
-	 * .then(
-	 * 		function(data) {
-	 * 			// success flow with device identity
-	 * 		},
-	 * 		function(error) {
-	 * 			// failure flow with error
-	 * 		}
-	 * );
-	 */
-  	var getDeviceIdentity = function() {
-		var dfd = WLJQ.Deferred();
-		cordova.exec(
-				function(data) { 
-					dfd.resolve(data);
-				}, 
-				function(error) {
-					dfd.reject(error);
-				},
-				AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getDeviceIdentity', []
-		);
-		return dfd.promise();
-	};
-	
-	/**
-	 * Obtains application identity. The identity is returned via deferred callback.
-	 * @returns Promise object. The methods calls either success or failure callbacks and passes the application identity as string or error.
-	 * Sample usage:<br>
-	 * WLAuthorizationManager.getAppIdentity()
-	 * .then(
-	 * 		function(data) {
-	 * 			// success flow with application identity
-	 * 		},
-	 * 		function(error) {
-	 * 			// failure flow with error
-	 * 		}
-	 * );
-	 */
-  	var getAppIdentity = function() {
-		var dfd = WLJQ.Deferred();
-		cordova.exec(
-				function(data) { 
-					dfd.resolve(data);
-				}, 
-				function(error) {
-					dfd.reject(error);
-				},
-				AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getAppIdentity', []
-		);
-		return dfd.promise();
-	};
-	
-  	var __addHeadersToWLRequest = function(requestHeaders) {
-		var dfd = WLJQ.Deferred();
-		WLAuthorizationManager.__getClientInstanceId().then(
-			function(clientId) {
-				WLAuthorizationManager.__getWlSessionId().then(
-					function(sessionId) {
-						requestHeaders[WL_X_CLIENT_ID_HEADER] = clientId;
-						requestHeaders[WL_X_SESSION_ID_HEADER] = sessionId;
-						dfd.resolve();
-					},
-					function(error) {
-						WL.Logger.debug('getWlSessionId failed with error: ' + error);
-						dfd.reject(error);
-					}
-				);
-			},
-			function(error) {
-				WL.Logger.debug('Client registration failed with error: ' + JSON.stringify(error));
-				if (WL_.isString(error)) {
-					var transport = {
-						status : 500,
-		    			responseJSON : {
-		    				errorCode: WL.ErrorCode.API_INVOCATION_FAILURE,
-		    				errorMsg: error
-		    			},
-		    			getHeader: function() {return null;}
-					};  	
-			    	dfd.reject(transport);
-				} else {
-					dfd.reject(error);
-				}
-			}
-		);
-		
-		return dfd.promise();
-	};
-	
-	// send a request using WL.Request to authorization end point with specified clientId and scope
-	function invokeAuthorizationRequestWithScope(clientId, scope) {
-		var dfd = WLJQ.Deferred();
-		var request = null;
-		
-		if (scope === EMPTY_SCOPE) {
-			scope = null;
-		}
-		
-		var requestOptions = {
-			method: 'GET',
-			parameters: {},
-			onSuccess: function(response) {
-				// the OAuth redirect response is coming to onSuccess in order to prevent WL.Request from handling error case
-				if (response.statusText === WL_OAUTH_PREVENT_REDIRECT || response.status === 222) {
-                	// if it's redirect from OAuth we need to get grant code from response and send a request to the token end point (via native)
-					WLAuthorizationManager.__processRedirectResult(request, response).then(
-                        function(response) {
-                        	// the redirect result was processed successfully, including the request token end point, so we can return the 
-                        	// authorization header to the caller
-                            dfd.resolve(response);
-                        },
-                        function(error) {
-                        	// report an error
-                        	WL.Logger.debug('Process redirect failed with error: ' + JSON.stringify(error));
-                            dfd.reject(error);
-                        }
+    return ((responseStatus === 401 || responseStatus === 403) && responseAuthenticationHeader.indexOf('Bearer') >= 0 &&
+      responseAuthenticationHeader.indexOf('realm=\"imfAuthentication\"') >= 0);
+  };
+
+  var getAuthorizationScope = function(responseAuthenticationHeader) {
+    if (responseAuthenticationHeader !== null && typeof(responseAuthenticationHeader) !== 'undefined') {
+      var headerParts = responseAuthenticationHeader.split(',');
+      for (var i = 0; i < headerParts.length; i++) {
+        var headerElement = headerParts[i];
+        if (headerElement.indexOf('scope=') >= 0) {
+          var scope = headerElement.split('=')[1].replace(/\"/g, '');
+          return scope;
+        }
+      }
+    }
+
+    return null;
+  };
+
+  var setAuthorizationPersistencePolicy = function(authorizationPersistencePolicy) {
+    var dfd = WLJQ.Deferred();
+
+    cordova.exec(
+      dfd.resolve,
+      function(error) {
+        WL.Logger.error('WLAuthorizationManager.setAuthorizationPersistencePolicy failed with error: ' + error);
+        dfd.reject(error);
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'setAuthorizationPersistencePolicy', [authorizationPersistencePolicy]
+    );
+
+    return dfd.promise();
+  };
+
+  var obtainAuthHeaderCallbacks = [];
+  var EMPTY_SCOPE = 'imf_empty_scope';
+  /**
+   * Obtains authorization header for specified scope.
+   * @param scope Specifies the scope to obtain an authorization header for. Can be null or undefined.
+   * @returns A promise object that should be used to receive the authorization header asynchronously. The header is send as a string
+   * Example:
+   * WLAuthorizationManager.obtainAuthorizationHeader(scope)
+   * .then (
+   *    function(header) {
+   *      // success flow with the header
+   *    },
+   *    function(error) {
+   *      // failure flow
+   *    }
+   * };
+   */
+  var obtainAuthorizationHeader = function(scope) {
+    var dfd = WLJQ.Deferred();
+    if (typeof(scope) === 'undefined' || scope === null) {
+      scope = EMPTY_SCOPE;
+    }
+
+    // obtainAuthHeaderCallbacks is an array of this kind objects; "clientId" will be updated in case of "unknown client" error
+    // the "scope" identifies the current "deferred" object
+    var callbackObj = {
+      clientId: null,
+      scope: scope,
+      deferred: dfd
+    };
+
+    obtainAuthHeaderCallbacks.push(callbackObj);
+
+    // if there is more than one object in the array, put incoming requests to queue
+    if (obtainAuthHeaderCallbacks.length > 1) {
+      return dfd.promise();
+    }
+
+    // getClientId returns cached client id from the native
+    try {
+      WLAuthorizationManager.__getClientId()
+        .then(
+          function(clientId) {
+            if (typeof(clientId) !== 'undefined' && clientId !== null) {
+              // client id was cached, now invoke the authorization request
+              __invokeAuthRequestWithScopeAndClientId(clientId, scope);
+            } else {
+              // there was no cached client id, register the client first
+              WLAuthorizationManager.__getClientInstanceId()
+                .then(
+                  function(clientId) {
+                    __invokeAuthRequestWithScopeAndClientId(clientId, scope);
+                  },
+                  function(error) {
+                    // in case of error call all callbacks for specified scope with returned error
+                    processObtainAuthHeaderCallbacks(clientId, scope, error, false);
+                  }
+                );
+            }
+          },
+          function(error) {
+            // in case of error call all callbacks for specified scope with returned error
+            processObtainAuthHeaderCallbacks(null, scope, error, false);
+          }
+      );
+    } catch(e) {
+      processObtainAuthHeaderCallbacks(null, scope, JSON.stringify(e), false);
+    }
+
+    return dfd.promise();
+  };
+
+  // this flag tells whether we have handled the invalid client error to prevent infinite loop
+  var invalidClientReceived = false;
+
+  function __invokeAuthRequestWithScopeAndClientId(clientId, scope) {
+    // in case of unknown client error do not process the callbacks; call the registration part instead
+    var shouldProcessCallbacksOnError = true;
+
+    // invoke authorization request with specified clientId and scope
+    invokeAuthorizationRequestWithScope(clientId, scope)
+      .then(
+        function(response) {
+          // authorization request succeeded, notify the callbacks in queue
+          processObtainAuthHeaderCallbacks(clientId, scope, response, true);
+        },
+        function(error) {
+          // authorization request failed
+          if (isUnknownClientError(error) && !invalidClientReceived) {
+            // request failed with unknown client
+            invalidClientReceived = true; // set a flag that prevents infinite loop
+            shouldProcessCallbacksOnError = false; // do not process callbacks, because request will be sent again
+
+            // call the native to delete the old authentication data
+            WLAuthorizationManager.__deleteAuthData()
+              .then(
+                function() {
+                  // register the client again
+                  WLAuthorizationManager.__getClientInstanceId()
+                    .then(
+                      function(newClientId) {
+                        // the registration returns the new client id.
+                        // update all callbacks in queue with the new client id
+                        updateClientIds(newClientId);
+                        // resend the request
+                        __invokeAuthRequestWithScopeAndClientId(newClientId, scope);
+                      },
+                      function(error) {
+                        rejectAllCallbacks(error);
+                      }
                     );
-				} else {
-					// the authorization request succeeded without redirect, just return the response to caller
-                    dfd.resolve(response);
-                }
-			},
-			onFailure: function(response) {
-				if (typeof(response) !== 'undefined' && response !== null) {
-					WL.Logger.debug('Authorization request failed with response: ' + response.responseText);
-				}
-				
-				if (response.statusText === WL_OAUTH_PREVENT_REDIRECT) {
-					// Should not be getting here 
-					dfd.resolve(response.wlFailureStatus);
-				} else {			
-					dfd.reject(new WL.Response(response));
-                }
-			},
-			onAuthRequestFailure: function(response) {
-				dfd.reject(response);
-			},			
-			onAuthException: function(response, ex) {			    
-	        	var transport = {
-					status: 500,
-	    			responseJSON : {
-	    				errorCode: WL.ErrorCode.API_INVOCATION_FAILURE,
-	    				errorMsg: ex.message
-	    			}
-				};
-	    		var failResponse = new WL.Response(transport, null);
-	        	dfd.reject(failResponse);
-			},
-
-			optionalHeaders : {}
-		};
-		
-		requestOptions.parameters[PARAM_RESPONSE_TYPE_KEY] = PARAM_CODE_VALUE;
-		requestOptions.parameters[PARAM_CLIENT_ID_KEY] = clientId;
-		requestOptions.parameters[PARAM_REDIRECT_URI_KEY] = PARAM_REDIRECT_URI_VALUE;
-		
-		if (scope !== null && typeof(scope) !== 'undefined' && scope.length > 0) {
-			requestOptions.parameters[PARAM_SCOPE_KEY] = scope;
-		}
-		
-		WLAuthorizationManager.__getWlServerUrl().then(
-			function(serverUrl) {	
-				WLAuthorizationManager.__getWlSessionId().then(
-					function(wlSessionId) {
-						requestOptions.optionalHeaders[WL_X_SESSION_ID_HEADER] = wlSessionId;
-						
-	    				if (serverUrl[serverUrl.length - 1] !== '/') {
-	    					serverUrl += '/';
-	    				}
-						request = new WLJSX.Ajax.WLRequest(serverUrl + 'authorization/v1/' + OAUTH_AUTHORIZATION_PATH, requestOptions);
-					}
-				);
-			}, 
-			function(error) {
-				WL.Logger.debug('getWlServerUrl failed with error: ' + JSON.stringify(error));
-				dfd.reject(error);
-			}
-		);
-		
-		
-		return dfd.promise();
-	}
-	
-	var __processRedirectResult = function(request, response) {
-		var dfd = WLJQ.Deferred();
-		var wlResult = WLAuthorizationManager.__getParameterByName(response.transport.wlFailureStatus, 'wl_result');
-        var jsonResult = JSON.parse(wlResult);
-        response.responseJSON = jsonResult;
-        
-        // process all challenges from the response
-        WL.Client.checkResponseForChallenges(request, response, true);
-        
-        var grantCode = WLAuthorizationManager.__getParameterByName(response.transport.wlFailureStatus, 'code');
-        if (grantCode !== null) {
-        	// send request to token end point
-        	WLAuthorizationManager.__invokeTokenRequestWithGrantCode(grantCode).then(
-                function(token) {
-                    dfd.resolve(token);
                 },
                 function(error) {
-                	WL.Logger.debug('Token request failed with error: ' + JSON.stringify(error));
-                    dfd.reject(new WL.Response(error, null));
+                  // unable to delete the old auth data, reject all callbacks and do not re-send the request
+                  rejectAllCallbacks(error);
                 }
-            );
-        } else {
-        	var errorDescription = WLAuthorizationManager.__getParameterByName(response.transport.wlFailureStatus, 'error_description');
-        	
-        	if (errorDescription === null) {
-        		errorDescription = WL.ClientMessages.authFailure;
-        	}
-        	
-        	WL.Logger.debug('Grant code is null. The error is: ' + errorDescription);
-        	
-        	var transport = {
-				status : 0,
-    			responseJSON : {
-    				errorCode: WL.ErrorCode.AUTHORIZATION_FAILURE,
-    				errorMsg: errorDescription
-    			}
-			};
-    		var failResponse = new WL.Response(transport, null);
-        	dfd.reject(failResponse);
+              );
+          }
+          // notify the callers about error if it is not the 'unknown client' error thrown on the first time
+          if (shouldProcessCallbacksOnError) {
+            processObtainAuthHeaderCallbacks(clientId, scope, error, false);
+          }
         }
+      );
+  }
 
-        return dfd.promise();
-	};
-	
-	var __invokeTokenRequestWithGrantCode = function(grantCode) {
-		var dfd = WLJQ.Deferred();
-		cordova.exec(
-			function(data) {
-				dfd.resolve(data);
-			}, 
-			function(error) {
-				dfd.reject(new WL.Response(error, null));
-			},
-			AUTHORIZATION_MANAGER_PLUGIN_NAME, 'invokeTokenRequestWithGrantCode', [grantCode]
-		);		
-		return dfd.promise();
-	};
-	
-	var __getClientId = function() {
-		var dfd = WLJQ.Deferred();
-		cordova.exec(
-			function(data) { 
-				dfd.resolve(data);
-			}, 
-			function(error) {
-				dfd.reject(error);
-			},
-			AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getClientId', []
-		);		
-		return dfd.promise();
- 	};
-	
-	var __getWlSessionId = function() {
-		var dfd = WLJQ.Deferred();
-		if (WLAuthorizationManager.__cachedWlSessionId !== null && typeof(WLAuthorizationManager.__cachedWlSessionId) !== 'undefined') {
-			dfd.resolve(WLAuthorizationManager.__cachedWlSessionId);
-		} else {
-			cordova.exec(
-				function(data) { 
-					WLAuthorizationManager.__cachedWlSessionId = data;
-					dfd.resolve(data);
-				}, 
-				function(error) {
-					dfd.reject(error);
-				},
-				AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getWlSessionId', []
-			);
-		}
+  function isUnknownClientError(error) {
+    if (typeof(error) !== 'undefined' && error !== null && typeof(error.status) !== undefined &&
+      error.status === 400 && typeof(error.responseJSON) !== 'undefined' && error.responseJSON !== null &&
+      /*jshint camelcase:false*/
+      error.responseJSON.error === UNAUTHORIZED_CLIENT_ERROR && error.responseJSON.error_description === UNKNOWN_CLIENT_ERROR_DESCRIPTION) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function processObtainAuthHeaderCallbacks(clientId, scope, response, isSuccess) {
+    var indexesToRemove = [];
+    var objectsToNotify = [];
 		
-		return dfd.promise();
-	};
-	
-	var __deleteAuthData = function() {
-		var dfd = WLJQ.Deferred();
-		cordova.exec(
-			function() { 
-				WLAuthorizationManager.__cachedWlSessionId = null;
-				dfd.resolve();
-			}, 
-			function(error) {
-				dfd.reject(error);
-			},
-			AUTHORIZATION_MANAGER_PLUGIN_NAME, 'deleteAllAuthData', []
-		);	
-		return dfd.promise();
-	};
-	
-	var __getWlServerUrl = function() {
-		var dfd = WLJQ.Deferred();
-		WL.App.getServerUrl(
-			function(url) {
-				if (url.length > 0 && url[url.length - 1] !== '/') {
-					url += '/';
-				}
-				dfd.resolve(url);
-			},
-			function(error) {
-				dfd.reject(error);
-			}
-		);
-		return dfd.promise();
-	};
-	
-  	var __getParameterByName = function(url, name) {
-        var parts = url.split('?');
-        if (parts.length < 2) {
-            return null;
-        }
-        
-        // there should be exactly two elements in the finalParts array. If we have more than two elements in the 'parts' array, 
-        // then the redirect url contains some other '?'
-        var finalParts = [parts[0]];
-        parts.splice(0, 1);
-        // join extra parts back and push them to the second element of 'finalParts'
-        finalParts.push(parts.join('?'));
-        
-        var results = finalParts[1].split('&');
-        for (var i = 0; i < results.length; i++) {
-            var pair = results[i].split('=');
-            if (pair[0] === name) {
-            	return decodeURIComponent(pair[1].replace(/\+/g, ' '));
-            }
-        }
-        return null;
-  	};
-	
-  	var __isOAuthError = function(transport) {
-        if (transport === null || typeof(transport) === 'undefined') {
-            return false;
-        }
-        
-        return WLAuthorizationManager.isAuthorizationRequired(transport.status, transport.getResponseHeader('WWW-Authenticate'));
-    };
+    // loop over callbacks in queue and notify those with specified scope; store appropriate indexes for later removal
+    for (var i = 0; i < obtainAuthHeaderCallbacks.length; i++) {
+      var callbackObj = obtainAuthHeaderCallbacks[i];
+      // if next object's scope is contained in resolved scope, the caller can be notified and the scope should be removed from the queue
+      if (scope === EMPTY_SCOPE && callbackObj.scope === EMPTY_SCOPE || scope.indexOf(callbackObj.scope) > -1) {
+        objectsToNotify.push(callbackObj);
+        indexesToRemove.push(i);
+      }
+    }
+
+    // remove processed callbacks
+    for (var j = indexesToRemove.length - 1; j >= 0; j--) {
+      obtainAuthHeaderCallbacks.splice(indexesToRemove[j], 1);
+    }
+
+    // if there is at least one object in the queue, send auth request for its scope
+    if (obtainAuthHeaderCallbacks.length > 0) {
+      var realClientId = obtainAuthHeaderCallbacks[0].clientId !== null ? obtainAuthHeaderCallbacks[0].clientId : clientId;
+      __invokeAuthRequestWithScopeAndClientId(realClientId, obtainAuthHeaderCallbacks[0].scope);
+    }
     
-    var __getScopeFromResponse = function(transport) {
-    	if (typeof(transport) === 'undefined' || transport === null) {
-    		return null;
-    	}
-    	
-        return WLAuthorizationManager.getAuthorizationScope(transport.getResponseHeader('WWW-Authenticate'));
+    // notify objects. This must be done after splice, because it could be that the code being notified
+    // is supposed to send other requests requiring authorization. It means that the callback array
+    // must be cleared before notifications are sent.
+    for (var k = 0; k < objectsToNotify.length; k++) {
+      isSuccess ? objectsToNotify[k].deferred.resolve(response) : objectsToNotify[k].deferred.reject(response);
+    }
+  }
+
+  function rejectAllCallbacks(error) {
+    var objectsToNotify = obtainAuthHeaderCallbacks.slice();
+    obtainAuthHeaderCallbacks = [];
+    // this method is called upon unrecoverable error; reject all and clear the queue
+    for (var n = 0; n < objectsToNotify.length; n++) {
+      objectsToNotify[n].deferred.reject(error);
+    }
+  }
+
+  function updateClientIds(newClientId) {
+    // update all callback objects with the new client id; called after processing of "unknown client', when the new
+    // client id has been received
+    for (var i = 0; i < obtainAuthHeaderCallbacks.length; i++) {
+      obtainAuthHeaderCallbacks[i].clientId = newClientId;
+    }
+  }
+
+  /**
+   * Adds cached authorization header to request. This function is asynchronous, therefore you should
+   * use the returned promise for completion flow.
+   * @param request A request object. This object should expose 'setRequestHeader' function.
+   * @returns promise object. Sample usage:
+   * var xhr = new XMLHttpRequest();
+   * WLAuthorizationManager.addCachedAuthorizationHeader(xhr)
+   * .always(
+   *    function(response) {
+   *      // success or failure flow
+   *    }
+   * );
+   */
+  var addCachedAuthorizationHeader = function(request) {
+    var dfd = WLJQ.Deferred();
+
+    if (typeof(request.setRequestHeader) === 'function') {
+      WLAuthorizationManager.getCachedAuthorizationHeader().then(
+        function(authHeader) {
+          try {
+            if (authHeader !== null && typeof(authHeader) !== 'undefined' && WL_.isString(authHeader) && authHeader.length > 0) {
+              request.setRequestHeader(WL_AUTHORIZATION_HEADER, authHeader);
+            }
+            dfd.resolve(authHeader);
+          } catch (e) {
+            dfd.reject(e);
+          }
+        },
+        function(error) {
+          WL.Logger.error('getCachedAuthorizationHeader failed with error: ' + JSON.stringify(error));
+          dfd.reject(new WL.Response({
+            status: 404,
+            responseJSON: {errorCode: WL.ErrorCode.UNEXPECTED_ERROR, errorMsg: invalidRequestObjectError}
+          }));
+        }
+      );
+    } else {
+      WL.Logger.error(invalidRequestObjectError);
+      dfd.reject(new WL.Response({
+        status: 404,
+        responseJSON: {errorCode: WL.ErrorCode.UNEXPECTED_ERROR, errorMsg: invalidRequestObjectError}
+      }));
+    }
+
+    return dfd.promise();
+  };
+
+  var invalidRequestObjectError = 'Invalid request object. The request object must implement \'setRequestHeader\' function.';
+  var __addHeadersToResourceRequest = function(request) {
+    var dfd = WLJQ.Deferred();
+
+    if (typeof(request.setRequestHeader) !== 'function') {
+      WL.Logger.error(invalidRequestObjectError);
+      dfd.reject(invalidRequestObjectError);
+      return dfd.promise();
+    }
+
+    WLAuthorizationManager.getCachedAuthorizationHeader()
+      .always(
+        function(authHeader) {
+          if (authHeader !== null && typeof(authHeader) !== 'undefined' && WL_.isString(authHeader) && authHeader.length > 0) {
+            request.setRequestHeader(WL_AUTHORIZATION_HEADER, authHeader);
+          }
+          dfd.resolve();
+        }
+      );
+
+    return dfd.promise();
+  };
+
+
+  var clientInstanceIdCallbacks = [];
+
+  var __getClientInstanceId = function() {
+    var dfd = WLJQ.Deferred();
+
+    // put all incoming calls to queue
+    clientInstanceIdCallbacks.push(dfd);
+
+    if (clientInstanceIdCallbacks.length > 1) {
+      return dfd;
+    }
+
+    WLAuthorizationManager.__getClientInstanceIdHeader()
+      .then(
+        function(data) {
+          // notify about success
+          processClientInstanceCallbacks(data, true);
+        },
+        function() {
+          // notify about failure
+          WLAuthorizationManager.__deleteAuthData()
+            .always(
+              function() {
+                WLAuthorizationManager.__getClientInstanceIdHeader()
+                  .then(
+                    function(data) {
+                      processClientInstanceCallbacks(data, true);
+                    },
+                    function(error) {
+                      processClientInstanceCallbacks(error, false);
+                    }
+                  );
+              }
+            );
+        }
+      );
+
+    return dfd.promise();
+  };
+
+  var __getClientInstanceIdHeader = function() {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        dfd.reject(new WL.Response(error, null));
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getClientInstanceIdHeader', []
+    );
+    return dfd.promise();
+  };
+
+  function processClientInstanceCallbacks(response, isSuccess) {
+    var objectsToNotify = clientInstanceIdCallbacks.slice();
+    clientInstanceIdCallbacks = [];
+		
+    for (var i = 0; i < objectsToNotify.length; i++) {
+      isSuccess ? objectsToNotify[i].resolve(response) : objectsToNotify[i].reject(response);
+    }
+		
+  }
+
+  /**
+   * Obtains user identity. The identity is returned via deferred callback.
+   * @returns Promise object. The methods calls either success or failure callbacks and passes the user identity as string or error.
+   * Sample usage:<br>
+   * WLAuthorizationManager.getUserIdentity()
+   * .then(
+   *    function(data) {
+   *      // success flow with user identity
+   *    },
+   *    function(error) {
+   *      // failure flow with error
+   *    }
+   * );
+   */
+  var getUserIdentity = function() {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        dfd.reject(error);
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getUserIdentity', []
+    );
+    return dfd.promise();
+  };
+
+  /**
+   * Obtains device identity. The identity is returned via deferred callback.
+   * @returns Promise object. The methods calls either success or failure callbacks and passes the device identity as string or error.
+   * Sample usage:<br>
+   * WLAuthorizationManager.getDeviceIdentity()
+   * .then(
+   *    function(data) {
+   *      // success flow with device identity
+   *    },
+   *    function(error) {
+   *      // failure flow with error
+   *    }
+   * );
+   */
+  var getDeviceIdentity = function() {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        dfd.reject(error);
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getDeviceIdentity', []
+    );
+    return dfd.promise();
+  };
+
+  /**
+   * Obtains application identity. The identity is returned via deferred callback.
+   * @returns Promise object. The methods calls either success or failure callbacks and passes the application identity as string or error.
+   * Sample usage:<br>
+   * WLAuthorizationManager.getAppIdentity()
+   * .then(
+   *    function(data) {
+   *      // success flow with application identity
+   *    },
+   *    function(error) {
+   *      // failure flow with error
+   *    }
+   * );
+   */
+  var getAppIdentity = function() {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        dfd.reject(error);
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getAppIdentity', []
+    );
+    return dfd.promise();
+  };
+
+  var __addHeadersToWLRequest = function(requestHeaders) {
+    var dfd = WLJQ.Deferred();
+    WLAuthorizationManager.__getClientInstanceId().then(
+      function(clientId) {
+        WLAuthorizationManager.__getSignedClientId().then(
+          function(signedClientId) {
+            WLAuthorizationManager.__getWlSessionId().then(
+              function(sessionId) {
+                requestHeaders[WL_X_CLIENT_ID_HEADER] = clientId;
+                requestHeaders[WL_X_CLIENT_ID_SIGNED_HEADER] = signedClientId;
+                requestHeaders[WL_X_SESSION_ID_HEADER] = sessionId;
+                dfd.resolve();
+              },
+              function(error) {
+                WL.Logger.debug('getWlSessionId failed with error: ' + error);
+                dfd.reject(error);
+              }
+            );
+          },
+          function(error) {
+            WL.Logger.debug('getWlSignedClientId failed with error: ' + error);
+            dfd.reject(error);
+          }
+        );
+      },
+      function(error) {
+        WL.Logger.debug('Client registration failed with error: ' + JSON.stringify(error));
+        if (WL_.isString(error)) {
+          var transport = {
+            status: 500,
+            responseJSON: {
+              errorCode: WL.ErrorCode.API_INVOCATION_FAILURE,
+              errorMsg: error
+            },
+            getHeader: function() {return null;}
+          };
+          dfd.reject(transport);
+        } else {
+          dfd.reject(error);
+        }
+      }
+    );
+
+    return dfd.promise();
+  };
+
+  // send a request using WL.Request to authorization end point with specified clientId and scope
+  function invokeAuthorizationRequestWithScope(clientId, scope) {
+    var dfd = WLJQ.Deferred();
+    var request = null;
+
+    if (scope === EMPTY_SCOPE) {
+      scope = null;
+    }
+
+    var requestOptions = {
+      method: 'GET',
+      parameters: {},
+      onSuccess: function(response) {
+        // the OAuth redirect response is coming to onSuccess in order to prevent WL.Request from handling error case
+        if (response.statusText === WL_OAUTH_PREVENT_REDIRECT || response.status === 222) {
+          // if it's redirect from OAuth we need to get grant code from response and send a request to the token end point (via native)
+          WLAuthorizationManager.__processRedirectResult(request, response).then(
+            function(response) {
+              // the redirect result was processed successfully, including the request token end point, so we can return the 
+              // authorization header to the caller
+              dfd.resolve(response);
+            },
+            function(error) {
+              // report an error
+              WL.Logger.debug('Process redirect failed with error: ' + JSON.stringify(error));
+              dfd.reject(error);
+            }
+          );
+        } else {
+          // the authorization request succeeded without redirect, just return the response to caller
+          dfd.resolve(response);
+        }
+      },
+      onFailure: function(response) {
+        if (typeof(response) !== 'undefined' && response !== null) {
+          WL.Logger.debug('Authorization request failed with response: ' + response.responseText);
+        }
+				
+        if (response.statusText === WL_OAUTH_PREVENT_REDIRECT) {
+          // Should not be getting here 
+          dfd.resolve(response.wlFailureStatus);
+        } else {
+          dfd.reject(new WL.Response(response));
+        }
+      },
+      onAuthRequestFailure: function(response) {
+        dfd.reject(response);
+      },
+      onAuthException: function(response, ex) {
+        var transport = {
+          status: 500,
+          responseJSON: {
+            errorCode: WL.ErrorCode.API_INVOCATION_FAILURE,
+            errorMsg: ex.message
+          }
+        };
+        var failResponse = new WL.Response(transport, null);
+        dfd.reject(failResponse);
+      },
+
+      optionalHeaders: {}
     };
-	
-    return {
-    	isAuthorizationRequired : isAuthorizationRequired,
-    	getAuthorizationScope : getAuthorizationScope,
-        getCachedAuthorizationHeader : getCachedAuthorizationHeader,
-        obtainAuthorizationHeader : obtainAuthorizationHeader,
-        addCachedAuthorizationHeader : addCachedAuthorizationHeader,   
-        getUserIdentity : getUserIdentity,
-        getDeviceIdentity : getDeviceIdentity,
-        getAppIdentity : getAppIdentity,
-        setAuthorizationPersistencePolicy : setAuthorizationPersistencePolicy,
-        __addHeadersToWLRequest : __addHeadersToWLRequest,
-        __isOAuthError : __isOAuthError,
-        __getScopeFromResponse : __getScopeFromResponse,
-        __addHeadersToResourceRequest : __addHeadersToResourceRequest,
-        __getClientId : __getClientId,
-        __getClientInstanceId : __getClientInstanceId,
-        __getClientInstanceIdHeader : __getClientInstanceIdHeader,
-        __invokeTokenRequestWithGrantCode : __invokeTokenRequestWithGrantCode,
-        __getWlSessionId : __getWlSessionId,
-        __deleteAuthData : __deleteAuthData,
-        __getWlServerUrl: __getWlServerUrl,
-        __processRedirectResult : __processRedirectResult,
-        __getParameterByName : __getParameterByName,
-		WL_AUTHORIZATION_HEADER : WL_AUTHORIZATION_HEADER,
-		WL_X_SESSION_ID_HEADER : WL_X_SESSION_ID_HEADER,
-		WL_X_CLIENT_ID_HEADER : WL_X_CLIENT_ID_HEADER,
-		__cachedWlSessionId : __cachedWlSessionId
-    };
+
+    requestOptions.parameters[PARAM_RESPONSE_TYPE_KEY] = PARAM_CODE_VALUE;
+    requestOptions.parameters[PARAM_CLIENT_ID_KEY] = clientId;
+    requestOptions.parameters[PARAM_REDIRECT_URI_KEY] = PARAM_REDIRECT_URI_VALUE;
+
+    if (scope !== null && typeof(scope) !== 'undefined' && scope.length > 0) {
+      requestOptions.parameters[PARAM_SCOPE_KEY] = scope;
+    }
+
+    WLAuthorizationManager.__getWlServerUrl().then(
+      function(serverUrl) {
+        WLAuthorizationManager.__getWlSessionId().then(
+          function(wlSessionId) {
+            requestOptions.optionalHeaders[WL_X_SESSION_ID_HEADER] = wlSessionId;
+
+            if (serverUrl[serverUrl.length - 1] !== '/') {
+              serverUrl += '/';
+            }
+            request = new WLJSX.Ajax.WLRequest(serverUrl + 'authorization/v1/' + OAUTH_AUTHORIZATION_PATH, requestOptions);
+          }
+        );
+      },
+      function(error) {
+        WL.Logger.debug('getWlServerUrl failed with error: ' + JSON.stringify(error));
+        dfd.reject(error);
+      }
+    );
+
+
+    return dfd.promise();
+  }
+  
+  var __deleteTokens = function (dfd, response) {
+     cordova.exec(function() {
+        dfd.resolve(response);
+     }, function(error) {
+       dfd.reject(error);
+     }, AUTHORIZATION_MANAGER_PLUGIN_NAME, 'deleteTokens', []);
+  };
+
+  var __invokeAuthorizationRequestWithScopeForLogout = function(clientId, scope) {
+      var dfd = WLJQ.Deferred();
+      var request = null;
+
+      if (scope === EMPTY_SCOPE) {
+        scope = null;
+      }
+
+      var requestOptions = {
+        method: 'GET',
+        parameters: {},
+        onSuccess: function(response) {
+          WLAuthorizationManager.__deleteTokens (dfd,response);
+        },
+        onFailure: function(response) {
+          dfd.reject(response);
+        },
+        onAuthRequestFailure: function(response) {
+          dfd.reject(response);
+        },
+        onAuthException: function(response, ex) {
+          var transport = {
+            status: 500,
+            responseJSON: {
+              errorCode: WL.ErrorCode.API_INVOCATION_FAILURE,
+              errorMsg: ex.message
+            }
+          };
+          var failResponse = new WL.Response(transport, null);
+          dfd.reject(failResponse);
+        },
+
+        optionalHeaders: {}
+      };
+
+      requestOptions.parameters[PARAM_CLIENT_ID_KEY] = clientId;
+
+      if (scope !== null && typeof(scope) !== 'undefined' && scope.length > 0) {
+        requestOptions.parameters[PARAM_SCOPE_KEY] = scope;
+      }
+
+      WLAuthorizationManager.__getWlServerUrl().then(
+        function(serverUrl) {
+          WLAuthorizationManager.__getWlSessionId().then(
+            function(wlSessionId) {
+              requestOptions.optionalHeaders[WL_X_SESSION_ID_HEADER] = wlSessionId;
+
+              if (serverUrl[serverUrl.length - 1] !== '/') {
+                serverUrl += '/';
+              }
+              request = new WLJSX.Ajax.WLRequest(serverUrl + 'authorization/v1/' + OAUTH_AUTHORIZATION_PATH, requestOptions);
+            }
+          );
+        },
+        function(error) {
+          WL.Logger.debug('getWlServerUrl failed with error: ' + JSON.stringify(error));
+          dfd.reject(error);
+        }
+      );
+      return dfd.promise();
+  };
+
+  var __processRedirectResult = function(request, response) {
+    var dfd = WLJQ.Deferred();
+    var wlResult = WLAuthorizationManager.__getParameterByName(response.transport.wlFailureStatus, 'wl_result');
+    var jsonResult = JSON.parse(wlResult);
+    response.responseJSON = jsonResult;
+
+    // process all challenges from the response
+    WL.Client.checkResponseForChallenges(request, response, true);
+
+    var grantCode = WLAuthorizationManager.__getParameterByName(response.transport.wlFailureStatus, 'code');
+    if (grantCode !== null) {
+      // send request to token end point
+      WLAuthorizationManager.__invokeTokenRequestWithGrantCode(grantCode).then(
+        function(token) {
+          dfd.resolve(token);
+        },
+        function(error) {
+          WL.Logger.debug('Token request failed with error: ' + JSON.stringify(error));
+          dfd.reject(new WL.Response(error, null));
+        }
+      );
+    } else {
+      var errorDescription = WLAuthorizationManager.__getParameterByName(response.transport.wlFailureStatus, 'error_description');
+      
+      if (errorDescription === null) {
+        errorDescription = WL.ClientMessages.authFailure;
+      }
+      
+      WL.Logger.debug('Grant code is null. The error is: ' + errorDescription);
+
+      var transport = {
+        status: 0,
+        responseJSON: {
+          errorCode: WL.ErrorCode.AUTHORIZATION_FAILURE,
+          errorMsg: errorDescription
+        }
+      };
+      var failResponse = new WL.Response(transport, null);
+      dfd.reject(failResponse);
+    }
+
+    return dfd.promise();
+  };
+
+  var __invokeTokenRequestWithGrantCode = function(grantCode) {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        dfd.reject(new WL.Response(error, null));
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'invokeTokenRequestWithGrantCode', [grantCode]
+    );
+    return dfd.promise();
+  };
+
+  var __getClientId = function() {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        dfd.reject(error);
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getClientId', []
+    );
+    return dfd.promise();
+  };
+  
+  var __getSignedClientId = function() {
+    var dfd = WLJQ.Deferred();
+    
+    cordova.exec(
+      function(data) {
+        dfd.resolve(data);
+      },
+      function(error) {
+        dfd.reject(error);
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getWlSignedClientId', []
+    );
+       
+    return dfd.promise();
+  };
+
+  var __getWlSessionId = function() {
+    var dfd = WLJQ.Deferred();
+    if (WLAuthorizationManager.__cachedWlSessionId !== null && typeof(WLAuthorizationManager.__cachedWlSessionId) !== 'undefined') {
+      dfd.resolve(WLAuthorizationManager.__cachedWlSessionId);
+    } else {
+      cordova.exec(
+        function(data) {
+          WLAuthorizationManager.__cachedWlSessionId = data;
+          dfd.resolve(data);
+        },
+        function(error) {
+          dfd.reject(error);
+        },
+        AUTHORIZATION_MANAGER_PLUGIN_NAME, 'getWlSessionId', []
+      );
+    }
+
+    return dfd.promise();
+  };
+
+  var __deleteAuthData = function() {
+    var dfd = WLJQ.Deferred();
+    cordova.exec(
+      function() {
+        WLAuthorizationManager.__cachedWlSessionId = null;
+       dfd.resolve();
+      },
+      function(error) {
+        dfd.reject(error);
+      },
+      AUTHORIZATION_MANAGER_PLUGIN_NAME, 'deleteAllAuthData', []
+    );
+    return dfd.promise();
+  };
+
+  var __getWlServerUrl = function() {
+    var dfd = WLJQ.Deferred();
+    WL.App.getServerUrl(
+      function(url) {
+        if (url.length > 0 && url[url.length - 1] !== '/') {
+          url += '/';
+        }
+        dfd.resolve(url);
+      },
+      function(error) {
+        dfd.reject(error);
+      }
+    );
+    return dfd.promise();
+  };
+
+  var __getParameterByName = function(url, name) {
+    var parts = url.split('?');
+    if (parts.length < 2) {
+      return null;
+    }
+        
+    // there should be exactly two elements in the finalParts array. If we have more than two elements in the 'parts' array, 
+    // then the redirect url contains some other '?'
+    var finalParts = [parts[0]];
+    parts.splice(0, 1);
+    // join extra parts back and push them to the second element of 'finalParts'
+    finalParts.push(parts.join('?'));
+        
+    var results = finalParts[1].split('&');
+    for (var i = 0; i < results.length; i++) {
+      var pair = results[i].split('=');
+      if (pair[0] === name) {
+        return decodeURIComponent(pair[1].replace(/\+/g, ' '));
+      }
+    }
+    return null;
+  };
+
+  var __isOAuthError = function(transport) {
+    if (transport === null || typeof(transport) === 'undefined') {
+      return false;
+    }
+
+    return WLAuthorizationManager.isAuthorizationRequired(transport.status, transport.getResponseHeader('WWW-Authenticate'));
+  };
+
+  var __getScopeFromResponse = function(transport) {
+    if (typeof(transport) === 'undefined' || transport === null) {
+      return null;
+    }
+
+    return WLAuthorizationManager.getAuthorizationScope(transport.getResponseHeader('WWW-Authenticate'));
+  };
+
+  return {
+    isAuthorizationRequired: isAuthorizationRequired,
+    getAuthorizationScope: getAuthorizationScope,
+    getCachedAuthorizationHeader: getCachedAuthorizationHeader,
+    obtainAuthorizationHeader: obtainAuthorizationHeader,
+    addCachedAuthorizationHeader: addCachedAuthorizationHeader,
+    getUserIdentity: getUserIdentity,
+    getDeviceIdentity: getDeviceIdentity,
+    getAppIdentity: getAppIdentity,
+    setAuthorizationPersistencePolicy: setAuthorizationPersistencePolicy,
+    __addHeadersToWLRequest: __addHeadersToWLRequest,
+    __isOAuthError: __isOAuthError,
+    __getScopeFromResponse: __getScopeFromResponse,
+    __addHeadersToResourceRequest: __addHeadersToResourceRequest,
+    __getClientId: __getClientId,
+    __getClientInstanceId: __getClientInstanceId,
+    __getClientInstanceIdHeader: __getClientInstanceIdHeader,
+    __invokeTokenRequestWithGrantCode: __invokeTokenRequestWithGrantCode,
+    __invokeAuthorizationRequestWithScopeForLogout : __invokeAuthorizationRequestWithScopeForLogout,
+    __deleteTokens : __deleteTokens,
+    __getWlSessionId: __getWlSessionId,
+    __deleteAuthData: __deleteAuthData,
+    __getWlServerUrl: __getWlServerUrl,
+    __processRedirectResult: __processRedirectResult,
+    __getParameterByName: __getParameterByName,
+    __getSignedClientId: __getSignedClientId,
+    WL_AUTHORIZATION_HEADER: WL_AUTHORIZATION_HEADER,
+    WL_X_SESSION_ID_HEADER: WL_X_SESSION_ID_HEADER,
+    WL_X_CLIENT_ID_HEADER: WL_X_CLIENT_ID_HEADER,
+    __cachedWlSessionId: __cachedWlSessionId
+  };
 
 }());
 
 WLAuthorizationManager.AuthorizationPersistencePolicy = {
-	NEVER : "NEVER",
-	ALWAYS: "ALWAYS",
-	BIOMETRICS: "BIOMETRICS" 
+  NEVER: 'NEVER',
+  ALWAYS: 'ALWAYS',
+  BIOMETRICS: 'BIOMETRICS'
 };
-
 
 /**
  * ================================================================= 

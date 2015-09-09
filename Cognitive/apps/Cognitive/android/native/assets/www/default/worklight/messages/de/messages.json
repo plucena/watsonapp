@@ -35,7 +35,7 @@
 "directUpdateErrorMessageFailedDownloadingZipFile" : "Die Datei mit der Anwendungsaktualisierung konnte nicht heruntergeladen werden.",
 "directUpdateErrorMessageFailedProcessingZipFile" : "Die Datei mit der Anwendungsaktualisierung konnte nicht verarbeitet werden.",
 "downloadAppWebResourcesPleaseSpecifyAppID" : "Die App-Ressourcen können nicht heruntergeladen werden. Geben Sie in der Anzeige mit den Einstellungen die App-ID an.",
-"downloadAppWebResourcesAppIdNotExist" : "Die Anwendung '{0}' wurde nicht gefunden. Implementieren Sie sie zunächst im Server der Plattform IBM MobileFirst. ",
+"downloadAppWebResourcesAppIdNotExist" : "Die Anwendung '{0}' wurde nicht gefunden. Implementieren Sie sie zunächst im Server der Plattform IBM MobileFirst.",
 "downloadAppWebResourcesPleaseSpecifyAppVersion" : "Die App-Ressourcen können nicht heruntergeladen werden. Geben Sie in der Anzeige mit den Einstellungen die App-Version an.",
 "downloadAppWebResourcesSkinIsNotValid" : "Die App-Ressourcen können nicht heruntergeladen werden. Die Oberfläche {0} ist nicht vorhanden. Stellen Sie sicher, dass getSkinName() eine gültige Oberfläche ergibt.",
 "downloadAppWebResourcesAppVersionNotExist" : "Anwendung '{0}' {1} für {2} nicht gefunden",
@@ -79,7 +79,7 @@
 "wlSettings" : "Einstellungen der Plattform IBM MobileFirst",
 "userEnrollmentUnsupportedOS" : "Fehler bei der Authentifizierung des Benutzerzertifikats. Nicht unterstützte Clientplattform.",
 "failureCallingMethod" : "Fehler beim Aufrufen von {0}",
-"challengeHandlingCanceled" : "Die Abfrage-Handler-Operation wurde abgebrochen. ",
+"challengeHandlingCanceled" : "Die Abfrage-Handler-Operation wurde abgebrochen.",
 "unsupportedEnvironment" : "Nicht unterstützte Umgebung"
 }
 
